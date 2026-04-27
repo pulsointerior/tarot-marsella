@@ -1,0 +1,50 @@
+/* =========================
+   LAYOUT.CSS
+========================= */
+
+.container {
+  width: 100%;
+  margin: 0 auto;
+  padding: calc(var(--spacing) * 2);
+}
+
+.grid-layout {
+  display: grid;
+  gap: calc(var(--spacing) * 2);
+  grid-template-columns: repeat(2, 1fr);
+}
+
+/* Breakpoints */
+@media (min-width: 481px) {
+  .grid-layout { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (min-width: 769px) {
+  .grid-layout { grid-template-columns: repeat(4, 1fr); }
+}
+
+@media (min-width: 1025px) {
+  .grid-layout { grid-template-columns: repeat(6, 1fr); }
+}
+
+@media (min-width: 1441px) {
+  .grid-layout { grid-template-columns: repeat(8, 1fr); }
+}
+
+/* Layout base */
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: var(--bg-dark);
+  z-index: 1000;
+}
+
+main {
+  padding-top: 80px;
+}
+
+footer {
+  padding: calc(var(--spacing) * 4);
+  text-align: center;
+}
