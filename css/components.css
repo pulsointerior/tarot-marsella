@@ -1,0 +1,96 @@
+/* =========================
+   COMPONENTS.CSS
+========================= */
+
+/* Cards */
+.card {
+  background: var(--bg-card);
+  border: 1px solid #C9A84C40;
+  border-radius: var(--radius);
+  padding: calc(var(--spacing) * 2);
+  transition: var(--transition);
+}
+
+.card:hover {
+  box-shadow: 0 0 20px #C9A84C30;
+  transform: scale(1.02);
+}
+
+/* Botones */
+.btn {
+  padding: calc(var(--spacing) * 1.5) calc(var(--spacing) * 3);
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.btn-primary {
+  background: var(--secondary);
+  color: #000;
+  border: none;
+}
+
+.btn-secondary {
+  border: 1px solid var(--secondary);
+  background: transparent;
+  color: var(--secondary);
+}
+
+/* Badges */
+.badge {
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+}
+
+.badge-resonancia { background: #2ecc71; }
+.badge-complemento { background: #3498db; }
+.badge-tension { background: #e74c3c; }
+.badge-neutro { background: #7f8c8d; }
+
+/* Inputs */
+input, select {
+  padding: 10px;
+  border-radius: var(--radius);
+  border: 1px solid #333;
+  background: var(--bg-card);
+  color: var(--text-main);
+}
+
+/* Toggle */
+.toggle {
+  width: 50px;
+  height: 26px;
+  background: #333;
+  border-radius: 50px;
+  position: relative;
+}
+
+.toggle::after {
+  content: '';
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  background: var(--secondary);
+  border-radius: 50%;
+  top: 2px;
+  left: 2px;
+}
+
+/* Accordion */
+.accordion {
+  cursor: pointer;
+  padding: 10px;
+  border-bottom: 1px solid #333;
+}
+
+/* Scroll button */
+.scroll-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 48px;
+  height: 48px;
+  background: var(--secondary);
+  border-radius: 50%;
+}
