@@ -1,0 +1,30 @@
+/* =========================
+   ANIMATIONS.CSS
+========================= */
+
+@keyframes shuffle {
+  0%,100% { transform: translate(0); }
+  25% { transform: translate(-5px, 5px); }
+  50% { transform: translate(5px, -5px); }
+  75% { transform: translate(-5px, -5px); }
+}
+
+@keyframes deal {
+  from { transform: translateY(-50px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes reveal {
+  from { transform: rotateY(90deg); }
+  to { transform: rotateY(0); }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.animate-shuffle { animation: shuffle 0.5s; }
+.animate-deal { animation: deal 0.5s ease; }
+.animate-reveal { animation: reveal 0.6s ease; }
+.animate-fade-in { animation: fade-in 0.5s ease; }
