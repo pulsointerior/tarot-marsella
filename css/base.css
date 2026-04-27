@@ -1,0 +1,74 @@
+/* =========================
+   BASE.CSS
+   Sistema base + variables + reset
+========================= */
+
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Source+Sans+3:wght@300;400;600;700&display=swap');
+
+/* Variables globales */
+:root {
+  --primary: #3B1F4C;
+  --secondary: #C9A84C;
+  --bg-dark: #0A0A0A;
+  --bg-card: #1A1A1A;
+  --text-main: #F5F0E8;
+  --text-muted: #888888;
+
+  --spacing: 8px;
+  --radius: 8px;
+  --transition: 0.3s ease;
+}
+
+/* Reset moderno */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Source Sans 3', sans-serif;
+  background: var(--bg-dark);
+  color: var(--text-main);
+  line-height: 1.5;
+}
+
+/* Tipografía */
+h1, h2, h3, h4 {
+  font-family: 'Cinzel', serif;
+}
+
+/* Utilidades */
+.text-primary { color: var(--primary); }
+.text-secondary { color: var(--secondary); }
+.text-muted { color: var(--text-muted); }
+
+.bg-dark { background: var(--bg-dark); }
+.bg-card { background: var(--bg-card); }
+
+.hidden { display: none; }
+
+.flex { display: flex; }
+.grid { display: grid; }
+
+.center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Accesibilidad motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
