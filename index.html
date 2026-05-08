@@ -10,7 +10,8 @@
   <link rel="stylesheet" href="css/animations.css" />
   <link rel="stylesheet" href="css/responsive.css" />
   <link rel="stylesheet" href="css/placeholders.css" />
-  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/css/style.css" />
+  <!-- FIX: URL correcta del CDN de Phosphor Icons -->
+  <script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
   <style>
     .index-wrapper {
       min-height: 100vh;
@@ -83,8 +84,9 @@
     <h1 class="index-titulo">El Código<br>de las Cartas</h1>
     <p class="index-subtitulo">Tarot de Marsella · Lecturas personalizadas</p>
 
-    <a href="introduccion-texto.html" ...>ENTRAR</a>
-      ENTRAR <i class="ph ph-arrow-right"></i aria-hidden="true">
+    <!-- FIX: etiqueta <a> corregida — estaba rota con ... y </a> mal colocado -->
+    <a href="introduccion-texto.html" class="index-btn-entrar">
+      ENTRAR <i class="ph ph-arrow-right" aria-hidden="true"></i>
     </a>
 
     <p class="index-ornamento">✦ ✦ ✦</p>
