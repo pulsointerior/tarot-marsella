@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Detalle de Consulta — El Código de las Cartas</title>
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+  <link rel="stylesheet" href="css/placeholders.css" />
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/css/style.css" />
+  <style>
+    .detalle-page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    .detalle-header {
+      padding: var(--space-3) var(--space-4);
+      border-bottom: 1px solid rgba(201,168,76,0.15);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .detalle-header-titulo {
+      font-family: 'Cinzel', serif;
+      font-size: 1rem;
+      color: var(--secondary);
+      font-weight: 600;
+      letter-spacing: 0.08em;
+    }
+    .detalle-main {
+      flex: 1;
+      padding: var(--space-5) var(--space-4);
+      max-width: 800px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    /* LOADING */
+    .loading-state {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-2);
+      padding: var(--space-8);
+      color: var(--text-muted);
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 0.9rem;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .spinner { animation: spin 0.8s linear infinite; font-size: 1.4rem; }
+
+    /* CONTENIDO */
+    .detalle-id {
+      font-family: 'Cinzel', serif;
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      letter-spacing: 0.1em;
+      margin-bottom: var(--space-1);
+    }
+    .detalle-nombre {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(1.5rem, 4vw, 2.2rem);
+      font-weight: 700;
+      color: var(--text-main);
+      line-height: 1.2;
+      margin: 0 0 var(--space-2) 0;
+    }
+    .detalle-meta {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      flex-wrap: wrap;
+      margin-bottom: var(--space-4);
+    }
+    .badge-cartas-circular {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(201,168,76,0.12);
+      border: 1.5px solid var(--secondary);
+      font-family: 'Cinzel', serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--secondary);
+      flex-shrink: 0;
+    }
+
+    /* SECCIONES DE CONTENIDO */
+    .detalle-seccion {
+      margin-bottom: var(--space-4);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      padding-bottom: var(--space-4);
+    }
+    .detalle-seccion:last-of-type {
+      border-bottom: none;
+    }
+    .detalle-label {
+      font-family: 'Cinzel', serif;
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--secondary);
+      opacity: 0.75;
+      margin: 0 0 var(--space-1) 0;
+    }
+    .detalle-valor {
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 0.95rem;
+      color: var(--text-main);
+      line-height: 1.65;
+      margin: 0;
+    }
+    .detalle-valor-muted {
+      color: var(--text-muted);
+    }
+
+    /* POSICIONES */
+    .posiciones-lista {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2);
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .posicion-item {
+      display: flex;
+      gap: var(--space-2);
+      align-items: flex-start;
+    }
+    .posicion-badge {
+      flex-shrink: 0;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: rgba(59,31,76,0.5);
+      border: 1px solid rgba(201,168,76,0.35);
+      font-family: 'Cinzel', serif;
+      font-size: 0.65rem;
+      font-weight: 700;
+      color: var(--secondary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      letter-spacing: 0.02em;
+    }
+    .posicion-texto {
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 0.9rem;
+      color: var(--text-main);
+      line-height: 1.55;
+      padding-top: 6px;
+    }
+
+    /* PASO A PASO */
+    .paso-a-paso-ol {
+      padding-left: var(--space-3);
+      margin: 0;
+    }
+    .paso-a-paso-ol li {
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 0.9rem;
+      color: var(--text-main);
+      line-height: 1.65;
+      margin-bottom: var(--space-1);
+      padding-left: var(--space-1);
+    }
+    .paso-a-paso-ol li::marker {
+      color: var(--secondary);
+      font-family: 'Cinzel', serif;
+      font-weight: 700;
+    }
+
+    /* BOTONES DE ACCIÓN */
+    .detalle-acciones {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2);
+      margin-top: var(--space-5);
+    }
+    .btn-escoger {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 16px var(--space-5);
+      font-family: 'Cinzel', serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      background: var(--secondary);
+      color: var(--bg-dark);
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: opacity 0.2s, transform 0.2s;
+      min-height: 52px;
+    }
+    .btn-escoger:hover {
+      opacity: 0.88;
+      transform: translateY(-1px);
+    }
+
+    /* NAV */
+    .detalle-nav {
+      padding: var(--space-3) var(--space-4);
+      border-top: 1px solid rgba(201,168,76,0.12);
+    }
+    .btn-nav {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px var(--space-3);
+      font-family: 'Cinzel', serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      border-radius: 4px;
+      cursor: pointer;
+      border: 1px solid rgba(255,255,255,0.15);
+      background: transparent;
+      color: var(--text-muted);
+      transition: opacity 0.2s;
+      text-decoration: none;
+      min-height: 44px;
+    }
+    .btn-nav:hover { opacity: 0.75; }
+  </style>
+  <meta property="og:title" content="Detalle de Consulta — El Código de las Cartas">
+  <meta property="og:description" content="Consulta el propósito, las posiciones y el paso a paso de esta consulta de Tarot de Marsella.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_ES">
+</head>
+<body data-page="detalle-tirada">
+
+  <header class="detalle-header">
+    <span class="detalle-header-titulo">El Código de las Cartas</span>
+  </header>
+
+  <main class="detalle-main" id="detalle-main">
+    <div class="loading-state">
+      <i class="ph ph-spinner spinner"></i aria-hidden="true"> Cargando consulta...
+    </div>
+  </main>
+
+  <nav class="detalle-nav">
+    <button id="btn-volver" class="btn-nav" type="button">
+      <i class="ph ph-arrow-left"></i aria-hidden="true"> Volver
+    </button>
+  </nav>
+
+  
+  <!-- Global init — Fase 6 -->
+  <script type="module" src="js/main.js"></script>
+
+  <script type="module">
+    import { getUrlParam, navigateTo, setTiradaActual } from './js/navigation.js';
+    import { cargarDetalleTirada } from './js/readings.js';
+
+    const NOMBRES_TEMA = {
+      'amor':                       'Amor',
+      'consultas_generales':        'General',
+      'creatividad_proyectos':      'Creatividad',
+      'crisis_transformacion':      'Crisis y Transformación',
+      'decisiones_elecciones':      'Decisiones',
+      'espiritualidad_crecimiento': 'Espiritualidad',
+      'familia_hogar':              'Familia y Hogar',
+      'salud_bienestar':            'Salud',
+      'trabajo_dinero':             'Finanzas y Trabajo',
+      'viajes_mudanzas':            'Viajes y Mudanzas',
+    };
+
+    // ── Leer URL params ──────────────────────────────────────────────────────
+    const id   = getUrlParam('id');
+    const tema = getUrlParam('tema');  // Puede ser null si acceso directo
+
+    if (!id) {
+      navigateTo('tipos-lecturas.html');
+    } else {
+      // ── Botón volver ────────────────────────────────────────────────────
+      // Leer tema del URL param — NUNCA hacer fetch solo para obtener el tema
+      document.getElementById('btn-volver').addEventListener('click', () => {
+        if (tema) {
+          navigateTo('listado-tiradas.html?tema=' + tema);
+        } else {
+          navigateTo('tipos-lecturas.html');
+        }
+      });
+
+      // ── Cargar y renderizar ──────────────────────────────────────────────
+      try {
+        const { tirada, posiciones } = await cargarDetalleTirada(id);
+
+        if (!tirada) {
+          document.getElementById('detalle-main').innerHTML = `
+            <p style="color:var(--text-muted);text-align:center;padding:var(--space-8)">
+              Consulta no encontrada.
+            </p>`;
+        } else {
+          document.title = `${tirada.nombre_tirada} — El Código de las Cartas`;
+          renderDetalle(tirada, posiciones);
+        }
+      } catch (err) {
+        document.getElementById('detalle-main').innerHTML = `
+          <p style="color:var(--text-muted);text-align:center;padding:var(--space-8)">
+            Error al cargar la tirada. Recarga la página.
+          </p>`;
+        console.error('[detalle-tirada] Error:', err);
+      }
+    }
+
+    // ── Render ───────────────────────────────────────────────────────────────
+    function renderDetalle(tirada, posiciones) {
+      const temaLabel = NOMBRES_TEMA[tirada.tema] || tirada.tema;
+
+      // Construir paso_a_paso como <li> — puede ser array o string
+      let pasosHTML = '';
+      if (Array.isArray(tirada.paso_a_paso)) {
+        pasosHTML = tirada.paso_a_paso.map(p => `<li>${p}</li>`).join('');
+      } else if (typeof tirada.paso_a_paso === 'string') {
+        // Dividir por patrón "PASO N -" para separar cada paso
+        const pasos = tirada.paso_a_paso
+          .split(/(?=PASO\s+\d+\s*[-\u2013])/i)
+          .map(p => p.trim())
+          .filter(Boolean);
+        pasosHTML = pasos.map(p => {
+          // Convertir bullets • en saltos de línea dentro del <li>
+          const conSaltos = p.replace(/\s*•\s*/g, '<br>&bull;&nbsp;');
+          return `<li>${conSaltos}</li>`;
+        }).join('');
+      }
+
+      // Posiciones
+      const posicionesHTML = posiciones.map(pos => `
+        <li class="posicion-item">
+          <span class="posicion-badge">${pos.posicion}</span>
+          <span class="posicion-texto">${pos.significado || pos.significado_house || ''}</span>
+        </li>
+      `).join('');
+
+      const html = `
+        <p class="detalle-id">${tirada.id_tirada}</p>
+        <h1 class="detalle-nombre">${tirada.nombre_tirada}</h1>
+        <div class="detalle-meta">
+          <span class="badge-tema badge-tema-${tirada.tema}">${temaLabel}</span>
+          <span class="badge-cartas-circular" title="${tirada.num_cartas} cartas">${tirada.num_cartas}</span>
+        </div>
+
+        <div class="detalle-seccion">
+          <p class="detalle-label">Propósito de la tirada</p>
+          <p class="detalle-valor">${tirada.intencion}</p>
+        </div>
+
+        <div class="detalle-seccion">
+          <p class="detalle-label">Validez de la lectura</p>
+          <p class="detalle-valor">${tirada.tiempo_validez}</p>
+        </div>
+
+        <div class="detalle-seccion">
+          <p class="detalle-label">Cuándo repetir esta tirada</p>
+          <p class="detalle-valor">${tirada.cuando_repetir}</p>
+        </div>
+
+        <div class="detalle-seccion">
+          <p class="detalle-label">Disposición de las cartas</p>
+          <p class="detalle-valor">${tirada.diseño || tirada.diseno || '—'}</p>
+        </div>
+
+        ${posicionesHTML ? `
+        <div class="detalle-seccion">
+          <p class="detalle-label">El mensaje de cada posición</p>
+          <ul class="posiciones-lista">${posicionesHTML}</ul>
+        </div>
+        ` : ''}
+
+        ${pasosHTML ? `
+        <div class="detalle-seccion">
+          <p class="detalle-label">Cómo realizar la tirada</p>
+          <ol class="paso-a-paso-ol">${pasosHTML}</ol>
+        </div>
+        ` : ''}
+
+        <div class="detalle-acciones">
+          <button id="btn-escoger" class="btn-escoger" type="button">
+            ESCOGER ESTA TIRADA <i class="ph ph-arrow-right"></i aria-hidden="true">
+          </button>
+        </div>
+      `;
+
+      document.getElementById('detalle-main').innerHTML = html;
+
+      // ── Handler ESCOGER ───────────────────────────────────────────────
+      document.getElementById('btn-escoger').addEventListener('click', () => {
+        setTiradaActual({
+          id_tirada:  tirada.id_tirada,
+          nombre:     tirada.nombre_tirada,
+          tema:       tirada.tema,
+          num_cartas: tirada.num_cartas,
+          cartas:     []
+        });
+        navigateTo('indicar-cartas.html');
+      });
+    }
+  </script>
+
+</body>
+</html>

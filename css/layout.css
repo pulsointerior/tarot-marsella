@@ -1,0 +1,220 @@
+/* ============================================================
+   layout.css — Sistema de espaciado y estructura
+   Proyecto: Código de las Cartas — Tarot de Marsella
+   ============================================================ */
+
+/* ─────────────────────────────────────────────────────────────
+   VARIABLES DE ESPACIADO
+   Escala base 8px.
+   NOTA: --space-7 y --space-9 NO EXISTEN — omitidos intencionalmente.
+   PROHIBIDO usar var(--space-7) o var(--space-9) en ningún archivo del proyecto.
+   ───────────────────────────────────────────────────────────── */
+:root {
+  --space-1:  8px;
+  --space-2:  16px;
+  --space-3:  24px;
+  --space-4:  32px;
+  --space-5:  40px;
+  --space-6:  48px;
+  /* --space-7 NO EXISTE */
+  --space-8:  64px;
+  /* --space-9 NO EXISTE */
+  --space-10: 80px;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   CONTENEDOR PRINCIPAL
+   ───────────────────────────────────────────────────────────── */
+.container {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 var(--space-4);
+}
+
+.container--narrow {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 var(--space-4);
+}
+
+/* ─────────────────────────────────────────────────────────────
+   GRID DE CARTAS
+   Columnas base xs/sm — responsive.css escala según breakpoint
+   ───────────────────────────────────────────────────────────── */
+.grid-cartas {
+  display: grid;
+  gap: var(--space-3);
+  grid-template-columns: repeat(2, 1fr);
+}
+
+/* ─────────────────────────────────────────────────────────────
+   LAYOUTS DE PÁGINA
+   ───────────────────────────────────────────────────────────── */
+
+.page-header {
+  padding: var(--space-6) 0 var(--space-4);
+  text-align: center;
+}
+
+.page-header__title {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(1.75rem, 4vw, 3rem);
+  font-weight: 700;
+  color: var(--secondary);
+  margin-bottom: var(--space-2);
+  line-height: 1.2;
+}
+
+.page-header__subtitle {
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: clamp(0.9rem, 2vw, 1.1rem);
+  font-weight: 300;
+  color: var(--text-muted);
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.section {
+  padding: var(--space-6) 0;
+}
+
+.section--tight {
+  padding: var(--space-3) 0;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   CARD / PANEL
+   ───────────────────────────────────────────────────────────── */
+.card {
+  background: var(--bg-card);
+  border: 1px solid rgba(201, 168, 76, 0.15);
+  border-radius: 8px;
+  padding: var(--space-4);
+}
+
+.card--highlight {
+  border-color: rgba(201, 168, 76, 0.4);
+}
+
+/* ─────────────────────────────────────────────────────────────
+   NAVEGACIÓN
+   ───────────────────────────────────────────────────────────── */
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-2) var(--space-4);
+  background: rgba(10, 10, 10, 0.85);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(201, 168, 76, 0.2);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav__logo {
+  font-family: 'Cinzel', serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--secondary);
+  text-decoration: none;
+}
+
+.nav__links {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.nav__link {
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.2s ease;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.nav__link:hover,
+.nav__link--active {
+  color: var(--secondary);
+  text-decoration: none;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   BOTONES
+   Touch target mínimo 44px (obligatorio)
+   ───────────────────────────────────────────────────────────── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-1);
+  min-height: 44px;
+  padding: 0 var(--space-3);
+  border-radius: 4px;
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  border: none;
+  transition: opacity 0.2s ease, transform 0.15s ease;
+}
+
+.btn:hover {
+  opacity: 0.85;
+  transform: translateY(-1px);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+.btn--primary {
+  background: var(--secondary);
+  color: var(--bg-dark);
+}
+
+.btn--outline {
+  background: transparent;
+  border: 1px solid var(--secondary);
+  color: var(--secondary);
+}
+
+.btn--ghost {
+  background: transparent;
+  color: var(--text-muted);
+}
+
+.btn--ghost:hover {
+  color: var(--text-main);
+}
+
+/* ─────────────────────────────────────────────────────────────
+   DIVISOR
+   ───────────────────────────────────────────────────────────── */
+.divider {
+  border: none;
+  border-top: 1px solid rgba(201, 168, 76, 0.15);
+  margin: var(--space-4) 0;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   FLEX UTILITIES
+   ───────────────────────────────────────────────────────────── */
+.flex         { display: flex; }
+.flex-center  { display: flex; align-items: center; justify-content: center; }
+.flex-between { display: flex; align-items: center; justify-content: space-between; }
+.flex-col     { display: flex; flex-direction: column; }
+.gap-1        { gap: var(--space-1); }
+.gap-2        { gap: var(--space-2); }
+.gap-3        { gap: var(--space-3); }
+.gap-4        { gap: var(--space-4); }

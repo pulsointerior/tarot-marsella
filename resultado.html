@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="El Código de las Cartas — Interpretación de tu consulta de Tarot de Marsella">
+  <title>Resultado de la Consulta — El Código de las Cartas</title>
+
+  <!-- Phosphor Icons v2.1.1 -->
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/css/style.css">
+
+  <!-- CSS del proyecto — orden obligatorio -->
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/placeholders.css">
+
+  <style>
+    /* ── Estilos específicos de resultado.html ───────────────────────────── */
+
+    /* Cabecera del resultado */
+    .resultado-cabecera {
+      text-align: center;
+      padding: var(--space-6) 0 var(--space-4);
+    }
+
+    /* Carta individual — bloque principal */
+    .carta-resultado {
+      background: var(--bg-card);
+      border: 1px solid rgba(201, 168, 76, 0.15);
+      border-radius: 12px;
+      padding: var(--space-4);
+      margin-bottom: var(--space-6);
+    }
+
+    /* Imagen de carta */
+    .carta-imagen-wrapper {
+      display: flex;
+      justify-content: center;
+      margin-bottom: var(--space-3);
+    }
+    .carta-imagen-full {
+      max-width: 200px;
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.6);
+    }
+
+    /* Meta de carta (número, nombre, badges) */
+    .carta-meta {
+      flex-wrap: wrap;
+      gap: var(--space-2);
+      margin: var(--space-2) 0;
+      align-items: center;
+    }
+    .carta-numero {
+      font-family: 'Cinzel', serif;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+    .carta-nombre {
+      font-family: 'Cinzel', serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--secondary);
+      margin: 0;
+    }
+    .carta-tendencia {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin: var(--space-1) 0 var(--space-3);
+    }
+
+    /* Etiqueta de posición */
+    .posicion-label {
+      font-family: 'Cinzel', serif;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      text-align: center;
+      margin-bottom: var(--space-1);
+    }
+    .posicion-descripcion {
+      text-align: center;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: var(--space-2);
+    }
+
+    /* Secciones internas de cada carta */
+    .carta-secciones {
+      margin-top: var(--space-4);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+    }
+
+    /* Título de sección */
+    .seccion-titulo {
+      font-family: 'Cinzel', serif;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--secondary);
+      margin: 0 0 var(--space-2);
+      padding-bottom: var(--space-1);
+      border-bottom: 1px solid rgba(201, 168, 76, 0.2);
+    }
+
+    /* Grid de datos (label + valor) */
+    .datos-grid {
+      display: grid;
+      gap: var(--space-2);
+    }
+    .dato-item {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: var(--space-2);
+      align-items: start;
+      font-size: 0.9rem;
+    }
+    .dato-label {
+      color: var(--text-muted);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding-top: 2px;
+    }
+    .dato-valor {
+      color: var(--text-main);
+      line-height: 1.5;
+    }
+
+    /* Sección del tema */
+    .texto-tema {
+      color: var(--text-main);
+      line-height: 1.7;
+    }
+
+    /* Expandibles */
+    .seccion-expandible {
+      border: 1px solid rgba(201, 168, 76, 0.1);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .toggle-expandible {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: var(--space-2) var(--space-3);
+      background: rgba(201, 168, 76, 0.05);
+      border: none;
+      cursor: pointer;
+      color: var(--secondary);
+      font-family: 'Cinzel', serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      text-align: left;
+      transition: background 0.2s ease;
+    }
+    .toggle-expandible:hover {
+      background: rgba(201, 168, 76, 0.1);
+    }
+    .toggle-icon {
+      font-size: 1rem;
+      transition: transform 0.2s ease;
+      flex-shrink: 0;
+    }
+    .panel-expandible {
+      padding: var(--space-3);
+    }
+    .panel-expandible[hidden] {
+      display: none;
+    }
+
+    /* Bloques principales */
+    .bloque-combinaciones,
+    .bloque-conclusion {
+      margin: var(--space-4) 0;
+    }
+    .bloque-titulo {
+      font-family: 'Cinzel', serif;
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--secondary);
+      margin-bottom: var(--space-3);
+      text-align: center;
+    }
+
+    /* Placeholder de combinaciones (Fase 4) */
+    .bloque-placeholder {
+      text-align: center;
+      padding: var(--space-5) var(--space-4);
+    }
+    .placeholder-aviso {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-2);
+      color: var(--text-muted);
+    }
+    .placeholder-aviso i {
+      font-size: 2rem;
+      opacity: 0.4;
+    }
+    .placeholder-aviso p {
+      font-size: 0.9rem;
+      max-width: 400px;
+    }
+
+    /* Conclusión */
+    .conclusion-contenido {
+      background: var(--bg-card);
+      border: 1px solid rgba(201, 168, 76, 0.15);
+      border-radius: 12px;
+      padding: var(--space-4);
+      line-height: 1.8;
+      color: var(--text-main);
+    }
+    .conclusion-placeholder {
+      color: var(--text-muted);
+      font-style: italic;
+      text-align: center;
+    }
+
+    /* Acciones finales */
+    .acciones-finales {
+      padding: var(--space-5) 0 var(--space-6);
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-3);
+      justify-content: center;
+    }
+
+    /* Separadores ornamentales */
+    .divider-ornate {
+      text-align: center;
+      color: var(--secondary);
+      font-family: 'Cinzel', serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      opacity: 0.5;
+      margin: var(--space-5) 0;
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+    }
+    .divider-ornate::before,
+    .divider-ornate::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(to right, transparent, rgba(201, 168, 76, 0.3), transparent);
+    }
+
+    /* Botones de scroll fijo */
+    .scroll-buttons {
+      position: fixed;
+      bottom: var(--space-4);
+      right: var(--space-3);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-1);
+      z-index: 100;
+    }
+    .btn-scroll {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(201, 168, 76, 0.15);
+      border: 1px solid rgba(201, 168, 76, 0.4);
+      color: var(--secondary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 1.1rem;
+      transition: background 0.2s ease;
+    }
+    .btn-scroll:hover {
+      background: rgba(201, 168, 76, 0.3);
+    }
+
+    /* Responsive */
+    @media (max-width: 480px) {
+      .dato-item {
+        grid-template-columns: 1fr;
+        gap: var(--space-1);
+      }
+      .carta-imagen-full {
+        max-width: 150px;
+      }
+    }
+  </style>
+  <meta property="og:title" content="Resultado de la Consulta — El Código de las Cartas">
+  <meta property="og:description" content="Interpretación completa de tu consulta de Tarot de Marsella con combinaciones y conclusión narrativa.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_ES">
+</head>
+<body data-page="resultado">
+
+  <!-- ── HEADER / NAV ─────────────────────────────────────────────────────── -->
+  <header class="page-header">
+    <div class="container">
+      <nav class="navbar" aria-label="Navegación principal">
+        <a href="index.html" class="navbar-brand">El Código de las Cartas</a>
+        <div class="navbar-nav">
+          <a href="tipos-lecturas.html" class="nav-link" aria-label="Nueva consulta">
+            <i class="ph ph-arrows-clockwise" aria-hidden="true"></i>
+            <span class="hide-sm">Nueva consulta</span>
+          </a>
+          <a href="arcanos.html?desde=resultado" class="nav-link">
+            <i class="ph ph-cards" aria-hidden="true"></i>
+            <span class="hide-sm">Arcanos</span>
+          </a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ── MAIN — resultado.js inyecta todo el contenido ───────────────────── -->
+  <main class="page-main" id="main-content">
+    <!-- Estado de carga inicial — resultado.js lo reemplaza -->
+    <div class="container section center-content">
+      <p class="text-muted">Cargando tu consulta...</p>
+    </div>
+  </main>
+
+  <!-- ── BOTONES DE SCROLL FIJOS ──────────────────────────────────────────── -->
+  <div class="scroll-buttons" aria-label="Navegación rápida">
+    <button
+      class="btn-scroll"
+      aria-label="Ir al inicio"
+      onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
+    >
+      <i class="ph ph-arrow-up" aria-hidden="true"></i>
+    </button>
+    <button
+      class="btn-scroll"
+      aria-label="Ir al final"
+      onclick="window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' })"
+    >
+      <i class="ph ph-arrow-down" aria-hidden="true"></i>
+    </button>
+  </div>
+
+  <!-- ── FOOTER ────────────────────────────────────────────────────────────── -->
+  <footer class="page-footer">
+    <div class="container center-content">
+      <p class="text-muted" style="font-size: 0.8rem;">
+        El Código de las Cartas &mdash; Tarot de Marsella
+      </p>
+    </div>
+  </footer>
+
+  <!-- ── RECOVERY CENTRALIZADO — FASE 8B ──────────────────────────────────
+       Debe ejecutarse ANTES de resultado.js para bloquear el render si no hay estado válido.
+       Cubre dos condiciones (definidas en navigation.js Fase 8A):
+         · sin tirada_actual en localStorage → redirect a introduccion.html
+         · tirada_actual con cartas.length === 0 → redirect a introduccion.html
+       ¿Por qué aquí y no en resultado.js?
+         El check inline anterior vivía en resultado.js (Fase 3C).
+         Fase 8B lo centraliza aquí para que el HTML sea el único punto de entrada
+         que decide si la página puede renderizarse, sin que resultado.js necesite
+         conocer la lógica de recovery.
+  ──────────────────────────────────────────────────────────────────────── -->
+  <script type="module">
+    import { verificarEstadoRecovery, navigateTo } from './js/navigation.js';
+
+    const check = verificarEstadoRecovery('resultado');
+    if (!check.ok) {
+      navigateTo(check.redirectTo);
+    }
+  </script>
+
+  <!-- ES Module obligatorio — type="module" garantiza DOM listo al ejecutar -->
+  <!-- Global init — Fase 6/7 -->
+  <script type="module" src="js/main.js"></script>
+
+  <script type="module" src="js/resultado.js"></script>
+
+</body>
+</html>

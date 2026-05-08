@@ -1,0 +1,14 @@
+
+[1m============================================================[0m
+[1mAUDITORIA DE DATOS — Codigo de las Cartas[0m
+============================================================
+Traceback (most recent call last):
+  File "C:\Users\bomag\Desktop\tarot-marsella\scripts\auditar_datos.py", line 504, in <module>
+    cartas_data  = auditar_cartas()
+  File "C:\Users\bomag\Desktop\tarot-marsella\scripts\auditar_datos.py", line 51, in auditar_cartas
+    print(f"\n{NEGRITA}{'\u2500'*60}{RESET}")
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\bomag\AppData\Local\Python\pythoncore-3.14-64\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode characters in position 6-65: character maps to <undefined>

@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Introducción — El Código de las Cartas</title>
+  <meta name="description" content="Qué es El Código de las Cartas y cómo funciona este sistema de lectura del Tarot de Marsella.">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/placeholders.css">
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/css/style.css">
+  <style>
+    /* ── Estilos locales de esta página ── */
+    .intro-page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .intro-hero {
+      text-align: center;
+      padding: var(--space-8) var(--space-4) var(--space-6);
+    }
+
+    .intro-hero__title {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(1.6rem, 4vw, 2.8rem);
+      color: var(--secondary);
+      margin: 0 0 var(--space-2);
+      letter-spacing: 0.04em;
+    }
+
+    .intro-hero__subtitle {
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: clamp(0.95rem, 2vw, 1.1rem);
+      color: var(--text-muted);
+      margin: 0;
+    }
+
+    .intro-lead {
+      max-width: 720px;
+      margin: 0 auto var(--space-6);
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: clamp(1rem, 2vw, 1.15rem);
+      line-height: 1.75;
+      color: var(--text-main);
+      text-align: center;
+      padding: 0 var(--space-2);
+    }
+
+    .intro-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-4);
+      max-width: 900px;
+      margin: 0 auto var(--space-6);
+      padding: 0 var(--space-2);
+    }
+
+    @media (min-width: 769px) {
+      .intro-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .intro-card {
+      background: var(--bg-card);
+      border: 1px solid rgba(201, 168, 76, 0.18);
+      border-radius: 8px;
+      padding: var(--space-4);
+    }
+
+    .intro-card--full {
+      grid-column: 1 / -1;
+    }
+
+    .intro-card__title {
+      font-family: 'Cinzel', serif;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--secondary);
+      margin: 0 0 var(--space-2);
+      display: flex;
+      align-items: center;
+      gap: var(--space-1);
+      letter-spacing: 0.03em;
+    }
+
+    .intro-card__title i {
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+
+    .intro-card p {
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 0.95rem;
+      line-height: 1.7;
+      color: var(--text-main);
+      margin: 0 0 var(--space-2);
+    }
+
+    .intro-card p:last-child {
+      margin-bottom: 0;
+    }
+
+    .intro-layers {
+      list-style: none;
+      padding: 0;
+      margin: var(--space-2) 0 0;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .intro-layers li {
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 0.9rem;
+      color: var(--text-main);
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      line-height: 1.5;
+    }
+
+    .intro-layers li::before {
+      content: '';
+      display: inline-block;
+      width: 5px;
+      height: 5px;
+      background: var(--secondary);
+      border-radius: 50%;
+      flex-shrink: 0;
+      margin-top: 7px;
+    }
+
+    .intro-modes {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2);
+      margin-top: var(--space-2);
+    }
+
+    .intro-mode {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-2);
+      padding: var(--space-2) var(--space-3);
+      background: rgba(201, 168, 76, 0.06);
+      border-left: 2px solid var(--secondary);
+      border-radius: 0 4px 4px 0;
+    }
+
+    .intro-mode i {
+      font-size: 1.1rem;
+      color: var(--secondary);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .intro-mode span {
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 0.9rem;
+      color: var(--text-main);
+      line-height: 1.5;
+    }
+
+    .intro-closing {
+      max-width: 600px;
+      margin: 0 auto var(--space-8);
+      text-align: center;
+      padding: 0 var(--space-2);
+    }
+
+    .intro-closing p {
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 1rem;
+      line-height: 1.75;
+      color: var(--text-muted);
+      font-style: italic;
+      margin: 0;
+    }
+
+    .intro-closing strong {
+      color: var(--secondary);
+      font-style: normal;
+    }
+
+    .intro-cta {
+      text-align: center;
+      padding: 0 var(--space-4) var(--space-10);
+    }
+  </style>
+</head>
+<body data-page="introduccion">
+
+  <header role="banner">
+    <nav class="container" aria-label="Navegación principal" style="padding-top: var(--space-3); padding-bottom: var(--space-3); display: flex; align-items: center; justify-content: space-between;">
+      <span style="font-family: 'Cinzel', serif; color: var(--secondary); font-size: 0.9rem; letter-spacing: 0.05em;">El Código de las Cartas</span>
+      <a href="index.html" class="btn btn-secondary btn-sm" aria-label="Volver a la página de inicio">
+        <i class="ph ph-arrow-left" aria-hidden="true"></i> Inicio
+      </a>
+    </nav>
+  </header>
+
+  <main class="intro-page" id="main-content">
+
+    <div class="intro-hero">
+      <h1 class="intro-hero__title">El Código de las Cartas</h1>
+      <p class="intro-hero__subtitle">Tarot de Marsella · Lecturas estructuradas</p>
+    </div>
+
+    <p class="intro-lead">
+      El Tarot no es azar. Es lenguaje. Cada carta contiene una estructura simbólica, una lógica interna
+      y una red de significados que, al combinarse, revelan patrones, tensiones y posibilidades.
+      Esta aplicación ha sido diseñada para descifrar ese lenguaje con profundidad, precisión y coherencia.
+    </p>
+
+    <div class="container">
+      <div class="intro-grid">
+
+        <!-- Raíces -->
+        <article class="intro-card intro-card--full">
+          <h2 class="intro-card__title">
+            <i class="ph ph-book-open-text" aria-hidden="true"></i>
+            Raíces en el Tarot de Marsella, mirada contemporánea
+          </h2>
+          <p>Este sistema toma como base el Tarot de Marsella — la tradición más antigua y visualmente directa del Tarot, donde cada arcano habla por sí mismo a través de símbolos universales sin necesidad de narrativas externas. Sin embargo, no nos quedamos solo en lo clásico: integramos también perspectivas del Tarot moderno, especialmente en cómo interpretamos las combinaciones, las posiciones y las dinámicas entre cartas.</p>
+          <p>La diferencia es sutil pero real. El Tarot de Marsella confía en la imagen pura: un número, un color, una postura, un objeto. El Tarot moderno añade capas de contexto psicológico, relacional y situacional. Aquí usamos ambos registros cuando aportan claridad, sin que ninguno anule al otro.</p>
+        </article>
+
+        <!-- Miles de variables -->
+        <article class="intro-card">
+          <h2 class="intro-card__title">
+            <i class="ph ph-graph" aria-hidden="true"></i>
+            Un sistema de miles de variables
+          </h2>
+          <p>Integra miles de interpretaciones, combinaciones y variables que trabajan juntas para ofrecer lecturas claras, estructuradas y adaptadas a cada consulta. No se trata solo de extraer cartas, sino de interpretar relaciones: entre símbolos, posiciones, energías y contexto.</p>
+        </article>
+
+        <!-- Dos formas -->
+        <article class="intro-card">
+          <h2 class="intro-card__title">
+            <i class="ph ph-shuffle" aria-hidden="true"></i>
+            Dos formas de consultar
+          </h2>
+          <div class="intro-modes">
+            <div class="intro-mode">
+              <i class="ph ph-shuffle" aria-hidden="true"></i>
+              <span>Dejando que el sistema genere la tirada automáticamente</span>
+            </div>
+            <div class="intro-mode">
+              <i class="ph ph-hand-pointing" aria-hidden="true"></i>
+              <span>Seleccionando cada carta de manera consciente</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Cómo se construye -->
+        <article class="intro-card">
+          <h2 class="intro-card__title">
+            <i class="ph ph-stack" aria-hidden="true"></i>
+            Cómo se construye una lectura
+          </h2>
+          <p>Cada lectura se articula en capas:</p>
+          <ul class="intro-layers" role="list">
+            <li>La carta individual y su simbología</li>
+            <li>Su orientación (recta o invertida)</li>
+            <li>Su posición en la tirada</li>
+            <li>Su interacción con las demás cartas</li>
+            <li>El tema de tu consulta</li>
+          </ul>
+          <p style="margin-top: var(--space-2);">El resultado no es una respuesta cerrada, sino una interpretación que orienta, señala dinámicas y sugiere dirección.</p>
+        </article>
+
+        <!-- Para quién -->
+        <article class="intro-card intro-card--full">
+          <h2 class="intro-card__title">
+            <i class="ph ph-users" aria-hidden="true"></i>
+            Para quién es este espacio
+          </h2>
+          <p>Está pensado tanto para quien busca una guía como para quien quiere comprender el Tarot en profundidad. No hace falta ser experto. Solo hace falta prestar atención.</p>
+        </article>
+
+      </div>
+    </div>
+
+    <div class="intro-closing">
+      <p>Porque las cartas no predicen: <strong>interpretan lo que ya está en movimiento.</strong></p>
+    </div>
+
+    <div class="intro-cta">
+      <a href="introduccion.html" class="btn btn-primary btn-lg" aria-label="Continuar para elegir tu experiencia">
+        Continuar <i class="ph ph-arrow-right" aria-hidden="true"></i>
+      </a>
+    </div>
+
+  </main>
+
+  <footer role="contentinfo" style="text-align: center; padding: var(--space-4); color: var(--text-muted); font-family: 'Source Sans 3', sans-serif; font-size: 0.8rem;">
+    El Código de las Cartas · Tarot de Marsella
+  </footer>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

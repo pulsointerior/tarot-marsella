@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Consultas — El Código de las Cartas</title>
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+  <link rel="stylesheet" href="css/placeholders.css" />
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/css/style.css" />
+  <style>
+    .listado-page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    .listado-header {
+      padding: var(--space-3) var(--space-4);
+      border-bottom: 1px solid rgba(201,168,76,0.15);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .listado-header-titulo {
+      font-family: 'Cinzel', serif;
+      font-size: 1rem;
+      color: var(--secondary);
+      font-weight: 600;
+      letter-spacing: 0.08em;
+    }
+    .listado-main {
+      flex: 1;
+      padding: var(--space-4) var(--space-4);
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+    }
+    .listado-titulo {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(1.4rem, 3.5vw, 2rem);
+      color: var(--text-main);
+      font-weight: 700;
+      margin: 0 0 var(--space-1) 0;
+      text-align: center;
+    }
+    .listado-subtitulo {
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      text-align: center;
+      margin: 0 0 var(--space-4) 0;
+    }
+
+    /* BUSCADOR */
+    .buscador-wrapper {
+      position: relative;
+      margin-bottom: var(--space-3);
+      max-width: 520px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .buscador-wrapper .ph-magnifying-glass {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-muted);
+      font-size: 1.1rem;
+      pointer-events: none;
+    }
+    .buscador-input {
+      width: 100%;
+      padding: 12px 44px 12px 40px;
+      background: var(--bg-card);
+      border: 1px solid rgba(201,168,76,0.25);
+      border-radius: 6px;
+      color: var(--text-main);
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 0.9rem;
+      outline: none;
+      transition: border-color 0.2s;
+      box-sizing: border-box;
+    }
+    .buscador-input:focus {
+      border-color: var(--secondary);
+    }
+    .buscador-input::placeholder {
+      color: var(--text-muted);
+    }
+    .buscador-btn-limpiar {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      font-size: 1.1rem;
+      cursor: pointer;
+      padding: 4px;
+      display: none;
+      min-width: 28px;
+      min-height: 28px;
+      align-items: center;
+      justify-content: center;
+    }
+    .buscador-btn-limpiar.visible {
+      display: flex;
+    }
+    .buscador-btn-limpiar:hover {
+      color: var(--text-main);
+    }
+
+    /* GRID DE TIRADAS */
+    .tiradas-grid {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      gap: var(--space-2);
+    }
+    @media (min-width: 481px)  { .tiradas-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (min-width: 769px)  { .tiradas-grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (min-width: 1025px) { .tiradas-grid { grid-template-columns: repeat(4, 1fr); } }
+
+    .tirada-card {
+      background: var(--bg-card);
+      border: 1px solid rgba(201,168,76,0.2);
+      border-radius: 8px;
+      padding: var(--space-3);
+      cursor: pointer;
+      transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-1);
+    }
+    .tirada-card:hover {
+      border-color: var(--secondary);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.35), 0 0 12px rgba(201,168,76,0.12);
+    }
+    .tirada-card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-1);
+    }
+    .tirada-id {
+      font-family: 'Cinzel', serif;
+      font-size: 0.68rem;
+      color: var(--text-muted);
+      letter-spacing: 0.05em;
+    }
+    .tirada-badge-cartas {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: rgba(201,168,76,0.15);
+      border: 1px solid var(--secondary);
+      color: var(--secondary);
+      font-family: 'Cinzel', serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .tirada-nombre {
+      font-family: 'Cinzel', serif;
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--text-main);
+      line-height: 1.3;
+      margin: 0;
+    }
+    .tirada-intencion {
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      margin: 0;
+    }
+
+    /* EMPTY STATES */
+    .empty-state {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-2);
+      padding: var(--space-8) var(--space-4);
+      text-align: center;
+      color: var(--text-muted);
+    }
+    .empty-state i {
+      font-size: 3rem;
+      opacity: 0.4;
+    }
+    .empty-state p {
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 0.9rem;
+      margin: 0;
+    }
+
+    /* LOADING */
+    .loading-state {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-2);
+      padding: var(--space-8);
+      color: var(--text-muted);
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 0.9rem;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .spinner {
+      animation: spin 0.8s linear infinite;
+      font-size: 1.4rem;
+    }
+
+    /* NAV */
+    .listado-nav {
+      padding: var(--space-3) var(--space-4);
+      border-top: 1px solid rgba(201,168,76,0.12);
+    }
+    .btn-nav {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px var(--space-3);
+      font-family: 'Cinzel', serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      border-radius: 4px;
+      cursor: pointer;
+      border: 1px solid rgba(255,255,255,0.15);
+      background: transparent;
+      color: var(--text-muted);
+      transition: opacity 0.2s;
+      text-decoration: none;
+      min-height: 44px;
+    }
+    .btn-nav:hover { opacity: 0.75; }
+  </style>
+  <meta property="og:title" content="Consultas de Tarot — El Código de las Cartas">
+  <meta property="og:description" content="Selecciona una consulta de Tarot de Marsella adaptada a tu tema.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_ES">
+</head>
+<body data-page="listado-tiradas">
+
+  <header class="listado-header">
+    <span class="listado-header-titulo">El Código de las Cartas</span>
+  </header>
+
+  <main class="listado-main">
+    <h1 class="listado-titulo" id="listado-titulo">Cargando...</h1>
+    <p class="listado-subtitulo">Selecciona una consulta para comenzar</p>
+
+    <!-- BUSCADOR -->
+    <div class="buscador-wrapper">
+      <i class="ph ph-magnifying-glass"></i aria-hidden="true">
+      <input
+        type="text"
+        id="buscador-input"
+        class="buscador-input"
+        placeholder="Buscar consulta por nombre o intención..."
+        autocomplete="off"
+      />
+      <button id="buscador-limpiar" class="buscador-btn-limpiar" type="button" aria-label="Limpiar búsqueda">
+        <i class="ph ph-x"></i aria-hidden="true">
+      </button>
+    </div>
+
+    <!-- GRID DE TIRADAS -->
+    <div id="tiradas-grid" class="tiradas-grid">
+      <div class="loading-state">
+        <i class="ph ph-spinner spinner"></i aria-hidden="true"> Cargando tiradas...
+      </div>
+    </div>
+  </main>
+
+  <nav class="listado-nav">
+    <a href="tipos-lecturas.html" class="btn-nav">
+      <i class="ph ph-arrow-left"></i aria-hidden="true"> Volver
+    </a>
+  </nav>
+
+  
+  <!-- Global init — Fase 6 -->
+  <script type="module" src="js/main.js"></script>
+
+  <script type="module">
+    import { getUrlParam, navigateTo } from './js/navigation.js';
+    import { cargarTiradasPorTema } from './js/readings.js';
+
+    // ── Nombres de tema para UI ──────────────────────────────────────────────
+    const NOMBRES_TEMA = {
+      'amor':                       'Amor',
+      'consultas_generales':        'General',
+      'creatividad_proyectos':      'Creatividad',
+      'crisis_transformacion':      'Crisis y Transformación',
+      'decisiones_elecciones':      'Decisiones',
+      'espiritualidad_crecimiento': 'Espiritualidad',
+      'familia_hogar':              'Familia y Hogar',
+      'salud_bienestar':            'Salud',
+      'trabajo_dinero':             'Finanzas y Trabajo',
+      'viajes_mudanzas':            'Viajes y Mudanzas',
+    };
+
+    // ── Normalizar texto para búsqueda sin acentos ───────────────────────────
+    function normalizar(str) {
+      return (str || '')
+        .toLowerCase()
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '');
+    }
+
+    // ── Render de tarjeta ────────────────────────────────────────────────────
+    function renderTarjeta(tirada, tema) {
+      const div = document.createElement('div');
+      div.className = 'tirada-card';
+      div.innerHTML = `
+        <div class="tirada-card-header">
+          <span class="tirada-id">${tirada.id_tirada}</span>
+          <span class="tirada-badge-cartas">${tirada.num_cartas}</span>
+        </div>
+        <p class="tirada-nombre">${tirada.nombre_tirada}</p>
+        <span class="badge-tema badge-tema-${tema}">${NOMBRES_TEMA[tema] || tema}</span>
+        <p class="tirada-intencion">${tirada.intencion}</p>
+      `;
+      div.addEventListener('click', () => {
+        navigateTo(`detalle-tirada.html?id=${tirada.id_tirada}&tema=${tema}`);
+      });
+      return div;
+    }
+
+    // ── Render del grid ──────────────────────────────────────────────────────
+    function renderGrid(tiradas, tema) {
+      const grid = document.getElementById('tiradas-grid');
+      grid.innerHTML = '';
+
+      if (!tiradas || tiradas.length === 0) {
+        grid.innerHTML = `
+          <div class="empty-state" style="grid-column: 1/-1">
+            <i class="ph ph-magnifying-glass"></i aria-hidden="true">
+            <p>Sin consultas para esta búsqueda</p>
+          </div>`;
+        return;
+      }
+
+      tiradas.forEach(t => grid.appendChild(renderTarjeta(t, tema)));
+    }
+
+    // ── Init ─────────────────────────────────────────────────────────────────
+    const tema = getUrlParam('tema');
+
+    if (!tema) {
+      navigateTo('tipos-lecturas.html');
+    } else {
+      // Actualizar título
+      document.getElementById('listado-titulo').textContent =
+        NOMBRES_TEMA[tema] || tema;
+      document.title = `${NOMBRES_TEMA[tema] || tema} — El Código de las Cartas`;
+
+      // Cargar tiradas
+      let todasLasTiradas = [];
+
+      try {
+        todasLasTiradas = await cargarTiradasPorTema(tema);
+        renderGrid(todasLasTiradas, tema);
+      } catch (err) {
+        document.getElementById('tiradas-grid').innerHTML = `
+          <div class="empty-state" style="grid-column: 1/-1">
+            <i class="ph ph-warning-circle"></i aria-hidden="true">
+            <p>Error al cargar las tiradas. Recarga la página.</p>
+          </div>`;
+        console.error('[listado-tiradas] Error:', err);
+      }
+
+      // ── Buscador ────────────────────────────────────────────────────────
+      const inputBuscador  = document.getElementById('buscador-input');
+      const btnLimpiar     = document.getElementById('buscador-limpiar');
+
+      inputBuscador.addEventListener('input', () => {
+        const termino = normalizar(inputBuscador.value.trim());
+
+        // Mostrar/ocultar botón limpiar
+        if (inputBuscador.value.length > 0) {
+          btnLimpiar.classList.add('visible');
+        } else {
+          btnLimpiar.classList.remove('visible');
+        }
+
+        if (!termino) {
+          renderGrid(todasLasTiradas, tema);
+          return;
+        }
+
+        const filtradas = todasLasTiradas.filter(t =>
+          normalizar(t.nombre_tirada).includes(termino) ||
+          normalizar(t.intencion).includes(termino)
+        );
+        renderGrid(filtradas, tema);
+      });
+
+      btnLimpiar.addEventListener('click', () => {
+        inputBuscador.value = '';
+        btnLimpiar.classList.remove('visible');
+        renderGrid(todasLasTiradas, tema);
+        inputBuscador.focus();
+      });
+    }
+  </script>
+
+</body>
+</html>

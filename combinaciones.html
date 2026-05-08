@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="El Código de las Cartas — Explorador de combinaciones de arcanos">
+  <title>Combinaciones — El Código de las Cartas</title>
+
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/css/style.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/placeholders.css">
+
+  <style>
+    .combo-filtros {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-2);
+      margin-bottom: var(--space-3);
+    }
+    @media (max-width: 600px) {
+      .combo-filtros { grid-template-columns: 1fr; }
+    }
+    .combo-filtros-fila2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-2);
+      margin-bottom: var(--space-4);
+    }
+    @media (max-width: 600px) {
+      .combo-filtros-fila2 { grid-template-columns: 1fr; }
+    }
+    .combo-select {
+      width: 100%;
+      padding: 10px var(--space-2);
+      background: var(--bg-card);
+      border: 1px solid rgba(201,168,76,0.25);
+      border-radius: 6px;
+      color: var(--text-main);
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 0.9rem;
+      cursor: pointer;
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24'%3E%3Cpath fill='%23C9A84C' d='M12 15l-8-8h16z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 12px center;
+      padding-right: 32px;
+    }
+    .combo-select:focus {
+      outline: none;
+      border-color: var(--secondary);
+    }
+    .combo-input-busqueda {
+      width: 100%;
+      padding: 10px var(--space-2);
+      background: var(--bg-card);
+      border: 1px solid rgba(201,168,76,0.25);
+      border-radius: 6px;
+      color: var(--text-main);
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 0.9rem;
+      box-sizing: border-box;
+    }
+    .combo-input-busqueda:focus {
+      outline: none;
+      border-color: var(--secondary);
+    }
+    .combo-input-busqueda::placeholder { color: var(--text-muted); }
+
+    /* Estado vacío */
+    .combo-estado-vacio {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-2);
+      padding: var(--space-6) var(--space-4);
+      color: var(--text-muted);
+      text-align: center;
+    }
+    .combo-estado-vacio i { font-size: 3rem; opacity: 0.3; }
+
+    /* Fila de par */
+    .combo-fila {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr auto;
+      align-items: center;
+      gap: var(--space-2);
+      padding: var(--space-2) var(--space-3);
+      border-bottom: 1px solid rgba(201,168,76,0.08);
+      cursor: pointer;
+      transition: background 0.15s ease;
+      text-decoration: none;
+      color: inherit;
+    }
+    .combo-fila:hover { background: rgba(201,168,76,0.04); }
+    .combo-carta-nombre {
+      font-size: 0.85rem;
+      color: var(--text-main);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .combo-carta-nombre.derecha { text-align: right; }
+    .combo-badge-centro { text-align: center; }
+    .combo-flecha { color: var(--text-muted); font-size: 0.9rem; }
+
+    @media (max-width: 480px) {
+      .combo-fila {
+        grid-template-columns: 1fr auto 1fr;
+      }
+      .combo-flecha { display: none; }
+    }
+
+    /* Paginación */
+    .combo-paginacion {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-3);
+      padding: var(--space-4) 0;
+    }
+    .combo-paginacion-info {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      min-width: 100px;
+      text-align: center;
+    }
+
+    /* Spinner */
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .spin { animation: spin 1s linear infinite; display: inline-block; }
+  </style>
+  <meta property="og:title" content="Combinaciones de Arcanos — El Código de las Cartas">
+  <meta property="og:description" content="Explora el significado de cada par de arcanos del Tarot de Marsella: resonancias, tensiones y sinergias.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_ES">
+</head>
+<body data-page="combinaciones">
+
+  <header class="page-header">
+    <div class="container">
+      <nav class="navbar" aria-label="Navegación principal">
+        <a href="index.html" class="navbar-brand">El Código de las Cartas</a>
+        <div class="navbar-nav">
+          <a href="arcanos.html" class="nav-link">
+            <i class="ph ph-cards"></i aria-hidden="true">
+            <span class="hide-sm">Arcanos</span>
+          </a>
+          <a href="index.html" class="nav-link">
+            <i class="ph ph-house"></i aria-hidden="true">
+            <span class="hide-sm">Inicio</span>
+          </a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page-main" id="main-content">
+    <div class="container">
+
+      <section class="section">
+        <h1 class="page-title">Combinaciones de Arcanos</h1>
+        <p class="text-muted mt-2">Explora el significado de cada par de cartas</p>
+      </section>
+
+      <!-- FILTROS -->
+      <div class="combo-filtros">
+        <div>
+          <label for="select-mayores" class="dato-label" style="display:block; margin-bottom:4px;">Primera carta — Arcanos Mayores</label>
+          <select id="select-mayores" class="combo-select">
+            <option value="">— Selecciona un arcano mayor —</option>
+          </select>
+        </div>
+        <div>
+          <label for="select-menores" class="dato-label" style="display:block; margin-bottom:4px;">Primera carta — Arcanos Menores</label>
+          <select id="select-menores" class="combo-select">
+            <option value="">— Selecciona un arcano menor —</option>
+            <optgroup label="Bâtons" id="optgroup-bastos"></optgroup>
+            <optgroup label="Coupes" id="optgroup-coupes"></optgroup>
+            <optgroup label="Épées" id="optgroup-epees"></optgroup>
+            <optgroup label="Deniers" id="optgroup-deniers"></optgroup>
+          </select>
+        </div>
+      </div>
+      <div class="combo-filtros-fila2">
+        <div>
+          <label for="select-tipo" class="dato-label" style="display:block; margin-bottom:4px;">Tipo de relación</label>
+          <select id="select-tipo" class="combo-select">
+            <option value="">Todas</option>
+            <option value="RESONANCIA">RESONANCIA</option>
+            <option value="SINERGIA">SINERGIA</option>
+            <option value="TENSION">TENSION</option>
+            <option value="NEUTRO">NEUTRO</option>
+            <option value="BLOQUEO">BLOQUEO</option>
+            <option value="REFUERZO">REFUERZO</option>
+          </select>
+        </div>
+        <div>
+          <label for="input-busqueda" class="dato-label" style="display:block; margin-bottom:4px;">
+            <i class="ph ph-magnifying-glass"></i aria-hidden="true"> Buscar por nombre
+          </label>
+          <input
+            type="search"
+            id="input-busqueda"
+            class="combo-input-busqueda"
+            placeholder="Nombre de carta..."
+            autocomplete="off"
+          >
+        </div>
+      </div>
+
+      <!-- LISTA DE RESULTADOS -->
+      <div id="combo-lista-wrapper">
+        <div class="combo-estado-vacio" id="combo-estado-vacio">
+          <i class="ph ph-cards"></i aria-hidden="true">
+          <p>Selecciona una carta para explorar sus combinaciones</p>
+        </div>
+        <div id="combo-lista" style="display:none;"></div>
+        <div class="combo-paginacion" id="combo-paginacion" style="display:none;">
+          <button class="btn btn-secondary" id="btn-anterior" style="padding:8px 16px;">
+            <i class="ph ph-caret-left"></i aria-hidden="true"> Anterior
+          </button>
+          <span class="combo-paginacion-info" id="paginacion-info"></span>
+          <button class="btn btn-secondary" id="btn-siguiente" style="padding:8px 16px;">
+            Siguiente <i class="ph ph-caret-right"></i aria-hidden="true">
+          </button>
+        </div>
+      </div>
+
+      <div style="margin-top: var(--space-5);">
+        <a href="arcanos.html" class="btn btn-secondary">
+          <i class="ph ph-arrow-left"></i aria-hidden="true"> Volver a Arcanos
+        </a>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="page-footer">
+    <div class="container center-content">
+      <p class="text-muted" style="font-size:0.8rem;">El Código de las Cartas &mdash; Tarot de Marsella</p>
+    </div>
+  </footer>
+
+  <!-- Global init — Fase 6/7 -->
+  <script type="module" src="js/main.js?v=2"></script>
+
+  <script type="module">
+    import { getCartas, buscarCombinacion } from './js/data.js';
+    import { buildBadgeTipoCombinacion } from './js/combinations.js';
+    import { navigateTo } from './js/navigation.js';
+
+    const PAGE_SIZE = 50;
+
+    let _todasLasCartas  = [];
+    let _cartaSeleccionada = null;  // objeto carta
+    let _registros       = [];      // array filtrado actual
+    let _paginaActual    = 1;
+
+    // ── Poblar selects ────────────────────────────────────────────────────
+    async function poblarSelects() {
+      _todasLasCartas = await getCartas();
+
+      const selMay = document.getElementById('select-mayores');
+      const grupos = {
+        bastos:  document.getElementById('optgroup-bastos'),
+        coupes:  document.getElementById('optgroup-coupes'),
+        epees:   document.getElementById('optgroup-epees'),
+        deniers: document.getElementById('optgroup-deniers'),
+      };
+
+      _todasLasCartas.forEach(carta => {
+        const opt = document.createElement('option');
+        opt.value = carta.id;
+        if (carta.id <= 22) {
+          // Mayor
+          const label = carta.numero_original
+            ? `${carta.numero_original} — ${carta.arcano_es}`
+            : carta.arcano_es;
+          opt.textContent = label;
+          selMay.appendChild(opt);
+        } else {
+          // Menor — agrupar por palo
+          opt.textContent = carta.arcano_es;
+          const palo = (carta.palo || '').toUpperCase();
+          if (palo.includes('BATON') || palo.includes('BÂTON')) grupos.bastos.appendChild(opt);
+          else if (palo.includes('COUPE'))                       grupos.coupes.appendChild(opt);
+          else if (palo.includes('ÉPÉE') || palo.includes('EPEE')) grupos.epees.appendChild(opt);
+          else if (palo.includes('DENIER'))                      grupos.deniers.appendChild(opt);
+          else                                                    grupos.bastos.appendChild(opt);
+        }
+      });
+    }
+
+    // ── Cargar chunk y listar combinaciones ───────────────────────────────
+    async function cargarCombinaciones(cartaId) {
+      const carta1 = _todasLasCartas.find(c => c.id === cartaId);
+      if (!carta1) return;
+      _cartaSeleccionada = carta1;
+
+      mostrarCargando();
+
+      // Cargar todas las combinaciones RR para esta carta con todas las demás
+      const resultados = [];
+      for (const carta2 of _todasLasCartas) {
+        if (carta2.id === cartaId) continue;
+        const comb = await buscarCombinacion(cartaId, carta2.id, 'RR');
+        resultados.push({ carta1, carta2, combinacion: comb });
+      }
+
+      _registros = resultados;
+      aplicarFiltros();
+    }
+
+    // ── Filtros ───────────────────────────────────────────────────────────
+    function aplicarFiltros() {
+      const tipo    = document.getElementById('select-tipo').value;
+      const busqueda = document.getElementById('input-busqueda').value.toLowerCase().trim();
+
+      let filtrados = _registros;
+
+      if (tipo) {
+        filtrados = filtrados.filter(r => r.combinacion?.tipo === tipo);
+      }
+      if (busqueda) {
+        filtrados = filtrados.filter(r =>
+          r.carta2.arcano_es.toLowerCase().includes(busqueda)
+        );
+      }
+
+      _paginaActual = 1;
+      renderLista(filtrados);
+    }
+
+    // ── Render lista con paginación ───────────────────────────────────────
+    function renderLista(registros) {
+      const lista    = document.getElementById('combo-lista');
+      const vacio    = document.getElementById('combo-estado-vacio');
+      const paginacion = document.getElementById('combo-paginacion');
+
+      if (registros.length === 0) {
+        lista.style.display     = 'none';
+        paginacion.style.display = 'none';
+        vacio.style.display      = 'flex';
+        vacio.innerHTML = `<i class="ph ph-cards"></i aria-hidden="true"><p>No se encontraron combinaciones</p>`;
+        return;
+      }
+
+      vacio.style.display       = 'none';
+      lista.style.display       = 'block';
+
+      const totalPaginas = Math.ceil(registros.length / PAGE_SIZE);
+      const inicio  = (_paginaActual - 1) * PAGE_SIZE;
+      const fin     = Math.min(inicio + PAGE_SIZE, registros.length);
+      const pagina  = registros.slice(inicio, fin);
+
+      lista.innerHTML = pagina.map(r => {
+        const badge = r.combinacion
+          ? buildBadgeTipoCombinacion(r.combinacion.tipo)
+          : `<span style="font-size:0.75rem; color:var(--text-muted);">—</span>`;
+        const pos = 'RR';
+        const url = `detalle-combinacion.html?id1=${r.carta1.id}&id2=${r.carta2.id}&pos=${pos}`;
+        return `
+          <a href="${url}" class="combo-fila" aria-label="${r.carta1.arcano_es} + ${r.carta2.arcano_es}">
+            <span class="combo-carta-nombre">${r.carta1.arcano_es}</span>
+            <span class="combo-badge-centro">${badge}</span>
+            <span class="combo-carta-nombre derecha">${r.carta2.arcano_es}</span>
+            <span class="combo-flecha"><i class="ph ph-arrow-right"></i aria-hidden="true"></span>
+          </a>`;
+      }).join('');
+
+      // Paginación
+      if (totalPaginas > 1) {
+        paginacion.style.display = 'flex';
+        document.getElementById('paginacion-info').textContent =
+          `Página ${_paginaActual} de ${totalPaginas} (${registros.length} resultados)`;
+        document.getElementById('btn-anterior').disabled  = _paginaActual <= 1;
+        document.getElementById('btn-siguiente').disabled = _paginaActual >= totalPaginas;
+      } else {
+        paginacion.style.display = 'none';
+      }
+    }
+
+    function mostrarCargando() {
+      const lista = document.getElementById('combo-lista');
+      const vacio = document.getElementById('combo-estado-vacio');
+      vacio.style.display  = 'flex';
+      lista.style.display  = 'none';
+      vacio.innerHTML = `
+        <i class="ph ph-spinner spin" style="font-size:2rem; color:var(--secondary);"></i aria-hidden="true">
+        <p>Cargando combinaciones...</p>`;
+    }
+
+    // ── Eventos ───────────────────────────────────────────────────────────
+    document.getElementById('select-mayores').addEventListener('change', e => {
+      const val = parseInt(e.target.value);
+      if (val) {
+        document.getElementById('select-menores').value = ''; // excluir mutuamente
+        cargarCombinaciones(val);
+      }
+    });
+
+    document.getElementById('select-menores').addEventListener('change', e => {
+      const val = parseInt(e.target.value);
+      if (val) {
+        document.getElementById('select-mayores').value = ''; // excluir mutuamente
+        cargarCombinaciones(val);
+      }
+    });
+
+    document.getElementById('select-tipo').addEventListener('change', aplicarFiltros);
+
+    document.getElementById('input-busqueda').addEventListener('input', aplicarFiltros);
+
+    document.getElementById('btn-anterior').addEventListener('click', () => {
+      if (_paginaActual > 1) {
+        _paginaActual--;
+        aplicarFiltros();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    });
+
+    document.getElementById('btn-siguiente').addEventListener('click', () => {
+      const totalPaginas = Math.ceil(_registros.length / PAGE_SIZE);
+      if (_paginaActual < totalPaginas) {
+        _paginaActual++;
+        aplicarFiltros();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    });
+
+    // ── Init ──────────────────────────────────────────────────────────────
+    poblarSelects();
+  </script>
+
+</body>
+</html>

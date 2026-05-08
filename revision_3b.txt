@@ -1,0 +1,490 @@
+// selection.js — Gestión de selección de cartas en indicar-cartas.html.
+// Fase 2: solo funciones de validación y construcción del array.
+// Fase 3: añade lógica UI (selectores dinámicos, feedback visual, integración con animations.js).
+// NO reescribir este archivo en Fase 3 — extender con las funciones UI adicionales.
+
+/**
+ * Valida que no haya cartas duplicadas en la selección.
+ * @param {Array<number|null>} cartasSeleccionadas — array de IDs (null = posición vacía)
+ * @returns {{valido: boolean, duplicados: number[]}} — duplicados: índices con carta repetida
+ */
+export function validarSeleccionUnica(cartasSeleccionadas) {
+  const vistos = new Map(); // id → primer índice donde aparece
+  const duplicados = [];
+
+  cartasSeleccionadas.forEach((id, idx) => {
+    if (id === null || id === undefined || id === '') return; // posición vacía, ignorar
+    if (vistos.has(id)) {
+      // Marcar el índice actual y el primero como duplicados
+      if (!duplicados.includes(vistos.get(id))) duplicados.push(vistos.get(id));
+      duplicados.push(idx);
+    } else {
+      vistos.set(id, idx);
+    }
+  });
+
+  return {
+    valido: duplicados.length === 0,
+    duplicados
+  };
+}
+
+/**
+ * Lee los N selectores del DOM y construye el array de cartas seleccionadas.
+ * Los selectores deben tener data-posicion="C1"..."CN".
+ * Los toggles de orientación deben tener data-orientacion="recta"|"invertida" con clase "activo".
+ * @param {NodeList|Array} selectores — elementos <select> del formulario
+ * @returns {Array<{id: number, orientacion: string, posicion: string}>}
+ */
+export function buildCartasArray(selectores) {
+  return Array.from(selectores).map((sel, idx) => {
+    const id = sel.value ? parseInt(sel.value, 10) : null;
+    const posicion = sel.dataset.posicion || `C${idx + 1}`;
+
+    // Buscar el toggle activo del grupo de orientación de esta posición
+    const contenedor = sel.closest('[data-selector-grupo]') || sel.parentElement;
+    const toggleActivo = contenedor
+      ? contenedor.querySelector('[data-orientacion].activo')
+      : null;
+    const orientacion = toggleActivo
+      ? toggleActivo.dataset.orientacion
+      : 'recta'; // default recta
+
+    return { id, orientacion, posicion };
+  });
+}
+
+/**
+ * Verifica si todas las posiciones están cubiertas y no hay duplicados.
+ * @param {Array<{id: number|null}>} cartasArray — resultado de buildCartasArray()
+ * @param {number} numCartas — número de cartas que debe tener la tirada
+ * @returns {boolean}
+ */
+export function cartasCompletas(cartasArray, numCartas) {
+  if (cartasArray.length !== numCartas) return false;
+
+  const ids = cartasArray.map(c => c.id);
+
+  // Todas las posiciones deben tener carta asignada
+  if (ids.some(id => id === null || id === undefined)) return false;
+
+  // No puede haber duplicados
+  const { valido } = validarSeleccionUnica(ids);
+  return valido;
+}
+// navigation.js — Gestión de estado entre páginas y navegación.
+// Es el ÚNICO módulo que accede a localStorage y URLSearchParams.
+// Ninguna página HTML accede directamente a estas APIs.
+//
+// CONTRATO DE ESTADO:
+//   URL params    → estado efímero de navegación (leído una vez al cargar)
+//   localStorage  → estado de sesión del usuario (persiste entre páginas y recargas)
+//   sessionStorage → PROHIBIDO. No se usa en este proyecto.
+//
+// Claves en localStorage:
+//   mazo_seleccionado  → "1" | "2" | "3"  (sin expiración)
+//   modo_seleccionado  → "automatico" | "manual"  (sin expiración)
+//   tirada_actual      → objeto con timestamp, expira en 24h
+
+// ── MAZO ───────────────────────────────────────────────────────────────────
+
+/**
+ * Lee el mazo seleccionado del usuario.
+ * @returns {string} "1" | "2" | "3" — default "1"
+ */
+export function getMazo() {
+  return localStorage.getItem('mazo_seleccionado') || '1';
+}
+
+/**
+ * Guarda el mazo seleccionado.
+ * @param {string} valor — "1" | "2" | "3"
+ */
+export function setMazo(valor) {
+  localStorage.setItem('mazo_seleccionado', valor);
+}
+
+// ── MODO ────────────────────────────────────────────────────────────────────
+
+/**
+ * Lee el modo seleccionado del usuario.
+ * @returns {string} "automatico" | "manual" — default "automatico"
+ */
+export function getModo() {
+  return localStorage.getItem('modo_seleccionado') || 'automatico';
+}
+
+/**
+ * Guarda el modo seleccionado.
+ * @param {string} valor — "automatico" | "manual"
+ */
+export function setModo(valor) {
+  localStorage.setItem('modo_seleccionado', valor);
+}
+
+// ── TIRADA ACTUAL ───────────────────────────────────────────────────────────
+
+/**
+ * Lee la tirada actual del localStorage.
+ * Si está expirada (> 24h), la elimina y devuelve null.
+ * @returns {Object|null}
+ */
+export function getTiradaActual() {
+  try {
+    const raw = localStorage.getItem('tirada_actual');
+    if (!raw) return null;
+    const tirada = JSON.parse(raw);
+    if (!tirada.timestamp || Date.now() - tirada.timestamp > 86400000) {
+      clearTiradaActual();
+      return null;
+    }
+    return tirada;
+  } catch {
+    return null;
+  }
+}
+
+/**
+ * Guarda la tirada actual con timestamp = Date.now().
+ * Estructura esperada:
+ * {
+ *   id_tirada: "t042",
+ *   nombre: string,
+ *   tema: string,
+ *   num_cartas: number,
+ *   cartas: Array<{id, orientacion, posicion}>
+ * }
+ * @param {Object} obj
+ */
+export function setTiradaActual(obj) {
+  const datos = { ...obj, timestamp: Date.now() };
+  localStorage.setItem('tirada_actual', JSON.stringify(datos));
+}
+
+/**
+ * Elimina la tirada actual del localStorage.
+ */
+export function clearTiradaActual() {
+  localStorage.removeItem('tirada_actual');
+}
+
+// ── NAVEGACIÓN ──────────────────────────────────────────────────────────────
+
+/**
+ * Navega a la URL indicada.
+ * @param {string} url
+ */
+export function navigateTo(url) {
+  window.location.href = url;
+}
+
+/**
+ * Lee el valor de un parámetro de la URL actual.
+ * @param {string} param — nombre del parámetro
+ * @returns {string|null}
+ */
+export function getUrlParam(param) {
+  const params = new URLSearchParams(window.location.search);
+  return params.get(param);
+}
+// cards.js — Renderizado de cartas (thumbnails, previews).
+// NO contiene lógica de combinaciones — eso es combinations.js.
+// Actualizado en Fase 5 (arcanos) y Fase 6 (integración render-carta).
+
+/**
+ * Devuelve el HTML string de un placeholder CSS para una carta.
+ * @param {Object} carta — objeto de cartas.json
+ * @param {string} mazo  — "1" | "2" | "3"
+ * @param {string} tamano — "full" | "medium" | "thumb" | "icon"
+ * @returns {string} HTML string
+ */
+export function renderPlaceholderCarta(carta, mazo, tamano) {
+  // data-numero: numero_original de la carta (NO carta.id)
+  // Si numero_original es null (LE MAT): data-numero="" (vacío, sin número visible)
+  const numero = carta.numero_original !== null && carta.numero_original !== undefined
+    ? carta.numero_original
+    : '';
+
+  return `<div class="placeholder-carta-${tamano} mazo-${mazo}"
+               data-numero="${numero}"
+               data-nombre="${carta.arcano_es}"></div>`;
+}
+
+/**
+ * Devuelve el HTML de una celda de grid con imagen real (si existe) o placeholder thumb.
+ * La imagen real estaría en assets/images/mazo-{mazo}/{slug}-thumb.jpg
+ * con srcset para pantallas retina: thumb 1x, medium 2x.
+ * @param {Object} carta
+ * @param {string} mazo
+ * @returns {string} HTML string
+ */
+export function renderThumbnailCarta(carta, mazo) {
+  const thumbSrc   = `assets/images/mazo-${mazo}/${carta.slug}-thumb.jpg`;
+  const mediumSrc  = `assets/images/mazo-${mazo}/${carta.slug}-medium.jpg`;
+  const placeholder = renderPlaceholderCarta(carta, mazo, 'thumb');
+
+  // Texto de etiqueta bajo la carta — condicional por tipo
+  let etiqueta = '';
+  if (carta.tipo === 'arcano_mayor') {
+    etiqueta = carta.numero_original
+      ? `<span class="carta-numero">${carta.numero_original}</span>
+         <span class="carta-nombre">${carta.arcano_es}</span>`
+      : `<span class="carta-nombre">${carta.arcano_es}</span>`;
+  } else {
+    // arcano_menor: el palo ya está incluido en arcano_es
+    etiqueta = `<span class="carta-nombre">${carta.arcano_es}</span>`;
+  }
+
+  return `<div class="carta-thumbnail-wrapper" data-id="${carta.id}">
+    <div class="carta-imagen-container">
+      <img
+        src="${thumbSrc}"
+        srcset="${thumbSrc} 1x, ${mediumSrc} 2x"
+        alt="${carta.arcano_es}"
+        loading="lazy"
+        onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"
+      />
+      <div style="display:none;">${placeholder}</div>
+    </div>
+    <div class="carta-etiqueta">${etiqueta}</div>
+  </div>`;
+}
+
+/**
+ * Devuelve el nombre completo de una carta para usar en selectores y listados.
+ * - Arcano mayor con número: "VII - LE CHARIOT"
+ * - Arcano mayor sin número (LE MAT): "LE MAT"
+ * - Arcano menor: "AS DE BÂTONS"  (palo incluido en arcano_es)
+ * @param {Object} carta
+ * @returns {string}
+ */
+export function getNombreCompleto(carta) {
+  if (carta.tipo === 'arcano_mayor') {
+    return carta.numero_original
+      ? `${carta.numero_original} - ${carta.arcano_es}`
+      : carta.arcano_es;
+  }
+  // arcano_menor
+  return carta.arcano_es;
+}
+
+/**
+ * Devuelve el HTML del badge de tipo de carta.
+ * - Arcano Mayor → "Arcano Mayor"
+ * - Arcano Menor → "Arcano Menor · BÂTONS"
+ * Guard: si carta.palo es undefined/null en un arcano menor (cartas.json sin campo palo),
+ * muestra "Arcano Menor" sin palo y lanza console.warn.
+ * @param {Object} carta
+ * @returns {string} HTML string
+ */
+export function getBadgeTipo(carta) {
+  if (carta.tipo === 'arcano_mayor') {
+    return `<span class="badge-tipo badge-mayor">Arcano Mayor</span>`;
+  }
+
+  // arcano_menor — el campo palo es obligatorio
+  if (carta.palo === undefined || carta.palo === null) {
+    console.warn('[cards.js] carta.palo ausente en id:', carta.id);
+    return `<span class="badge-tipo badge-menor">Arcano Menor</span>`;
+  }
+
+  return `<span class="badge-tipo badge-menor">Arcano Menor · ${carta.palo}</span>`;
+}
+// data.js — Única fuente de verdad. Carga y cachea todos los JSON.
+// Nunca acceder a los JSON directamente desde otros módulos.
+// IMPORTAR estas funciones desde data.js ✅ — NUNCA reescribirlas en otro módulo ❌
+
+// Caché en módulo (no expuesto fuera)
+const _cache = {};
+
+// Carga genérica con caché y manejo de errores básico
+async function _load(key, url) {
+  if (_cache[key]) return _cache[key];
+  try {
+    const res = await fetch(url);
+    if (!res.ok) throw new Error(`HTTP ${res.status} al cargar ${url}`);
+    const datos = await res.json();
+    _cache[key] = datos;
+    return datos;
+  } catch (err) {
+    console.error(`[data.js] Error cargando ${url}:`, err);
+    throw err;
+  }
+}
+
+// Normaliza un registro de tirada para que siempre tenga id_tirada y nombre_tirada
+// independientemente de si el JSON usa "id"/"nombre" o "id_tirada"/"nombre_tirada"
+function _normalizarTirada(t) {
+  return {
+    ...t,
+    id_tirada:     t.id_tirada     || t.id,
+    nombre_tirada: t.nombre_tirada || t.nombre,
+  };
+}
+
+// —— FUNCIONES PÚBLICAS ————————————————————————————————————————
+
+export async function getCartas() {
+  return _load('cartas', 'data/cartas.json');
+}
+
+export async function getCartaById(id) {
+  const cartas = await getCartas();
+  return cartas.find(c => c.id === id);
+}
+
+export async function getTiradas(filtroTema = null) {
+  const raw = await _load('tiradas', 'data/tiradas.json');
+  const tiradas = raw.map(_normalizarTirada);
+  if (!filtroTema) return tiradas;
+  return tiradas.filter(t => t.tema === filtroTema);
+}
+
+export async function getTiradaById(idTirada) {
+  const raw = await _load('tiradas', 'data/tiradas.json');
+  const tiradas = raw.map(_normalizarTirada);
+  return tiradas.find(t => t.id_tirada === idTirada);
+}
+
+export async function getPosicionesByTirada(idTirada) {
+  const posiciones = await _load('posiciones', 'data/posiciones.json');
+  return posiciones.filter(p => p.id_tirada === idTirada);
+}
+
+export async function getSinonimos() {
+  return _load('sinonimos', 'data/sinonimos.json');
+}
+
+export async function buscarCombinacion(id1, id2, posicion) {
+  // TODO: Implementar en Fase 4 con lazy loading y Map index
+  return null;
+}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="El Código de las Cartas — Indica tus cartas">
+  <title>Indicar Cartas — El Código de las Cartas</title>
+
+  <!-- Phosphor Icons v2.1.1 -->
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/css/style.css">
+
+  <!-- CSS del proyecto — orden obligatorio -->
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/placeholders.css">
+</head>
+<body data-page="indicar-cartas">
+
+  <!-- ── HEADER / NAV ─────────────────────────────────────── -->
+  <header class="page-header">
+    <div class="container">
+      <nav class="navbar" aria-label="Navegación principal">
+        <a href="index.html" class="navbar-brand">El Código de las Cartas</a>
+        <div class="navbar-nav">
+          <!-- selection.js construirá href con el id de tirada correcto -->
+          <a href="detalle-tirada.html" class="nav-link" id="nav-volver-tirada" aria-label="Volver a la tirada">
+            <i class="ph ph-arrow-left"></i>
+            <span class="hide-sm">Volver</span>
+          </a>
+          <a href="index.html" class="nav-link" aria-label="Inicio">
+            <i class="ph ph-house"></i>
+            <span class="hide-sm">Inicio</span>
+          </a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ── BREADCRUMB ────────────────────────────────────────── -->
+  <div class="container mt-2">
+    <nav class="breadcrumb" aria-label="Ruta de navegación">
+      <span class="breadcrumb-item"><a href="index.html">Inicio</a></span>
+      <span class="breadcrumb-item"><a href="tipos-lecturas.html">Tipos de lecturas</a></span>
+      <span class="breadcrumb-item">
+        <a href="detalle-tirada.html" id="breadcrumb-tirada-link">Tirada</a>
+      </span>
+      <span class="breadcrumb-item active">Indicar cartas</span>
+    </nav>
+  </div>
+
+  <!-- ── PROGRESO ──────────────────────────────────────────── -->
+  <div class="container mt-3" id="progreso-seleccion">
+    <!--
+      selection.js renderizará aquí la barra de progreso:
+      "Posición X de Y seleccionada"
+    -->
+  </div>
+
+  <!-- ── MAIN ─────────────────────────────────────────────── -->
+  <main class="page-main" id="main-content">
+    <div class="container">
+
+      <div class="layout-sidebar">
+
+        <!-- Columna izquierda: posición activa y cartas seleccionadas -->
+        <aside id="panel-posiciones" aria-label="Posiciones de la tirada">
+          <!--
+            selection.js renderizará aquí el listado de posiciones
+            con indicador de qué cartas han sido asignadas
+          -->
+        </aside>
+
+        <!-- Columna derecha: selector de carta -->
+        <section id="panel-selector" aria-label="Selección de carta">
+
+          <!-- Posición activa — selection.js inyecta nombre y descripción -->
+          <div id="posicion-activa" class="mb-4">
+            <h2 id="nombre-posicion">Selecciona la primera carta</h2>
+            <p class="text-muted mt-1" id="descripcion-posicion"></p>
+          </div>
+
+          <!-- Controles de búsqueda y orientación — selection.js -->
+          <div id="controles-selector" class="cluster mb-3">
+            <!--
+              selection.js renderizará aquí:
+              - Input de búsqueda/filtro de cartas
+              - Toggle de orientación (recta / invertida)
+            -->
+          </div>
+
+          <!-- Grid de cartas para seleccionar — selection.js + cards.js -->
+          <div id="grid-seleccion" class="grid-cartas">
+            <!--
+              selection.js + cards.js renderizarán aquí
+              los placeholders de las 78 cartas del mazo seleccionado
+            -->
+          </div>
+
+        </section>
+      </div>
+
+      <!-- Botón de confirmar selección completa — selection.js -->
+      <div id="accion-confirmar" class="center-content mt-6">
+        <!--
+          selection.js habilitará este botón cuando todas las posiciones
+          estén asignadas y navegará a resultado.html
+        -->
+      </div>
+
+    </div>
+  </main>
+
+  <!-- ── FOOTER ────────────────────────────────────────────── -->
+  <footer class="page-footer">
+    <div class="container center-content">
+      <p class="text-muted" style="font-size: 0.8rem;">
+        El Código de las Cartas &mdash; Tarot de Marsella
+      </p>
+    </div>
+  </footer>
+
+  <!-- ES Module obligatorio — type="module" -->
+  <script type="module" src="js/selection.js"></script>
+
+</body>
+</html>

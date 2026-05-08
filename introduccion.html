@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Elige tu experiencia — El Código de las Cartas</title>
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+  <link rel="stylesheet" href="css/placeholders.css" />
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/css/style.css" />
+  <style>
+    .intro-page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    .intro-header {
+      padding: var(--space-3) var(--space-4);
+      border-bottom: 1px solid rgba(201,168,76,0.15);
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+    }
+    .intro-header-titulo {
+      font-family: 'Cinzel', serif;
+      font-size: 1rem;
+      color: var(--secondary);
+      font-weight: 600;
+      letter-spacing: 0.08em;
+    }
+    .intro-main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: var(--space-5) var(--space-4);
+      gap: var(--space-6);
+      max-width: 860px;
+      margin: 0 auto;
+      width: 100%;
+    }
+    .intro-titulo {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      color: var(--text-main);
+      font-weight: 700;
+      text-align: center;
+      margin: 0;
+    }
+
+    /* SECCIÓN MAZO */
+    .intro-seccion-titulo {
+      font-family: 'Cinzel', serif;
+      font-size: 0.8rem;
+      letter-spacing: 0.2em;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      text-align: center;
+      margin-bottom: var(--space-2);
+    }
+    .intro-seccion {
+      width: 100%;
+    }
+    .intro-mazos-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-2);
+    }
+    @media (max-width: 480px) {
+      .intro-mazos-grid { grid-template-columns: 1fr; }
+    }
+    .mazo-btn {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-2);
+      padding: var(--space-3) var(--space-2);
+      background: var(--bg-card);
+      border: 2px solid rgba(201,168,76,0.2);
+      border-radius: 8px;
+      cursor: pointer;
+      transition: border-color 0.2s, transform 0.2s;
+      text-align: center;
+      min-height: 200px;
+    }
+    .mazo-btn:hover {
+      border-color: rgba(201,168,76,0.5);
+      transform: translateY(-2px);
+    }
+    .mazo-btn.seleccionado {
+      border-color: var(--secondary);
+    }
+    .mazo-btn .check-icon {
+      position: absolute;
+      top: var(--space-1);
+      right: var(--space-1);
+      color: var(--secondary);
+      font-size: 1.3rem;
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+    .mazo-btn.seleccionado .check-icon {
+      opacity: 1;
+    }
+    .mazo-btn .mazo-preview {
+      width: 60px;
+      height: 94px;
+      border-radius: 4px;
+    }
+    .mazo-btn .mazo-nombre {
+      font-family: 'Cinzel', serif;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text-main);
+      letter-spacing: 0.05em;
+    }
+    .mazo-btn .mazo-desc {
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+
+    /* SECCIÓN MODO */
+    .intro-modos-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-2);
+    }
+    @media (max-width: 360px) {
+      .intro-modos-grid { grid-template-columns: 1fr; }
+    }
+    .modo-btn {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-2);
+      padding: var(--space-3) var(--space-3);
+      background: var(--bg-card);
+      border: 2px solid rgba(201,168,76,0.2);
+      border-radius: 8px;
+      cursor: pointer;
+      transition: border-color 0.2s, transform 0.2s;
+      text-align: center;
+    }
+    .modo-btn:hover {
+      border-color: rgba(201,168,76,0.5);
+      transform: translateY(-2px);
+    }
+    .modo-btn.seleccionado {
+      border-color: var(--secondary);
+    }
+    .modo-btn .check-icon {
+      position: absolute;
+      top: var(--space-1);
+      right: var(--space-1);
+      color: var(--secondary);
+      font-size: 1.3rem;
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+    .modo-btn.seleccionado .check-icon {
+      opacity: 1;
+    }
+    .modo-btn .modo-icono {
+      font-size: 2.2rem;
+      color: var(--secondary);
+      opacity: 0.75;
+    }
+    .modo-btn.seleccionado .modo-icono {
+      opacity: 1;
+    }
+    .modo-btn .modo-nombre {
+      font-family: 'Cinzel', serif;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text-main);
+    }
+    .modo-btn .modo-desc {
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+
+    /* MENSAJE DE ERROR */
+    .intro-error {
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 0.85rem;
+      color: #F44336;
+      text-align: center;
+      min-height: 1.2em;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* BOTONES DE NAVEGACIÓN */
+    .intro-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      padding: var(--space-3) var(--space-4);
+      border-top: 1px solid rgba(201,168,76,0.12);
+      gap: var(--space-2);
+    }
+    .btn-nav {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px var(--space-3);
+      font-family: 'Cinzel', serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      border-radius: 4px;
+      cursor: pointer;
+      border: none;
+      transition: opacity 0.2s, transform 0.2s;
+      text-decoration: none;
+      min-height: 44px;
+    }
+    .btn-nav-secundario {
+      background: transparent;
+      color: var(--text-muted);
+      border: 1px solid rgba(255,255,255,0.15);
+    }
+    .btn-nav-secundario:hover { opacity: 0.75; }
+    .btn-nav-primario {
+      background: var(--secondary);
+      color: var(--bg-dark);
+    }
+    .btn-nav-primario:hover:not(:disabled) {
+      opacity: 0.88;
+      transform: translateY(-1px);
+    }
+    .btn-nav-primario:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+  </style>
+  <meta property="og:title" content="Elige tu experiencia — El Código de las Cartas">
+  <meta property="og:description" content="Selecciona tu mazo y modo de lectura para comenzar tu consulta de Tarot de Marsella.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_ES">
+</head>
+<body data-page="introduccion">
+
+  <header class="intro-header" style="justify-content: space-between;">
+    <span class="intro-header-titulo">El Código de las Cartas</span>
+    <a href="arcanos.html" class="btn-nav btn-nav-secundario" style="font-size:0.78rem; padding: 8px 14px; min-height:36px;">
+      <i class="ph ph-cards"></i aria-hidden="true">
+      <span>Explorar Arcanos</span>
+    </a>
+  </header>
+
+  <main class="intro-main">
+    <h1 class="intro-titulo">Elige tu experiencia</h1>
+
+    <!-- SECCIÓN MAZO -->
+    <section class="intro-seccion" id="seccion-mazo">
+      <p class="intro-seccion-titulo">Elige tu mazo</p>
+      <div class="intro-mazos-grid">
+
+        <button class="mazo-btn" data-mazo="1" type="button" aria-label="Seleccionar Mazo Clásico">
+          <i class="ph ph-check-circle check-icon"></i aria-hidden="true">
+          <div class="placeholder-carta-icon mazo-1 mazo-preview"></div>
+          <span class="mazo-nombre">Clásico</span>
+          <span class="mazo-desc">Tradición pura del Tarot de Marsella</span>
+        </button>
+
+        <button class="mazo-btn" data-mazo="2" type="button" aria-label="Seleccionar Mazo Art Nouveau">
+          <i class="ph ph-check-circle check-icon"></i aria-hidden="true">
+          <div class="placeholder-carta-icon mazo-2 mazo-preview"></div>
+          <span class="mazo-nombre">Art Nouveau</span>
+          <span class="mazo-desc">Ilustraciones de inspiración simbolista</span>
+        </button>
+
+        <button class="mazo-btn" data-mazo="3" type="button" aria-label="Seleccionar Mazo Impasto">
+          <i class="ph ph-check-circle check-icon"></i aria-hidden="true">
+          <div class="placeholder-carta-icon mazo-3 mazo-preview"></div>
+          <span class="mazo-nombre">Impasto</span>
+          <span class="mazo-desc">Interpretación contemporánea en técnica pictórica</span>
+        </button>
+
+      </div>
+    </section>
+
+    <!-- SECCIÓN MODO -->
+    <section class="intro-seccion" id="seccion-modo">
+      <p class="intro-seccion-titulo">Elige tu modo de lectura</p>
+      <div class="intro-modos-grid">
+
+        <button class="modo-btn" data-modo="automatico" type="button" aria-label="Modo automático: las cartas se barajan solas">
+          <i class="ph ph-check-circle check-icon"></i aria-hidden="true">
+          <i class="ph ph-shuffle modo-icono"></i aria-hidden="true">
+          <span class="modo-nombre">Automático</span>
+          <span class="modo-desc">Las cartas se barajan y revelan solas</span>
+        </button>
+
+        <button class="modo-btn" data-modo="manual" type="button" aria-label="Modo manual: tú indicas las cartas">
+          <i class="ph ph-check-circle check-icon"></i aria-hidden="true">
+          <i class="ph ph-hand-pointing modo-icono"></i aria-hidden="true">
+          <span class="modo-nombre">Manual</span>
+          <span class="modo-desc">Tú indicas qué cartas viste</span>
+        </button>
+
+      </div>
+    </section>
+
+    <!-- MENSAJE DE ERROR -->
+    <p class="intro-error" id="intro-error" aria-live="polite"></p>
+
+  </main>
+
+  <!-- NAVEGACIÓN -->
+  <nav class="intro-nav">
+    <a href="index.html" class="btn-nav btn-nav-secundario">
+      <i class="ph ph-arrow-left"></i aria-hidden="true"> Volver
+    </a>
+    <button id="btn-continuar" class="btn-nav btn-nav-primario" type="button" disabled>
+      Continuar <i class="ph ph-arrow-right"></i aria-hidden="true">
+    </button>
+  </nav>
+
+  
+  <!-- Global init — Fase 6 -->
+  <script type="module" src="js/main.js"></script>
+
+  <script type="module">
+    import { getMazo, setMazo, getModo, setModo, navigateTo } from './js/navigation.js';
+
+    // ── Estado local ─────────────────────────────────────────────────────────
+    let mazoActual  = getMazo();
+    let modoActual  = getModo();
+
+    // ── Restaurar selecciones previas ─────────────────────────────────────────
+    function restaurarSeleccion() {
+      document.querySelectorAll('.mazo-btn').forEach(btn => {
+        btn.classList.toggle('seleccionado', btn.dataset.mazo === mazoActual);
+      });
+      document.querySelectorAll('.modo-btn').forEach(btn => {
+        btn.classList.toggle('seleccionado', btn.dataset.modo === modoActual);
+      });
+      actualizarBotonContinuar();
+    }
+
+    // ── Botón continuar ───────────────────────────────────────────────────────
+    function actualizarBotonContinuar() {
+      const btn = document.getElementById('btn-continuar');
+      const listo = mazoActual && modoActual;
+      btn.disabled = !listo;
+    }
+
+    // ── Handlers de mazo ─────────────────────────────────────────────────────
+    document.querySelectorAll('.mazo-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        mazoActual = btn.dataset.mazo;
+        setMazo(mazoActual);
+        document.querySelectorAll('.mazo-btn').forEach(b =>
+          b.classList.remove('seleccionado'));
+        btn.classList.add('seleccionado');
+        limpiarError();
+        actualizarBotonContinuar();
+      });
+    });
+
+    // ── Handlers de modo ─────────────────────────────────────────────────────
+    document.querySelectorAll('.modo-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        modoActual = btn.dataset.modo;
+        setModo(modoActual);
+        document.querySelectorAll('.modo-btn').forEach(b =>
+          b.classList.remove('seleccionado'));
+        btn.classList.add('seleccionado');
+        limpiarError();
+        actualizarBotonContinuar();
+      });
+    });
+
+    // ── Continuar ─────────────────────────────────────────────────────────────
+    document.getElementById('btn-continuar').addEventListener('click', () => {
+      if (!mazoActual || !modoActual) {
+        mostrarError('Elige un mazo y un modo para continuar.');
+        return;
+      }
+      navigateTo('tipos-lecturas.html');
+    });
+
+    // ── Helpers ───────────────────────────────────────────────────────────────
+    function mostrarError(msg) {
+      const el = document.getElementById('intro-error');
+      el.innerHTML = `<i class="ph ph-warning-circle"></i aria-hidden="true"> ${msg}`;
+    }
+    function limpiarError() {
+      document.getElementById('intro-error').textContent = '';
+    }
+
+    // ── Init ──────────────────────────────────────────────────────────────────
+    restaurarSeleccion();
+  </script>
+
+</body>
+</html>

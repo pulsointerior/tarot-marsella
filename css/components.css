@@ -1,0 +1,1052 @@
+/* ============================================================
+   components.css — Componentes reutilizables
+   Proyecto: Código de las Cartas — Tarot de Marsella
+   
+   CORRECCIONES v2 respecto al doc Fase 0A original:
+   - Clases badge-tema usan el nombre EXACTO del campo "tema" en tiradas.json
+   ============================================================ */
+
+/* ─────────────────────────────────────────────────────────────
+   BADGES DE ORIENTACIÓN
+   ───────────────────────────────────────────────────────────── */
+
+.badge-recta {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 10px;
+  border-radius: 4px;
+  border: 1px solid var(--secondary);
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--secondary);
+  background: transparent;
+}
+
+.badge-invertida {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 10px;
+  border-radius: 4px;
+  border: 1px solid #F44336;
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #F44336;
+  background: transparent;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   BADGES DE TIPO COMBINACIÓN
+   ───────────────────────────────────────────────────────────── */
+
+.badge-tipo {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border-radius: 4px;
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border: 1px solid;
+  background: transparent;
+}
+
+.badge-resonancia  { color: var(--color-resonancia);  border-color: var(--color-resonancia);  background: rgba(76, 175, 80, 0.15); }
+.badge-complemento { color: var(--color-complemento); border-color: var(--color-complemento); background: rgba(33, 150, 243, 0.15); }
+.badge-tension     { color: var(--color-tension);     border-color: var(--color-tension);     background: rgba(244, 67, 54, 0.15); }
+.badge-neutro      { color: var(--color-neutro);      border-color: var(--color-neutro);      background: rgba(158, 158, 158, 0.15); }
+.badge-sinergia    { color: var(--color-resonancia);  border-color: var(--color-resonancia);  background: rgba(76, 175, 80, 0.15); }
+.badge-bloqueo     { color: var(--color-tension);     border-color: var(--color-tension);     background: rgba(244, 67, 54, 0.15); }
+.badge-refuerzo    { color: var(--color-complemento); border-color: var(--color-complemento); background: rgba(33, 150, 243, 0.15); }
+
+/* ─────────────────────────────────────────────────────────────
+   BADGES DE TEMA
+   ───────────────────────────────────────────────────────────── */
+
+.badge-tema {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border-radius: 4px;
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #C9A84C;
+  background: transparent;
+  border: 1px solid;
+}
+
+.badge-tema-amor                     { background: rgba(233, 30, 99, 0.15);   border-color: #E91E63; }
+.badge-tema-consultas_generales      { background: rgba(0, 188, 212, 0.15);   border-color: #00BCD4; }
+.badge-tema-creatividad_proyectos    { background: rgba(255, 152, 0, 0.15);   border-color: #FF9800; }
+.badge-tema-crisis_transformacion    { background: rgba(156, 39, 176, 0.15);  border-color: #9C27B0; }
+.badge-tema-decisiones_elecciones    { background: rgba(255, 193, 7, 0.15);   border-color: #FFC107; }
+.badge-tema-espiritualidad_crecimiento { background: rgba(63, 81, 181, 0.15); border-color: #3F51B5; }
+.badge-tema-familia_hogar            { background: rgba(104, 159, 56, 0.15);  border-color: #689F38; }
+.badge-tema-salud_bienestar          { background: rgba(239, 83, 80, 0.15);   border-color: #EF5350; }
+.badge-tema-trabajo_dinero           { background: rgba(46, 125, 50, 0.15);   border-color: #2E7D32; }
+.badge-tema-viajes_mudanzas          { background: rgba(66, 165, 245, 0.15);  border-color: #42A5F5; }
+
+/* ─────────────────────────────────────────────────────────────
+   SELECTOR DE CARTAS — FASE 3B
+   Usado en indicar-cartas.html modo manual
+   ───────────────────────────────────────────────────────────── */
+
+/* Grupo completo de una posición */
+.selector-grupo {
+  background: var(--bg-card);
+  border: 1px solid rgba(201, 168, 76, 0.15);
+  border-radius: 8px;
+  padding: var(--space-3);
+  margin-bottom: var(--space-3);
+  transition: border-color 0.2s ease;
+}
+
+.selector-grupo:focus-within {
+  border-color: rgba(201, 168, 76, 0.4);
+}
+
+/* Cabecera del grupo: etiqueta de posición */
+.selector-header {
+  margin-bottom: var(--space-2);
+}
+
+.selector-label {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.selector-pos-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 28px;
+  height: 20px;
+  padding: 0 6px;
+  border-radius: 4px;
+  background: rgba(201, 168, 76, 0.15);
+  border: 1px solid rgba(201, 168, 76, 0.4);
+  font-family: 'Cinzel', serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--secondary);
+}
+
+/* Fila horizontal: <select> + toggle R/I */
+.selector-fila {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+/* El <select> ocupa el espacio restante */
+.selector-carta {
+  flex: 1;
+  min-width: 0;
+  height: 44px; /* touch target mínimo */
+  padding: 0 var(--space-2);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(201, 168, 76, 0.25);
+  border-radius: 6px;
+  color: var(--text-main);
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 0.9rem;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23888' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  padding-right: 36px;
+  transition: border-color 0.2s ease;
+}
+
+.selector-carta:focus {
+  outline: none;
+  border-color: var(--secondary);
+  box-shadow: 0 0 0 2px rgba(201, 168, 76, 0.2);
+}
+
+.selector-carta option {
+  background: var(--bg-card);
+  color: var(--text-main);
+}
+
+/* Estados de validación */
+.selector-carta.sel-ok {
+  border-color: rgba(76, 175, 80, 0.6);
+}
+
+.selector-carta.sel-error {
+  border-color: #F44336;
+  box-shadow: 0 0 0 2px rgba(244, 67, 54, 0.2);
+}
+
+/* Toggle de orientación R / I */
+.toggle-orientacion {
+  display: flex;
+  flex-shrink: 0;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid rgba(201, 168, 76, 0.25);
+}
+
+.btn-orientacion {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  height: 44px;
+  padding: 0 12px;
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+  white-space: nowrap;
+}
+
+.btn-orientacion:hover {
+  background: rgba(201, 168, 76, 0.1);
+  color: var(--text-main);
+}
+
+/* Recta activa — dorado */
+.btn-orientacion[data-orientacion="recta"].activo {
+  background: rgba(201, 168, 76, 0.2);
+  color: var(--secondary);
+}
+
+/* Invertida activa — rojo */
+.btn-orientacion[data-orientacion="invertida"].activo {
+  background: rgba(244, 67, 54, 0.15);
+  color: #F44336;
+}
+
+/* Separador entre los dos botones del toggle */
+.toggle-orientacion .btn-orientacion + .btn-orientacion {
+  border-left: 1px solid rgba(201, 168, 76, 0.25);
+}
+
+.toggle-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+/* Preview de carta seleccionada */
+.selector-preview {
+  margin-top: var(--space-2);
+  display: flex;
+  justify-content: center;
+  min-height: 0;
+  transition: min-height 0.2s ease;
+}
+
+.selector-preview:not(:empty) {
+  min-height: 314px; /* altura medium */
+  padding: var(--space-1) 0;
+}
+
+/* Mensaje de error/duplicado */
+.sel-warning {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: var(--space-1);
+  padding: 6px 10px;
+  border-radius: 4px;
+  background: rgba(244, 67, 54, 0.1);
+  border: 1px solid rgba(244, 67, 54, 0.3);
+  color: #F44336;
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 0.8rem;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   PANEL LATERAL DE POSICIONES
+   ───────────────────────────────────────────────────────────── */
+
+.panel-titulo {
+  font-family: 'Cinzel', serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: var(--space-2);
+}
+
+.lista-posiciones {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.posicion-item {
+  display: grid;
+  grid-template-columns: 32px 1fr;
+  grid-template-rows: auto auto;
+  gap: 2px 8px;
+  padding: var(--space-1) var(--space-2);
+  border-radius: 6px;
+  border: 1px solid rgba(201, 168, 76, 0.1);
+  background: var(--bg-card);
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.posicion-item.posicion-asignada {
+  border-color: rgba(76, 175, 80, 0.4);
+  background: rgba(76, 175, 80, 0.05);
+}
+
+.posicion-label {
+  grid-row: 1 / 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Cinzel', serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--secondary);
+}
+
+.posicion-nombre {
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-main);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.posicion-carta-asignada {
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.posicion-item.posicion-asignada .posicion-carta-asignada {
+  color: rgba(76, 175, 80, 0.9);
+}
+
+/* ─────────────────────────────────────────────────────────────
+   BARRA DE PROGRESO
+   ───────────────────────────────────────────────────────────── */
+
+.progreso-bar {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.progreso-bar span {
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.progreso-track {
+  height: 4px;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+}
+
+.progreso-fill {
+  height: 100%;
+  border-radius: 2px;
+  background: var(--secondary);
+  transition: width 0.3s ease;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   MODO AUTOMÁTICO — cartas reveladas
+   ───────────────────────────────────────────────────────────── */
+
+.mazo-automatico-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 260px;
+  perspective: 800px;
+}
+
+.grid-cartas-reveladas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  justify-content: center;
+  padding: var(--space-3) 0;
+}
+
+.carta-revelada {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+.carta-revelada-pos {
+  font-family: 'Cinzel', serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--secondary);
+  letter-spacing: 0.08em;
+}
+
+.carta-revelada-orientacion {
+  margin-top: 4px;
+}
+
+.acciones-automatico {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+}
+/* ─────────────────────────────────────────────────────────────
+   BOTONES PRINCIPALES
+   Usados en indicar-cartas.html, resultado.html y resto de páginas
+   ───────────────────────────────────────────────────────────── */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 24px;
+  border: none;
+  border-radius: 6px;
+  font-family: 'Cinzel', serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: opacity 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+  transform: none !important;
+}
+
+/* Botón primario — dorado sobre oscuro */
+.btn-primary {
+  background: var(--secondary);       /* #C9A84C */
+  color: #0A0A0A;                      /* negro — máximo contraste */
+  border: 1px solid var(--secondary);
+}
+
+.btn-primary:hover:not(:disabled) {
+  opacity: 0.88;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(201, 168, 76, 0.4);
+}
+
+/* Botón secundario — contorno dorado, fondo transparente */
+.btn-secondary {
+  background: transparent;
+  color: var(--secondary);
+  border: 1px solid var(--secondary);
+}
+
+.btn-secondary:hover:not(:disabled) {
+  background: rgba(201, 168, 76, 0.1);
+  transform: translateY(-1px);
+}
+
+/* Botón ghost — contorno tenue */
+.btn-ghost {
+  background: transparent;
+  color: var(--text-main);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.btn-ghost:hover:not(:disabled) {
+  border-color: rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* Tamaños */
+.btn-sm {
+  padding: 6px 14px;
+  font-size: 0.75rem;
+}
+
+.btn-lg {
+  padding: 14px 32px;
+  font-size: 0.95rem;
+  letter-spacing: 0.12em;
+}
+
+/* Estado listo — refuerzo visual cuando el botón se habilita */
+.btn-listo {
+  box-shadow: 0 0 0 1px rgba(201, 168, 76, 0.5);
+}
+
+/* Estado cargando */
+.btn-cargando {
+  opacity: 0.7;
+  cursor: wait;
+}
+
+/* Estado error */
+.btn-error {
+  background: rgba(244, 67, 54, 0.15);
+  color: #F44336;
+  border-color: #F44336;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   EXPLORADOR DE COMBINACIONES — resultado.html
+   Clases generadas por renderFilaResumenCombinacion() en combinations.js
+   ───────────────────────────────────────────────────────────── */
+
+/* Fila individual carta1 [badge] carta2 [→] */
+.comb-fila-resumen {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-1);
+  border-bottom: 1px solid rgba(201, 168, 76, 0.08);
+  flex-wrap: wrap;
+}
+
+.comb-fila-resumen:last-child {
+  border-bottom: none;
+}
+
+/* Nombre de carta en la fila */
+.comb-carta-nombre {
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 0.85rem;
+  color: var(--text-main);
+  min-width: 120px;
+}
+
+/* Enlace → al detalle de la combinación */
+.comb-enlace-detalle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid rgba(201, 168, 76, 0.3);
+  color: var(--secondary);
+  text-decoration: none;
+  transition: background 0.2s ease, border-color 0.2s ease;
+  flex-shrink: 0;
+  margin-left: auto;
+}
+
+.comb-enlace-detalle:hover {
+  background: rgba(201, 168, 76, 0.12);
+  border-color: var(--secondary);
+  text-decoration: none;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   MODAL DE CARTA — arcanos.html
+   Generado por abrirModal() / renderModalDetalleCarta() en cards.js
+   ───────────────────────────────────────────────────────────── */
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.82);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  overflow-y: auto;
+  padding: var(--space-4) var(--space-2);
+}
+
+.modal-contenedor {
+  position: relative;
+  background: var(--bg-card);
+  border: 1px solid rgba(201, 168, 76, 0.25);
+  border-radius: 12px;
+  width: 100%;
+  max-width: 960px;
+  padding: var(--space-4);
+  margin: auto;
+}
+
+/* Botón cerrar × */
+.modal-btn-cerrar {
+  position: absolute;
+  top: var(--space-2);
+  right: var(--space-2);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  z-index: 1;
+}
+
+.modal-btn-cerrar:hover {
+  background: rgba(244, 67, 54, 0.15);
+  color: #F44336;
+  border-color: #F44336;
+}
+
+/* Toggle Recta / Invertida en el modal */
+.modal-toggle-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: var(--space-3);
+}
+
+/* Campos del modal */
+.modal-campo {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: var(--space-1) var(--space-2);
+  align-items: start;
+  padding: var(--space-1) 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  font-size: 0.9rem;
+}
+
+.modal-campo:last-child {
+  border-bottom: none;
+}
+
+.modal-campo-etiqueta {
+  color: var(--text-muted);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding-top: 2px;
+}
+
+.modal-campo-valor {
+  color: var(--text-main);
+  line-height: 1.55;
+}
+
+/* Secciones internas del modal */
+.modal-seccion {
+  margin-bottom: var(--space-3);
+  padding-bottom: var(--space-3);
+  border-bottom: 1px solid rgba(201, 168, 76, 0.08);
+}
+
+.modal-seccion:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
+.modal-seccion-titulo {
+  font-family: 'Cinzel', serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: var(--space-2);
+}
+
+/* Expandibles del modal */
+.modal-expandible-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-2) 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--secondary);
+  font-family: 'Cinzel', serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-align: left;
+  letter-spacing: 0.08em;
+}
+
+.modal-expandible-header:hover {
+  opacity: 0.8;
+}
+
+.modal-expandible-body {
+  padding-top: var(--space-1);
+}
+
+.modal-expandible-icono {
+  flex-shrink: 0;
+  font-size: 0.9rem;
+  transition: transform 0.2s ease;
+}
+
+/* Navegación prev/next del modal */
+.modal-navegacion {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-2);
+  margin-top: var(--space-4);
+  padding-top: var(--space-3);
+  border-top: 1px solid rgba(201, 168, 76, 0.12);
+  flex-wrap: wrap;
+}
+
+/* Número y título de la carta en el modal */
+.modal-numero {
+  font-family: 'Cinzel', serif;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+}
+
+.modal-titulo {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(1.2rem, 3vw, 1.6rem);
+  font-weight: 700;
+  color: var(--secondary);
+  margin: var(--space-1) 0 var(--space-2);
+}
+
+/* Imagen completa de carta en el modal */
+.modal-carta-full {
+  max-width: 200px;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.6);
+  display: block;
+  margin: 0 auto;
+}
+
+/* Sección de identificación en modal */
+.modal-identificacion {
+  display: flex;
+  gap: var(--space-3);
+  align-items: flex-start;
+  flex-wrap: wrap;
+  margin-bottom: var(--space-3);
+}
+
+.modal-identificacion-info {
+  flex: 1;
+  min-width: 180px;
+}
+
+.modal-imagen-container {
+  flex-shrink: 0;
+}
+
+@media (max-width: 480px) {
+  .modal-campo {
+    grid-template-columns: 1fr;
+  }
+  .modal-identificacion {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .modal-toggle-wrapper {
+    justify-content: center;
+  }
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   CONCLUSIÓN — Bloques y separadores
+   ───────────────────────────────────────────────────────────────────────────── */
+
+.conclusion-texto {
+  line-height: 1.8;
+}
+
+.conclusion-bloque {
+  margin-bottom: var(--space-4);
+}
+
+.conclusion-bloque p {
+  margin-bottom: var(--space-3);
+  line-height: 1.8;
+}
+
+.conclusion-bloque p:last-child {
+  margin-bottom: 0;
+}
+
+.conclusion-separador {
+  text-align: center;
+  color: var(--secondary);
+  opacity: 0.5;
+  font-size: 0.85rem;
+  letter-spacing: 0.3em;
+  margin: var(--space-4) 0;
+}
+
+.conclusion-nota-contexto {
+  margin-top: var(--space-4);
+}
+
+/* ─────────────────────────────────────────────────────────────
+   FICHA DE CARTA — datos-grid, dato-item, secciones y expandibles
+   Usado por render-carta.js en resultado.html y arcanos.html
+   ───────────────────────────────────────────────────────────── */
+
+/* Grid de datos: columna label / valor con separador por fila */
+.datos-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.dato-item {
+  display: grid;
+  grid-template-columns: minmax(140px, 1fr) 2fr;
+  gap: var(--space-1) var(--space-2);
+  align-items: baseline;
+  padding: var(--space-2) 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+
+.dato-item:last-child {
+  border-bottom: none;
+}
+
+.dato-label {
+  color: var(--text-muted);
+  font-size: 0.78rem;
+  font-family: 'Source Sans 3', sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding-top: 2px;
+}
+
+.dato-valor {
+  color: var(--text-main);
+  font-family: 'Source Sans 3', sans-serif;
+  line-height: 1.6;
+}
+
+/* Alerta dentro de combinaciones */
+.comb-alerta {
+  color: #F44336;
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+}
+
+@media (max-width: 480px) {
+  .dato-item {
+    grid-template-columns: 1fr;
+    gap: 2px;
+  }
+}
+
+/* Títulos de sección dentro de cartas */
+.seccion-titulo {
+  font-family: 'Cinzel', serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: var(--space-2);
+  margin-top: 0;
+}
+
+/* Secciones de contenido de carta */
+.seccion-accion,
+.seccion-tema,
+.seccion-identificacion {
+  padding: var(--space-3) 0;
+  border-bottom: 1px solid rgba(201, 168, 76, 0.08);
+}
+
+.seccion-accion:last-child,
+.seccion-tema:last-child {
+  border-bottom: none;
+}
+
+/* Acordeón expandible — Correspondencias, Manifestación Externa, Crecimiento Personal */
+.seccion-expandible {
+  border-bottom: 1px solid rgba(201, 168, 76, 0.08);
+}
+
+.seccion-expandible:last-child {
+  border-bottom: none;
+}
+
+.toggle-expandible {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-2) 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--secondary);
+  font-family: 'Cinzel', serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-align: left;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: opacity 0.15s ease;
+}
+
+.toggle-expandible:hover {
+  opacity: 0.8;
+}
+
+.toggle-icon {
+  flex-shrink: 0;
+  font-size: 0.9rem;
+  transition: transform 0.2s ease;
+}
+
+.toggle-expandible[aria-expanded="true"] .toggle-icon {
+  transform: rotate(180deg);
+}
+
+.panel-expandible {
+  padding-bottom: var(--space-2);
+}
+
+.panel-expandible[hidden] {
+  display: none;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   ARCANOS — Secciones de galería
+   ───────────────────────────────────────────────────────────────────────────── */
+
+.arcanos-controles-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2);
+  margin-bottom: var(--space-4);
+}
+
+.buscador-arcanos-wrapper {
+  position: relative;
+  flex: 1;
+  min-width: 240px;
+}
+
+.buscador-arcanos-wrapper .buscador-icono {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-muted);
+  font-size: 1rem;
+  pointer-events: none;
+}
+
+.buscador-arcanos-wrapper .buscador-input {
+  width: 100%;
+  padding: 10px 36px 10px 36px;
+  box-sizing: border-box;
+}
+
+.buscador-arcanos-wrapper .buscador-btn-limpiar {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* grid-arcanos es un bloque — las secciones se apilan verticalmente */
+#grid-arcanos {
+  display: block;
+  width: 100%;
+}
+
+.arcanos-seccion {
+  margin-bottom: var(--space-6);
+}
+
+.arcanos-seccion-header {
+  margin-bottom: var(--space-3);
+  padding-bottom: var(--space-2);
+  border-bottom: 1px solid rgba(201,168,76,0.2);
+}
+
+.arcanos-seccion-titulo {
+  font-family: 'Cinzel', serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--secondary);
+  margin: 0 0 var(--space-1) 0;
+}
+
+.arcanos-seccion-subtitulo {
+  font-size: 0.85rem;
+  margin: 0;
+}
+
+.arcanos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: var(--space-2);
+}
+
+@media (max-width: 480px) {
+  .arcanos-grid {
+    grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+  }
+}

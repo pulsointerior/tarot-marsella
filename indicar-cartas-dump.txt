@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="El Código de las Cartas — Indica tus cartas">
+  <title>Indicar Cartas — El Código de las Cartas</title>
+
+  <!-- Phosphor Icons v2.1.1 -->
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/css/style.css">
+
+  <!-- CSS del proyecto — orden obligatorio -->
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/placeholders.css">
+</head>
+<body data-page="indicar-cartas">
+
+  <!-- ── HEADER / NAV ─────────────────────────────────────── -->
+  <header class="page-header">
+    <div class="container">
+      <nav class="navbar" aria-label="Navegación principal">
+        <a href="index.html" class="navbar-brand">El Código de las Cartas</a>
+        <div class="navbar-nav">
+          <!-- selection.js construirá href con el id de tirada correcto -->
+          <a href="detalle-tirada.html" class="nav-link" id="nav-volver-tirada" aria-label="Volver a la tirada">
+            <i class="ph ph-arrow-left"></i>
+            <span class="hide-sm">Volver</span>
+          </a>
+          <a href="index.html" class="nav-link" aria-label="Inicio">
+            <i class="ph ph-house"></i>
+            <span class="hide-sm">Inicio</span>
+          </a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ── BREADCRUMB ────────────────────────────────────────── -->
+  <div class="container mt-2">
+    <nav class="breadcrumb" aria-label="Ruta de navegación">
+      <span class="breadcrumb-item"><a href="index.html">Inicio</a></span>
+      <span class="breadcrumb-item"><a href="tipos-lecturas.html">Tipos de lecturas</a></span>
+      <span class="breadcrumb-item">
+        <a href="detalle-tirada.html" id="breadcrumb-tirada-link">Tirada</a>
+      </span>
+      <span class="breadcrumb-item active">Indicar cartas</span>
+    </nav>
+  </div>
+
+  <!-- ── PROGRESO ──────────────────────────────────────────── -->
+  <div class="container mt-3" id="progreso-seleccion">
+    <!--
+      selection.js renderizará aquí la barra de progreso:
+      "Posición X de Y seleccionada"
+    -->
+  </div>
+
+  <!-- ── MAIN ─────────────────────────────────────────────── -->
+  <main class="page-main" id="main-content">
+    <div class="container">
+
+      <div class="layout-sidebar">
+
+        <!-- Columna izquierda: posición activa y cartas seleccionadas -->
+        <aside id="panel-posiciones" aria-label="Posiciones de la tirada">
+          <!--
+            selection.js renderizará aquí el listado de posiciones
+            con indicador de qué cartas han sido asignadas
+          -->
+        </aside>
+
+        <!-- Columna derecha: selector de carta -->
+        <section id="panel-selector" aria-label="Selección de carta">
+
+          <!-- Posición activa — selection.js inyecta nombre y descripción -->
+          <div id="posicion-activa" class="mb-4">
+            <h2 id="nombre-posicion">Selecciona la primera carta</h2>
+            <p class="text-muted mt-1" id="descripcion-posicion"></p>
+          </div>
+
+          <!-- Controles de búsqueda y orientación — selection.js -->
+          <div id="controles-selector" class="cluster mb-3">
+            <!--
+              selection.js renderizará aquí:
+              - Input de búsqueda/filtro de cartas
+              - Toggle de orientación (recta / invertida)
+            -->
+          </div>
+
+          <!-- Grid de cartas para seleccionar — selection.js + cards.js -->
+          <div id="grid-seleccion" class="grid-cartas">
+            <!--
+              selection.js + cards.js renderizarán aquí
+              los placeholders de las 78 cartas del mazo seleccionado
+            -->
+          </div>
+
+        </section>
+      </div>
+
+      <!-- Botón de confirmar selección completa — selection.js -->
+      <div id="accion-confirmar" class="center-content mt-6">
+        <!--
+          selection.js habilitará este botón cuando todas las posiciones
+          estén asignadas y navegará a resultado.html
+        -->
+      </div>
+
+    </div>
+  </main>
+
+  <!-- ── FOOTER ────────────────────────────────────────────── -->
+  <footer class="page-footer">
+    <div class="container center-content">
+      <p class="text-muted" style="font-size: 0.8rem;">
+        El Código de las Cartas &mdash; Tarot de Marsella
+      </p>
+    </div>
+  </footer>
+
+  <!-- ES Module obligatorio — type="module" -->
+  <script type="module" src="js/selection.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,192 @@
+/* ============================================================
+   placeholders.css — Placeholders CSS para cartas sin imagen
+   Proyecto: Código de las Cartas — Tarot de Marsella
+
+   ⚠️ CRÍTICO FUNCIONAL: resultado.js llama a renderPlaceholderCarta()
+   que genera elementos con data-numero y data-nombre.
+   Los ::before/::after DEBEN estar implementados o los placeholders
+   aparecerán ciegos (sin número ni nombre de carta).
+
+   Ratio canónico del proyecto: 1:1.5686 (816×1280px)
+   4 tamaños: full · medium · thumb · icon
+   3 mazos: .mazo-1 (Clásico) · .mazo-2 (Art Nouveau) · .mazo-3 (Impasto)
+   ============================================================ */
+
+/* ─────────────────────────────────────────────────────────────
+   BASE — todas las clases placeholder-carta-*
+   flex para que ::before y ::after sean visibles
+   ───────────────────────────────────────────────────────────── */
+[class*="placeholder-carta"] {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  /* Borde dorado sutil por defecto */
+  border: 1px solid rgba(201, 168, 76, 0.25);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+[class*="placeholder-carta"]:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 18px rgba(201, 168, 76, 0.45);
+}
+
+/* ─────────────────────────────────────────────────────────────
+   CONTENIDO — número y nombre via atributos data-*
+   ───────────────────────────────────────────────────────────── */
+[class*="placeholder-carta"]::before {
+  content: attr(data-numero);
+  display: block;
+  font-family: 'Cinzel', serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--secondary);
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+[class*="placeholder-carta"]::after {
+  content: attr(data-nombre);
+  display: block;
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: var(--text-muted);
+  text-align: center;
+  padding: 0 8px;
+  word-break: break-word;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   TAMAÑOS
+   Ratio canónico 1:1.5686
+   ───────────────────────────────────────────────────────────── */
+
+/* FULL — usado en vista detalle de carta */
+.placeholder-carta-full {
+  width: 100%;
+  max-width: 816px;
+  aspect-ratio: 816 / 1280;
+}
+
+/* MEDIUM — usado en resultado y combinaciones */
+.placeholder-carta-medium {
+  width: 200px;
+  height: 314px;
+  flex-shrink: 0;
+}
+
+/* THUMB — usado en listados y grids */
+.placeholder-carta-thumb {
+  width: 150px;
+  height: 235px;
+  flex-shrink: 0;
+}
+
+/* ICON — usado en referencias compactas */
+.placeholder-carta-icon {
+  width: 60px;
+  height: 94px;
+  flex-shrink: 0;
+}
+
+/* Ajustar tamaño de texto según tamaño de placeholder */
+.placeholder-carta-thumb::before {
+  font-size: 1rem;
+  margin-bottom: 4px;
+}
+
+.placeholder-carta-thumb::after {
+  font-size: 0.65rem;
+}
+
+.placeholder-carta-icon::before {
+  font-size: 0.7rem;
+  margin-bottom: 2px;
+}
+
+.placeholder-carta-icon::after {
+  font-size: 0.5rem;
+  padding: 0 4px;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   MAZOS — fondos diferenciados por estilo
+   ───────────────────────────────────────────────────────────── */
+
+/* MAZO 1 — Clásico: degradado púrpura-negro */
+.mazo-1 {
+  background: linear-gradient(135deg, #3B1F4C 0%, #1A0A2E 50%, #0A0A0A 100%);
+}
+
+/* MAZO 2 — Art Nouveau: degradado dorado-ámbar */
+.mazo-2 {
+  background: linear-gradient(135deg, #C9A84C 0%, #8B6914 50%, #3D2E00 100%);
+}
+
+/* MAZO 3 — Impasto: textura con capas que simulan pinceladas */
+.mazo-3 {
+  background-color: #1A1A1A;
+  background-image:
+    repeating-linear-gradient(
+      17deg,
+      transparent,
+      transparent 2px,
+      rgba(90, 70, 40, 0.08) 2px,
+      rgba(90, 70, 40, 0.08) 4px
+    ),
+    repeating-linear-gradient(
+      107deg,
+      transparent,
+      transparent 3px,
+      rgba(60, 45, 20, 0.06) 3px,
+      rgba(60, 45, 20, 0.06) 6px
+    ),
+    radial-gradient(
+      ellipse at 30% 40%,
+      rgba(120, 90, 40, 0.12) 0%,
+      transparent 60%
+    ),
+    radial-gradient(
+      ellipse at 70% 65%,
+      rgba(80, 55, 20, 0.10) 0%,
+      transparent 55%
+    );
+  /* Borde interno que simula moldura de lienzo */
+  box-shadow: inset 0 0 0 2px rgba(180, 140, 60, 0.25),
+              inset 0 0 12px rgba(0, 0, 0, 0.6);
+}
+
+/* ─────────────────────────────────────────────────────────────
+   ESTADO: CARTA SELECCIONADA
+   Usado por selection.js al marcar una carta como elegida
+   ───────────────────────────────────────────────────────────── */
+[class*="placeholder-carta"].seleccionada {
+  border-color: var(--secondary);
+  box-shadow: 0 0 0 2px var(--secondary),
+              0 0 20px rgba(201, 168, 76, 0.5);
+}
+
+/* ─────────────────────────────────────────────────────────────
+   ESTADO: CARTA INVERTIDA
+   JS añade clase .invertida — el placeholder rota visualmente
+   ───────────────────────────────────────────────────────────── */
+[class*="placeholder-carta"].invertida {
+  transform: rotate(180deg);
+}
+
+[class*="placeholder-carta"].invertida:hover {
+  transform: rotate(180deg) scale(1.05);
+}
+
+/* ─────────────────────────────────────────────────────────────
+   PLACEHOLDER SIN MAZO ASIGNADO (fallback)
+   Si no hay clase .mazo-* aplicada
+   ───────────────────────────────────────────────────────────── */
+[class*="placeholder-carta"]:not(.mazo-1):not(.mazo-2):not(.mazo-3) {
+  background: linear-gradient(135deg, #3B1F4C 0%, #1A0A2E 50%, #0A0A0A 100%);
+}

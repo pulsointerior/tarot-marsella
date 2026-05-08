@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="El Código de las Cartas — Indica tus cartas">
+  <title>Indicar Cartas — El Código de las Cartas</title>
+
+  <!-- Phosphor Icons v2.1.1 -->
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/css/style.css">
+
+  <!-- CSS del proyecto — orden obligatorio -->
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/placeholders.css">
+  <meta property="og:title" content="Indicar Cartas — El Código de las Cartas">
+  <meta property="og:description" content="Indica las cartas que has obtenido en tu consulta para recibir la interpretación.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_ES">
+</head>
+<body data-page="indicar-cartas">
+
+  <!-- ── HEADER / NAV ─────────────────────────────────────── -->
+  <header class="page-header">
+    <div class="container">
+      <nav class="navbar" aria-label="Navegación principal">
+        <a href="index.html" class="navbar-brand">El Código de las Cartas</a>
+        <div class="navbar-nav">
+          <a href="detalle-tirada.html" class="nav-link" id="nav-volver-tirada"
+             aria-label="Volver a la consulta">
+            <i class="ph ph-arrow-left"></i aria-hidden="true">
+            <span class="hide-sm">Volver</span>
+          </a>
+          <a href="index.html" class="nav-link" aria-label="Inicio">
+            <i class="ph ph-house"></i aria-hidden="true">
+            <span class="hide-sm">Inicio</span>
+          </a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ── BREADCRUMB ────────────────────────────────────────── -->
+  <div class="container mt-2">
+    <nav class="breadcrumb" aria-label="Ruta de navegación">
+      <span class="breadcrumb-item"><a href="index.html">Inicio</a></span>
+      <span class="breadcrumb-item"><a href="tipos-lecturas.html">Tipos de lecturas</a></span>
+      <span class="breadcrumb-item">
+        <a href="detalle-tirada.html" id="breadcrumb-tirada-link">Tirada</a>
+      </span>
+      <span class="breadcrumb-item active">Indicar cartas</span>
+    </nav>
+  </div>
+
+  <!-- ── PROGRESO ──────────────────────────────────────────── -->
+  <div class="container mt-3" id="progreso-seleccion">
+    <!-- selection.js inyecta la barra de progreso aquí -->
+  </div>
+
+  <!-- ── MAIN ─────────────────────────────────────────────── -->
+  <main class="page-main" id="main-content">
+    <div class="container">
+
+      <div class="layout-sidebar">
+
+        <!-- Columna izquierda: posiciones de la consulta -->
+        <aside id="panel-posiciones" aria-label="Posiciones de la consulta">
+          <!-- selection.js inyecta el listado de posiciones -->
+        </aside>
+
+        <!-- Columna derecha: selectores de carta -->
+        <section id="panel-selector" aria-label="Selección de cartas">
+
+          <!-- Título de página — selection.js lo actualiza -->
+          <div id="posicion-activa" class="mb-4">
+            <h1 id="nombre-posicion" class="page-title">Indica tus cartas</h1>
+            <p class="text-muted mt-1" id="descripcion-posicion"></p>
+          </div>
+
+          <!-- N grupos selector R/I — selection.js los genera aquí -->
+          <div id="controles-selector"></div>
+
+          <!-- Usado solo en modo automático: mazo visual + cartas reveladas -->
+          <div id="grid-seleccion"></div>
+
+        </section>
+      </div>
+
+      <!-- Botones de acción — selection.js los inyecta aquí -->
+      <div id="accion-confirmar" class="center-content mt-6"></div>
+
+    </div>
+  </main>
+
+  <!-- ── FOOTER ────────────────────────────────────────────── -->
+  <footer class="page-footer">
+    <div class="container center-content">
+      <p class="text-muted" style="font-size: 0.8rem;">
+        El Código de las Cartas &mdash; Tarot de Marsella
+      </p>
+    </div>
+  </footer>
+
+  <!-- ── RECOVERY CENTRALIZADO — FASE 8B ──────────────────────────────────
+       Debe ejecutarse ANTES de selection.js para bloquear el render si no hay estado válido.
+       Usa import() dinámico para poder await dentro de un módulo inline.
+       ¿Por qué aquí y no en selection.js?
+         El check inline anterior vivía en selection.js (Fase 3B).
+         Fase 8B lo centraliza aquí para que el HTML sea el único punto de entrada
+         que decide si la página puede renderizarse, sin que selection.js necesite
+         conocer la lógica de recovery.
+  ──────────────────────────────────────────────────────────────────────── -->
+  <script type="module">
+    import { verificarEstadoRecovery, navigateTo } from './js/navigation.js';
+
+    const check = verificarEstadoRecovery('indicar-cartas');
+    if (!check.ok) {
+      navigateTo(check.redirectTo);
+    }
+  </script>
+
+  <!-- Global init — Fase 6/7 -->
+  <script type="module" src="js/main.js?v=2"></script>
+
+  <script type="module" src="js/selection.js"></script>
+
+</body>
+</html>

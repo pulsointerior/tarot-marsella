@@ -1,0 +1,548 @@
+/* ============================================================
+   components.css — Componentes reutilizables
+   Proyecto: Código de las Cartas — Tarot de Marsella
+   
+   CORRECCIONES v2 respecto al doc Fase 0A original:
+   - Clases badge-tema usan el nombre EXACTO del campo "tema" en tiradas.json
+     (no nombres cortos inventados)
+   - badge-tema-consultas_generales  (doc decía badge-tema-general)
+   - badge-tema-trabajo_dinero       (doc decía badge-tema-finanzas / finanzas_trabajo)
+   - badge-tema-creatividad_proyectos (doc decía badge-tema-creatividad)
+   - badge-tema-crisis_transformacion (doc decía badge-tema-crisis)
+   - badge-tema-decisiones_elecciones (doc decía badge-tema-decisiones)
+   - badge-tema-espiritualidad_crecimiento (doc decía badge-tema-espiritual)
+   - badge-tema-familia_hogar         (doc decía badge-tema-familia)
+   - badge-tema-salud_bienestar       (doc decía badge-tema-salud)
+   - badge-tema-viajes_mudanzas       (doc decía badge-tema-viajes)
+   ============================================================ */
+
+/* ─────────────────────────────────────────────────────────────
+   BADGES DE ORIENTACIÓN
+   ───────────────────────────────────────────────────────────── */
+
+/* Estructura HTML canónica obligatoria:
+   <span class="badge-recta"><i class="ph ph-arrow-up"></i> Recta</span>
+   <span class="badge-invertida"><i class="ph ph-arrow-down"></i> Invertida</span>
+*/
+
+.badge-recta {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 10px;
+  border-radius: 4px;
+  border: 1px solid var(--secondary);
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--secondary);
+  background: transparent;
+}
+
+.badge-invertida {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 10px;
+  border-radius: 4px;
+  border: 1px solid #F44336;
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #F44336;
+  background: transparent;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   BADGES DE TIPO COMBINACIÓN
+   Usados por combinations.js → buildBadgeTipoCombinacion()
+   ───────────────────────────────────────────────────────────── */
+
+.badge-tipo {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border-radius: 4px;
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border: 1px solid;
+  background: transparent;
+}
+
+.badge-resonancia  { color: var(--color-resonancia);  border-color: var(--color-resonancia);  background: rgba(76, 175, 80, 0.15); }
+.badge-complemento { color: var(--color-complemento); border-color: var(--color-complemento); background: rgba(33, 150, 243, 0.15); }
+.badge-tension     { color: var(--color-tension);     border-color: var(--color-tension);     background: rgba(244, 67, 54, 0.15); }
+.badge-neutro      { color: var(--color-neutro);      border-color: var(--color-neutro);      background: rgba(158, 158, 158, 0.15); }
+
+/* Aliases para los valores reales del campo "tipo" en combinaciones JSON:
+   TENSION, SINERGIA, NEUTRO, BLOQUEO, REFUERZO */
+.badge-sinergia    { color: var(--color-resonancia);  border-color: var(--color-resonancia);  background: rgba(76, 175, 80, 0.15); }
+.badge-bloqueo     { color: var(--color-tension);     border-color: var(--color-tension);     background: rgba(244, 67, 54, 0.15); }
+.badge-refuerzo    { color: var(--color-complemento); border-color: var(--color-complemento); background: rgba(33, 150, 243, 0.15); }
+
+/* ─────────────────────────────────────────────────────────────
+   BADGES DE TEMA
+   REGLA: clase = "badge-tema badge-tema-{valor_tema_del_json}"
+   El {valor_tema_del_json} es EXACTAMENTE el string del campo
+   "tema" en tiradas.json — sin abreviar ni traducir.
+   
+   Texto SIEMPRE dorado #C9A84C — nunca el color del tema.
+   (Contraste insuficiente sobre #1A1A1A para azul/verde oscuro)
+   ───────────────────────────────────────────────────────────── */
+
+/* BASE — OBLIGATORIO: todas las propiedades tipográficas aquí */
+.badge-tema {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border-radius: 4px;
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #C9A84C;           /* SIEMPRE DORADO — nunca cambiar */
+  background: transparent;
+  border: 1px solid;
+}
+
+/* ESPECÍFICOS — solo background rgba y border-color
+   Nombre de clase = badge-tema-{valor exacto del campo tema en JSON} */
+
+.badge-tema-amor {
+  background: rgba(233, 30, 99, 0.15);
+  border-color: #E91E63;
+}
+
+/* consultas_generales — el doc original llamaba esto badge-tema-general (INCORRECTO) */
+.badge-tema-consultas_generales {
+  background: rgba(0, 188, 212, 0.15);
+  border-color: #00BCD4;
+}
+
+/* creatividad_proyectos — el doc original llamaba esto badge-tema-creatividad (INCORRECTO) */
+.badge-tema-creatividad_proyectos {
+  background: rgba(255, 152, 0, 0.15);
+  border-color: #FF9800;
+}
+
+/* crisis_transformacion — el doc original llamaba esto badge-tema-crisis (INCORRECTO) */
+.badge-tema-crisis_transformacion {
+  background: rgba(156, 39, 176, 0.15);
+  border-color: #9C27B0;
+}
+
+/* decisiones_elecciones — el doc original llamaba esto badge-tema-decisiones (INCORRECTO) */
+.badge-tema-decisiones_elecciones {
+  background: rgba(255, 193, 7, 0.15);
+  border-color: #FFC107;
+}
+
+/* espiritualidad_crecimiento — el doc original llamaba esto badge-tema-espiritual (INCORRECTO) */
+.badge-tema-espiritualidad_crecimiento {
+  background: rgba(63, 81, 181, 0.15);
+  border-color: #3F51B5;
+}
+
+/* familia_hogar — el doc original llamaba esto badge-tema-familia (INCORRECTO) */
+.badge-tema-familia_hogar {
+  background: rgba(104, 159, 56, 0.15);
+  border-color: #689F38;
+}
+
+/* salud_bienestar — el doc original llamaba esto badge-tema-salud (INCORRECTO) */
+.badge-tema-salud_bienestar {
+  background: rgba(239, 83, 80, 0.15);
+  border-color: #EF5350;
+}
+
+/* trabajo_dinero — el doc original llamaba esto badge-tema-finanzas / finanzas_trabajo (INCORRECTO) */
+.badge-tema-trabajo_dinero {
+  background: rgba(46, 125, 50, 0.15);
+  border-color: #2E7D32;
+}
+
+/* viajes_mudanzas — el doc original llamaba esto badge-tema-viajes (INCORRECTO) */
+.badge-tema-viajes_mudanzas {
+  background: rgba(66, 165, 245, 0.15);
+  border-color: #42A5F5;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   TABLA DE REFERENCIA CORREGIDA
+   | Valor en tiradas.json          | Clase CSS completa                        |
+   |--------------------------------|-------------------------------------------|
+   | amor                           | badge-tema badge-tema-amor                |
+   | consultas_generales            | badge-tema badge-tema-consultas_generales |
+   | creatividad_proyectos          | badge-tema badge-tema-creatividad_proyectos|
+   | crisis_transformacion          | badge-tema badge-tema-crisis_transformacion|
+   | decisiones_elecciones          | badge-tema badge-tema-decisiones_elecciones|
+   | espiritualidad_crecimiento     | badge-tema badge-tema-espiritualidad_crecimiento|
+   | familia_hogar                  | badge-tema badge-tema-familia_hogar       |
+   | salud_bienestar                | badge-tema badge-tema-salud_bienestar     |
+   | trabajo_dinero                 | badge-tema badge-tema-trabajo_dinero      |
+   | viajes_mudanzas                | badge-tema badge-tema-viajes_mudanzas     |
+   ───────────────────────────────────────────────────────────── */
+/* ============================================================
+   animations.css — Sistema de animaciones por nivel
+   Proyecto: Código de las Cartas — Tarot de Marsella
+
+   animations.js aplica al <body> una de estas clases según
+   preferencia del usuario: anim-none · anim-minimal · anim-reduced · anim-full
+   ============================================================ */
+
+/* ─────────────────────────────────────────────────────────────
+   KEYFRAMES BASE
+   ───────────────────────────────────────────────────────────── */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes slideInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes glowPulse {
+  0%, 100% { box-shadow: 0 0 8px var(--secondary); }
+  50%       { box-shadow: 0 0 24px var(--secondary); }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position:  200% center; }
+}
+
+@keyframes spinSlow {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* ─────────────────────────────────────────────────────────────
+   NIVEL: anim-none — sin animaciones
+   ───────────────────────────────────────────────────────────── */
+.anim-none * {
+  animation: none !important;
+  transition: none !important;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   NIVEL: anim-minimal — solo fade básico
+   ───────────────────────────────────────────────────────────── */
+.anim-minimal .carta-placeholder,
+.anim-minimal .card {
+  animation: fadeIn 0.2s ease;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   NIVEL: anim-reduced — transiciones suaves sin movimiento
+   ───────────────────────────────────────────────────────────── */
+.anim-reduced .carta-placeholder,
+.anim-reduced .card {
+  animation: fadeIn 0.4s ease;
+  transition: opacity 0.3s ease;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   NIVEL: anim-full — animaciones completas
+   ───────────────────────────────────────────────────────────── */
+.anim-full .carta-placeholder,
+.anim-full .card {
+  animation: slideInUp 0.5s ease forwards;
+}
+
+.anim-full .carta-placeholder:hover,
+.anim-full .card:hover {
+  animation: glowPulse 1.5s ease-in-out infinite;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   DEFAULT — anim-full si no hay clase específica en body
+   ───────────────────────────────────────────────────────────── */
+body:not(.anim-none):not(.anim-minimal):not(.anim-reduced):not(.anim-full) .carta-placeholder {
+  animation: slideInUp 0.5s ease forwards;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   CLASES DE ANIMACIÓN UTILITARIAS
+   Usadas por resultado.js y otros módulos JS
+   ───────────────────────────────────────────────────────────── */
+
+/* Entrada genérica — aplicada por JS al revelar elementos */
+.anim-fade-in {
+  animation: fadeIn 0.4s ease forwards;
+}
+
+.anim-slide-in-up {
+  animation: slideInUp 0.5s ease forwards;
+}
+
+/* Delays escalonados para listas de cartas */
+.anim-delay-1 { animation-delay: 0.05s; }
+.anim-delay-2 { animation-delay: 0.10s; }
+.anim-delay-3 { animation-delay: 0.15s; }
+.anim-delay-4 { animation-delay: 0.20s; }
+.anim-delay-5 { animation-delay: 0.25s; }
+.anim-delay-6 { animation-delay: 0.30s; }
+.anim-delay-7 { animation-delay: 0.35s; }
+.anim-delay-8 { animation-delay: 0.40s; }
+
+/* Estado oculto inicial — JS elimina esta clase para disparar la entrada */
+.anim-hidden {
+  opacity: 0;
+}
+
+/* Glow dorado sobre hover — independiente del nivel */
+.anim-glow-hover:hover {
+  animation: glowPulse 1.5s ease-in-out infinite;
+}
+
+/* Shimmer de carga (skeleton loader) */
+.anim-shimmer {
+  background: linear-gradient(
+    90deg,
+    var(--bg-card) 25%,
+    rgba(201, 168, 76, 0.08) 50%,
+    var(--bg-card) 75%
+  );
+  background-size: 200% auto;
+  animation: shimmer 1.5s linear infinite;
+}
+
+/* Spinner — usado en estados de carga */
+.anim-spin {
+  animation: spinSlow 1.2s linear infinite;
+  display: inline-block;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   TRANSICIONES GLOBALES (fuera de anim-none)
+   ───────────────────────────────────────────────────────────── */
+body:not(.anim-none) a,
+body:not(.anim-none) .btn,
+body:not(.anim-none) .nav__link {
+  transition: color 0.2s ease, opacity 0.2s ease, transform 0.15s ease;
+}
+
+body:not(.anim-none) .card {
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+body:not(.anim-none) .card:hover {
+  border-color: rgba(201, 168, 76, 0.35);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* ─────────────────────────────────────────────────────────────
+   ACCESIBILIDAD — respetar prefers-reduced-motion
+   Tiene prioridad sobre cualquier clase de nivel
+   ───────────────────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+/* ============================================================
+   placeholders.css — Placeholders CSS para cartas sin imagen
+   Proyecto: Código de las Cartas — Tarot de Marsella
+
+   ⚠️ CRÍTICO FUNCIONAL: resultado.js llama a renderPlaceholderCarta()
+   que genera elementos con data-numero y data-nombre.
+   Los ::before/::after DEBEN estar implementados o los placeholders
+   aparecerán ciegos (sin número ni nombre de carta).
+
+   Ratio canónico del proyecto: 1:1.5686 (816×1280px)
+   4 tamaños: full · medium · thumb · icon
+   3 mazos: .mazo-1 (Clásico) · .mazo-2 (Art Nouveau) · .mazo-3 (Impasto)
+   ============================================================ */
+
+/* ─────────────────────────────────────────────────────────────
+   BASE — todas las clases placeholder-carta-*
+   flex para que ::before y ::after sean visibles
+   ───────────────────────────────────────────────────────────── */
+[class*="placeholder-carta"] {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  /* Borde dorado sutil por defecto */
+  border: 1px solid rgba(201, 168, 76, 0.25);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+[class*="placeholder-carta"]:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 18px rgba(201, 168, 76, 0.45);
+}
+
+/* ─────────────────────────────────────────────────────────────
+   CONTENIDO — número y nombre via atributos data-*
+   ───────────────────────────────────────────────────────────── */
+[class*="placeholder-carta"]::before {
+  content: attr(data-numero);
+  display: block;
+  font-family: 'Cinzel', serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--secondary);
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+[class*="placeholder-carta"]::after {
+  content: attr(data-nombre);
+  display: block;
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: var(--text-muted);
+  text-align: center;
+  padding: 0 8px;
+  word-break: break-word;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   TAMAÑOS
+   Ratio canónico 1:1.5686
+   ───────────────────────────────────────────────────────────── */
+
+/* FULL — usado en vista detalle de carta */
+.placeholder-carta-full {
+  width: 100%;
+  max-width: 816px;
+  aspect-ratio: 816 / 1280;
+}
+
+/* MEDIUM — usado en resultado y combinaciones */
+.placeholder-carta-medium {
+  width: 200px;
+  height: 314px;
+  flex-shrink: 0;
+}
+
+/* THUMB — usado en listados y grids */
+.placeholder-carta-thumb {
+  width: 150px;
+  height: 235px;
+  flex-shrink: 0;
+}
+
+/* ICON — usado en referencias compactas */
+.placeholder-carta-icon {
+  width: 60px;
+  height: 94px;
+  flex-shrink: 0;
+}
+
+/* Ajustar tamaño de texto según tamaño de placeholder */
+.placeholder-carta-thumb::before {
+  font-size: 1rem;
+  margin-bottom: 4px;
+}
+
+.placeholder-carta-thumb::after {
+  font-size: 0.65rem;
+}
+
+.placeholder-carta-icon::before {
+  font-size: 0.7rem;
+  margin-bottom: 2px;
+}
+
+.placeholder-carta-icon::after {
+  font-size: 0.5rem;
+  padding: 0 4px;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   MAZOS — fondos diferenciados por estilo
+   ───────────────────────────────────────────────────────────── */
+
+/* MAZO 1 — Clásico: degradado púrpura-negro */
+.mazo-1 {
+  background: linear-gradient(135deg, #3B1F4C 0%, #1A0A2E 50%, #0A0A0A 100%);
+}
+
+/* MAZO 2 — Art Nouveau: degradado dorado-ámbar */
+.mazo-2 {
+  background: linear-gradient(135deg, #C9A84C 0%, #8B6914 50%, #3D2E00 100%);
+}
+
+/* MAZO 3 — Impasto: textura con capas que simulan pinceladas */
+.mazo-3 {
+  background-color: #1A1A1A;
+  background-image:
+    repeating-linear-gradient(
+      17deg,
+      transparent,
+      transparent 2px,
+      rgba(90, 70, 40, 0.08) 2px,
+      rgba(90, 70, 40, 0.08) 4px
+    ),
+    repeating-linear-gradient(
+      107deg,
+      transparent,
+      transparent 3px,
+      rgba(60, 45, 20, 0.06) 3px,
+      rgba(60, 45, 20, 0.06) 6px
+    ),
+    radial-gradient(
+      ellipse at 30% 40%,
+      rgba(120, 90, 40, 0.12) 0%,
+      transparent 60%
+    ),
+    radial-gradient(
+      ellipse at 70% 65%,
+      rgba(80, 55, 20, 0.10) 0%,
+      transparent 55%
+    );
+  /* Borde interno que simula moldura de lienzo */
+  box-shadow: inset 0 0 0 2px rgba(180, 140, 60, 0.25),
+              inset 0 0 12px rgba(0, 0, 0, 0.6);
+}
+
+/* ─────────────────────────────────────────────────────────────
+   ESTADO: CARTA SELECCIONADA
+   Usado por selection.js al marcar una carta como elegida
+   ───────────────────────────────────────────────────────────── */
+[class*="placeholder-carta"].seleccionada {
+  border-color: var(--secondary);
+  box-shadow: 0 0 0 2px var(--secondary),
+              0 0 20px rgba(201, 168, 76, 0.5);
+}
+
+/* ─────────────────────────────────────────────────────────────
+   ESTADO: CARTA INVERTIDA
+   JS añade clase .invertida — el placeholder rota visualmente
+   ───────────────────────────────────────────────────────────── */
+[class*="placeholder-carta"].invertida {
+  transform: rotate(180deg);
+}
+
+[class*="placeholder-carta"].invertida:hover {
+  transform: rotate(180deg) scale(1.05);
+}
+
+/* ─────────────────────────────────────────────────────────────
+   PLACEHOLDER SIN MAZO ASIGNADO (fallback)
+   Si no hay clase .mazo-* aplicada
+   ───────────────────────────────────────────────────────────── */
+[class*="placeholder-carta"]:not(.mazo-1):not(.mazo-2):not(.mazo-3) {
+  background: linear-gradient(135deg, #3B1F4C 0%, #1A0A2E 50%, #0A0A0A 100%);
+}

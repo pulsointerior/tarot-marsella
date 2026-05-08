@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-label="Bastos">
+  <!-- Vara principal vertical -->
+  <line x1="12" y1="2" x2="12" y2="22"/>
+  <!-- Ramificación superior izquierda -->
+  <path d="M12 5 Q8 4 7 2"/>
+  <!-- Ramificación superior derecha -->
+  <path d="M12 5 Q16 4 17 2"/>
+  <!-- Ramificación media izquierda -->
+  <path d="M12 11 Q8 10 6 8"/>
+  <!-- Ramificación media derecha -->
+  <path d="M12 11 Q16 10 18 8"/>
+  <!-- Nudo central -->
+  <circle cx="12" cy="12" r="1.25" fill="currentColor" stroke="none"/>
+  <!-- Base con pequeña bifurcación -->
+  <path d="M12 19 Q9.5 20.5 9 22"/>
+  <path d="M12 19 Q14.5 20.5 15 22"/>
+</svg>

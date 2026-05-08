@@ -1,0 +1,2802 @@
+[
+  {
+    "tirada_id": "t001",
+    "posicion": "C1",
+    "significado": "• Estrella, Sol, Sacerdotisa: SÍ, perdona para liberarte • Justicia, Diablo: el perdón vendrá con tiempo • Otras cartas: perdón condicional o parcial"
+  },
+  {
+    "tirada_id": "t002",
+    "posicion": "C1",
+    "significado": "La carta indica el ambiente o situación donde podrías encontrar amor: trabajo, viajes, eventos sociales, actividades creativas, etc."
+  },
+  {
+    "tirada_id": "t003",
+    "posicion": "C1",
+    "significado": "Dónde buscar (lugares/ambientes)"
+  },
+  {
+    "tirada_id": "t003",
+    "posicion": "C2",
+    "significado": "Cómo reconocer a la persona"
+  },
+  {
+    "tirada_id": "t003",
+    "posicion": "C3",
+    "significado": "Cuándo podría suceder"
+  },
+  {
+    "tirada_id": "t003",
+    "posicion": "C4",
+    "significado": "Qué necesitas sanar primero"
+  },
+  {
+    "tirada_id": "t003",
+    "posicion": "C5",
+    "significado": "Qué actitud adoptar"
+  },
+  {
+    "tirada_id": "t003",
+    "posicion": "C6",
+    "significado": "Cómo será esa conexión"
+  },
+  {
+    "tirada_id": "t004",
+    "posicion": "C1",
+    "significado": "• Copas, Amantes, Sol: SÍ, estás listo/a • Espadas, Torre, Luna: NO, necesitas sanar primero • Otras cartas: parcialmente listo/a"
+  },
+  {
+    "tirada_id": "t005",
+    "posicion": "C1",
+    "significado": "Revela la herida principal que necesita atención: abandono, traición, rechazo, codependencia, etc."
+  },
+  {
+    "tirada_id": "t006",
+    "posicion": "C1",
+    "significado": "Revela la cualidad esencial que necesitas: estabilidad, pasión, comprensión, aventura, apoyo emocional, etc."
+  },
+  {
+    "tirada_id": "t007",
+    "posicion": "C1",
+    "significado": "Amor hacia tu mente/intelecto"
+  },
+  {
+    "tirada_id": "t007",
+    "posicion": "C2",
+    "significado": "Amor hacia tu cuerpo"
+  },
+  {
+    "tirada_id": "t007",
+    "posicion": "C3",
+    "significado": "Amor hacia tus emociones"
+  },
+  {
+    "tirada_id": "t007",
+    "posicion": "C4",
+    "significado": "Amor hacia tu espíritu"
+  },
+  {
+    "tirada_id": "t008",
+    "posicion": "C1",
+    "significado": "Fundamentos que construyeron la relación"
+  },
+  {
+    "tirada_id": "t008",
+    "posicion": "C2",
+    "significado": "Sintonía y compatibilidad actual"
+  },
+  {
+    "tirada_id": "t008",
+    "posicion": "C3",
+    "significado": "Viabilidad a largo plazo."
+  },
+  {
+    "tirada_id": "t009",
+    "posicion": "C1",
+    "significado": "Amor incondicional hacia ti mismo"
+  },
+  {
+    "tirada_id": "t009",
+    "posicion": "C2",
+    "significado": "Amor incondicional hacia otros"
+  },
+  {
+    "tirada_id": "t009",
+    "posicion": "C3",
+    "significado": "Qué bloquea el amor incondicional"
+  },
+  {
+    "tirada_id": "t009",
+    "posicion": "C4",
+    "significado": "Cómo expandirlo"
+  },
+  {
+    "tirada_id": "t010",
+    "posicion": "C1",
+    "significado": "Fundamentos"
+  },
+  {
+    "tirada_id": "t010",
+    "posicion": "C2",
+    "significado": "Historia"
+  },
+  {
+    "tirada_id": "t010",
+    "posicion": "C3",
+    "significado": "Valores compartidos"
+  },
+  {
+    "tirada_id": "t010",
+    "posicion": "C4",
+    "significado": "Presente y estabilidad"
+  },
+  {
+    "tirada_id": "t010",
+    "posicion": "C5",
+    "significado": "Presente y estabilidad"
+  },
+  {
+    "tirada_id": "t010",
+    "posicion": "C6",
+    "significado": "Expansión futura."
+  },
+  {
+    "tirada_id": "t011",
+    "posicion": "C1",
+    "significado": "Energía de la primera opción/persona"
+  },
+  {
+    "tirada_id": "t011",
+    "posicion": "C2",
+    "significado": "Energía de la segunda opción/persona"
+  },
+  {
+    "tirada_id": "t011",
+    "posicion": "C3",
+    "significado": "Consejo del tarot para tu corazón"
+  },
+  {
+    "tirada_id": "t012",
+    "posicion": "C1",
+    "significado": "Lo que la relación te dio"
+  },
+  {
+    "tirada_id": "t012",
+    "posicion": "C2",
+    "significado": "Lo que sientes que pierdes"
+  },
+  {
+    "tirada_id": "t012",
+    "posicion": "C3",
+    "significado": "Lo que realmente ganas al soltar"
+  },
+  {
+    "tirada_id": "t012",
+    "posicion": "C4",
+    "significado": "Lo que viene después"
+  },
+  {
+    "tirada_id": "t013",
+    "posicion": "C1",
+    "significado": "Tu autoestima actual"
+  },
+  {
+    "tirada_id": "t013",
+    "posicion": "C2",
+    "significado": "Patrones de amor que repites"
+  },
+  {
+    "tirada_id": "t013",
+    "posicion": "C3",
+    "significado": "Bloqueos del amor propio"
+  },
+  {
+    "tirada_id": "t013",
+    "posicion": "C4",
+    "significado": "Camino para amarte más."
+  },
+  {
+    "tirada_id": "t014",
+    "posicion": "C1",
+    "significado": "Energía de tu ex en su nueva relación"
+  },
+  {
+    "tirada_id": "t014",
+    "posicion": "C2",
+    "significado": "Energía de la nueva pareja"
+  },
+  {
+    "tirada_id": "t014",
+    "posicion": "C3",
+    "significado": "Tu camino independiente"
+  },
+  {
+    "tirada_id": "t015",
+    "posicion": "C1",
+    "significado": "Fundamentos de la relación (pasado)"
+  },
+  {
+    "tirada_id": "t015",
+    "posicion": "C2",
+    "significado": "Estado actual de la relación"
+  },
+  {
+    "tirada_id": "t015",
+    "posicion": "C3",
+    "significado": "Futuro cercano (1-2 meses)"
+  },
+  {
+    "tirada_id": "t015",
+    "posicion": "C4",
+    "significado": "Futuro lejano (3-6 meses)"
+  },
+  {
+    "tirada_id": "t015",
+    "posicion": "C5",
+    "significado": "Potencial máximo de la relación"
+  },
+  {
+    "tirada_id": "t016",
+    "posicion": "C1",
+    "significado": "Esencia de la decisión"
+  },
+  {
+    "tirada_id": "t016",
+    "posicion": "C2",
+    "significado": "Mejor escenario posible"
+  },
+  {
+    "tirada_id": "t016",
+    "posicion": "C3",
+    "significado": "Riesgo a considerar"
+  },
+  {
+    "tirada_id": "t016",
+    "posicion": "C4",
+    "significado": "Resultado de quedarse"
+  },
+  {
+    "tirada_id": "t016",
+    "posicion": "C5",
+    "significado": "Resultado de irse."
+  },
+  {
+    "tirada_id": "t017",
+    "posicion": "C1",
+    "significado": "Tu energía actual"
+  },
+  {
+    "tirada_id": "t017",
+    "posicion": "C2",
+    "significado": "Energía de tu llama gemela"
+  },
+  {
+    "tirada_id": "t017",
+    "posicion": "C3",
+    "significado": "Conexión espiritual entre ustedes"
+  },
+  {
+    "tirada_id": "t017",
+    "posicion": "C4",
+    "significado": "Desafíos del camino"
+  },
+  {
+    "tirada_id": "t017",
+    "posicion": "C5",
+    "significado": "Lecciones a aprender juntos"
+  },
+  {
+    "tirada_id": "t017",
+    "posicion": "C6",
+    "significado": "Próximo encuentro o evento"
+  },
+  {
+    "tirada_id": "t017",
+    "posicion": "C7",
+    "significado": "Propósito divino de la unión"
+  },
+  {
+    "tirada_id": "t018",
+    "posicion": "C1",
+    "significado": "Primer encuentro y atracción inicial"
+  },
+  {
+    "tirada_id": "t018",
+    "posicion": "C2",
+    "significado": "Estado actual de la química"
+  },
+  {
+    "tirada_id": "t018",
+    "posicion": "C3",
+    "significado": "Evolución de la conexión física y emocional."
+  },
+  {
+    "tirada_id": "t019",
+    "posicion": "C1",
+    "significado": "Deseo físico"
+  },
+  {
+    "tirada_id": "t019",
+    "posicion": "C2",
+    "significado": "Deseo emocional"
+  },
+  {
+    "tirada_id": "t019",
+    "posicion": "C3",
+    "significado": "Deseo mental"
+  },
+  {
+    "tirada_id": "t019",
+    "posicion": "C4",
+    "significado": "Deseo espiritual"
+  },
+  {
+    "tirada_id": "t019",
+    "posicion": "C5",
+    "significado": "Deseo oculto"
+  },
+  {
+    "tirada_id": "t019",
+    "posicion": "C6",
+    "significado": "Deseo expresado"
+  },
+  {
+    "tirada_id": "t019",
+    "posicion": "C7",
+    "significado": "Deseo del pasado"
+  },
+  {
+    "tirada_id": "t019",
+    "posicion": "C8",
+    "significado": "Deseo futuro."
+  },
+  {
+    "tirada_id": "t020",
+    "posicion": "C1",
+    "significado": "Arcanos mayores positivos (Sol, Estrella, Mundo) = SÍ, perdona; Arcanos mayores negativos (Torre, Diablo, Luna) = NO, aún no; Menores = Evalúa según palo y número."
+  },
+  {
+    "tirada_id": "t021",
+    "posicion": "C1",
+    "significado": "Por qué terminaron"
+  },
+  {
+    "tirada_id": "t021",
+    "posicion": "C2",
+    "significado": "Qué ha cambiado desde entonces"
+  },
+  {
+    "tirada_id": "t021",
+    "posicion": "C3",
+    "significado": "Posibilidad real de reconciliación"
+  },
+  {
+    "tirada_id": "t021",
+    "posicion": "C4",
+    "significado": "Resultado probable si regresan"
+  },
+  {
+    "tirada_id": "t022",
+    "posicion": "C1",
+    "significado": "Fortalezas de la relación a distancia"
+  },
+  {
+    "tirada_id": "t022",
+    "posicion": "C2",
+    "significado": "Debilidades que la distancia crea"
+  },
+  {
+    "tirada_id": "t022",
+    "posicion": "C3",
+    "significado": "Desafíos específicos actuales"
+  },
+  {
+    "tirada_id": "t022",
+    "posicion": "C4",
+    "significado": "Posibilidad de cerrar la distancia"
+  },
+  {
+    "tirada_id": "t022",
+    "posicion": "C5",
+    "significado": "Futuro de la relación"
+  },
+  {
+    "tirada_id": "t023",
+    "posicion": "C1",
+    "significado": "Naturaleza de la herida recibida"
+  },
+  {
+    "tirada_id": "t023",
+    "posicion": "C2",
+    "significado": "Tu proceso de sanación actual"
+  },
+  {
+    "tirada_id": "t023",
+    "posicion": "C3",
+    "significado": "Completa liberación y nuevo amor."
+  },
+  {
+    "tirada_id": "t024",
+    "posicion": "C1",
+    "significado": "• Mundo, Sol, Rueda de la Fortuna: SÍ, acepta • Torre, Diablo, Muerte invertida: NO, rechaza • Cartas neutras: analiza pros y contras"
+  },
+  {
+    "tirada_id": "t025",
+    "posicion": "C1",
+    "significado": "• Arcanos Mayores positivos (Sol, Estrella, Mundo, Emperatriz): SÍ • Arcanos Mayores negativos (Torre, Diablo, Luna, Colgado): NO • Cartas de copas y oros generalmente: SÍ • Cartas de espadas y bastos según contexto"
+  },
+  {
+    "tirada_id": "t026",
+    "posicion": "C1",
+    "significado": "• Mundo, Sol, Estrella, Rueda: SÍ, vas bien • Colgado, Luna, Torre: revisa tu dirección • Otras cartas: ajustes menores necesarios"
+  },
+  {
+    "tirada_id": "t027",
+    "posicion": "C1",
+    "significado": "Energía general del día — el tono predominante que te acompañará desde que amanece hasta que anochece"
+  },
+  {
+    "tirada_id": "t027",
+    "posicion": "C2",
+    "significado": "Desafío principal — lo que el día te pedirá enfrentar, superar o transformar; no es un obstáculo, es una invitación al crecimiento"
+  },
+  {
+    "tirada_id": "t027",
+    "posicion": "C3",
+    "significado": "Oportunidad del día — la puerta que se abre, la bendición disfrazada o el regalo que podrías pasar por alto si no prestas atención"
+  },
+  {
+    "tirada_id": "t028",
+    "posicion": "C1",
+    "significado": "Esencia de la pregunta y la situación"
+  },
+  {
+    "tirada_id": "t028",
+    "posicion": "C2",
+    "significado": "Desafío que enfrentas"
+  },
+  {
+    "tirada_id": "t028",
+    "posicion": "C3",
+    "significado": "Guía o recurso disponible"
+  },
+  {
+    "tirada_id": "t028",
+    "posicion": "C4",
+    "significado": "Consecuencia si la respuesta es SÍ"
+  },
+  {
+    "tirada_id": "t028",
+    "posicion": "C5",
+    "significado": "Consecuencia si la respuesta es NO"
+  },
+  {
+    "tirada_id": "t029",
+    "posicion": "C1",
+    "significado": "La carta representa la energía predominante del día."
+  },
+  {
+    "tirada_id": "t030",
+    "posicion": "C1",
+    "significado": "Situación actual de la pregunta"
+  },
+  {
+    "tirada_id": "t030",
+    "posicion": "C2",
+    "significado": "Bloqueo o obstáculo en el camino"
+  },
+  {
+    "tirada_id": "t030",
+    "posicion": "C3",
+    "significado": "Potencial si la respuesta es SÍ"
+  },
+  {
+    "tirada_id": "t030",
+    "posicion": "C4",
+    "significado": "Resultado probable si sigues el consejo"
+  },
+  {
+    "tirada_id": "t031",
+    "posicion": "C1",
+    "significado": "La carta revela la energía predominante del día: • Arcanos Mayores: día de influencia cósmica y lecciones importantes • Copas: día de emociones, conexiones y relaciones • Oros: día de trabajo, materialidad y construcción • Espadas: día de claridad mental, decisiones o desafíos intelectuales • Bastos: día de acción, creatividad y energía dinámica"
+  },
+  {
+    "tirada_id": "t032",
+    "posicion": "C1",
+    "significado": "Energía de la situación (contexto de la pregunta)"
+  },
+  {
+    "tirada_id": "t032",
+    "posicion": "C2",
+    "significado": "Respuesta del tarot (SÍ, NO o TAL VEZ)"
+  },
+  {
+    "tirada_id": "t032",
+    "posicion": "C3",
+    "significado": "Consejo o acción recomendada"
+  },
+  {
+    "tirada_id": "t033",
+    "posicion": "C1",
+    "significado": "Pasado - Orígenes y causas de la situación actual"
+  },
+  {
+    "tirada_id": "t033",
+    "posicion": "C2",
+    "significado": "Presente - Estado actual y energía predominante"
+  },
+  {
+    "tirada_id": "t033",
+    "posicion": "C3",
+    "significado": "Futuro - Dirección probable si continúas el camino actual"
+  },
+  {
+    "tirada_id": "t034",
+    "posicion": "C1",
+    "significado": "Causa raíz del bloqueo"
+  },
+  {
+    "tirada_id": "t034",
+    "posicion": "C2",
+    "significado": "Cómo se manifiesta"
+  },
+  {
+    "tirada_id": "t034",
+    "posicion": "C3",
+    "significado": "Mensaje del bloqueo"
+  },
+  {
+    "tirada_id": "t034",
+    "posicion": "C4",
+    "significado": "Camino para liberar la creatividad."
+  },
+  {
+    "tirada_id": "t035",
+    "posicion": "C1",
+    "significado": "Razón profunda por la que creas"
+  },
+  {
+    "tirada_id": "t035",
+    "posicion": "C2",
+    "significado": "Obstáculo actual al compromiso"
+  },
+  {
+    "tirada_id": "t035",
+    "posicion": "C3",
+    "significado": "Cómo renovar tu compromiso"
+  },
+  {
+    "tirada_id": "t036",
+    "posicion": "C1",
+    "significado": "Tu definición personal de éxito"
+  },
+  {
+    "tirada_id": "t036",
+    "posicion": "C2",
+    "significado": "Obstáculo a tu éxito"
+  },
+  {
+    "tirada_id": "t036",
+    "posicion": "C3",
+    "significado": "Acción para alcanzarlo"
+  },
+  {
+    "tirada_id": "t036",
+    "posicion": "C4",
+    "significado": "Manifestación de tu éxito"
+  },
+  {
+    "tirada_id": "t037",
+    "posicion": "C1",
+    "significado": "Influencias legítimas en tu obra"
+  },
+  {
+    "tirada_id": "t037",
+    "posicion": "C2",
+    "significado": "Tu aporte original"
+  },
+  {
+    "tirada_id": "t037",
+    "posicion": "C3",
+    "significado": "Camino ético a seguir"
+  },
+  {
+    "tirada_id": "t038",
+    "posicion": "C1",
+    "significado": "Valor real de tu obra"
+  },
+  {
+    "tirada_id": "t038",
+    "posicion": "C2",
+    "significado": "Precio justo para cobrar"
+  },
+  {
+    "tirada_id": "t038",
+    "posicion": "C3",
+    "significado": "Cliente ideal para tu obra"
+  },
+  {
+    "tirada_id": "t038",
+    "posicion": "C4",
+    "significado": "Naturaleza del intercambio"
+  },
+  {
+    "tirada_id": "t039",
+    "posicion": "C1",
+    "significado": "Tu motivación real para crear"
+  },
+  {
+    "tirada_id": "t039",
+    "posicion": "C2",
+    "significado": "Cómo el ego interfiere"
+  },
+  {
+    "tirada_id": "t039",
+    "posicion": "C3",
+    "significado": "Autenticidad de tu expresión"
+  },
+  {
+    "tirada_id": "t039",
+    "posicion": "C4",
+    "significado": "Liberación del ego"
+  },
+  {
+    "tirada_id": "t040",
+    "posicion": "C1",
+    "significado": "Valor real de tu obra"
+  },
+  {
+    "tirada_id": "t040",
+    "posicion": "C2",
+    "significado": "Precio justo para cobrar"
+  },
+  {
+    "tirada_id": "t040",
+    "posicion": "C3",
+    "significado": "Cliente ideal para tu obra"
+  },
+  {
+    "tirada_id": "t040",
+    "posicion": "C4",
+    "significado": "Naturaleza del intercambio."
+  },
+  {
+    "tirada_id": "t041",
+    "posicion": "C1",
+    "significado": "Tu motivación real para crear"
+  },
+  {
+    "tirada_id": "t041",
+    "posicion": "C2",
+    "significado": "Cómo el ego interfiere"
+  },
+  {
+    "tirada_id": "t041",
+    "posicion": "C3",
+    "significado": "Autenticidad de tu expresión"
+  },
+  {
+    "tirada_id": "t041",
+    "posicion": "C4",
+    "significado": "Liberación del ego."
+  },
+  {
+    "tirada_id": "t042",
+    "posicion": "C1",
+    "significado": "Tu expresión creativa actual"
+  },
+  {
+    "tirada_id": "t042",
+    "posicion": "C2",
+    "significado": "Tu vida cotidiana"
+  },
+  {
+    "tirada_id": "t042",
+    "posicion": "C3",
+    "significado": "Cómo integrar ambas"
+  },
+  {
+    "tirada_id": "t042",
+    "posicion": "C4",
+    "significado": "Resultado de vivir creativamente"
+  },
+  {
+    "tirada_id": "t043",
+    "posicion": "C1",
+    "significado": "Tu relación actual con la creatividad"
+  },
+  {
+    "tirada_id": "t043",
+    "posicion": "C2",
+    "significado": "Inspiración disponible"
+  },
+  {
+    "tirada_id": "t043",
+    "posicion": "C3",
+    "significado": "Técnica y oficio"
+  },
+  {
+    "tirada_id": "t043",
+    "posicion": "C4",
+    "significado": "Equilibrio entre ambas"
+  },
+  {
+    "tirada_id": "t043",
+    "posicion": "C5",
+    "significado": "Obra que nace de la integración."
+  },
+  {
+    "tirada_id": "t044",
+    "posicion": "C1",
+    "significado": "Esencia de tu obra actual"
+  },
+  {
+    "tirada_id": "t044",
+    "posicion": "C2",
+    "significado": "Impacto que tendrá"
+  },
+  {
+    "tirada_id": "t044",
+    "posicion": "C3",
+    "significado": "Legado que dejará"
+  },
+  {
+    "tirada_id": "t045",
+    "posicion": "C1",
+    "significado": "Rutina creativa recomendada"
+  },
+  {
+    "tirada_id": "t045",
+    "posicion": "C2",
+    "significado": "Obstáculo a la constancia"
+  },
+  {
+    "tirada_id": "t045",
+    "posicion": "C3",
+    "significado": "Compromiso necesario"
+  },
+  {
+    "tirada_id": "t046",
+    "posicion": "C1",
+    "significado": "Tu historia creativa y expresión previa"
+  },
+  {
+    "tirada_id": "t046",
+    "posicion": "C2",
+    "significado": "Tu creatividad en este momento"
+  },
+  {
+    "tirada_id": "t046",
+    "posicion": "C3",
+    "significado": "Potencial de expansión creativa."
+  },
+  {
+    "tirada_id": "t047",
+    "posicion": "C1",
+    "significado": "Origen e inspiración del proyecto"
+  },
+  {
+    "tirada_id": "t047",
+    "posicion": "C2",
+    "significado": "Estado y desafíos actuales"
+  },
+  {
+    "tirada_id": "t047",
+    "posicion": "C3",
+    "significado": "Resultado final esperado."
+  },
+  {
+    "tirada_id": "t048",
+    "posicion": "C1",
+    "significado": "La carta indica el enfoque creativo del día: inspiración, revisión, descanso, experimentación, finalización."
+  },
+  {
+    "tirada_id": "t049",
+    "posicion": "C1",
+    "significado": "Tu estado de despertar actual"
+  },
+  {
+    "tirada_id": "t049",
+    "posicion": "C2",
+    "significado": "Lo que se revela"
+  },
+  {
+    "tirada_id": "t049",
+    "posicion": "C3",
+    "significado": "Lo que cae/termina"
+  },
+  {
+    "tirada_id": "t049",
+    "posicion": "C4",
+    "significado": "Apoyo espiritual disponible"
+  },
+  {
+    "tirada_id": "t049",
+    "posicion": "C5",
+    "significado": "Siguiente fase del despertar."
+  },
+  {
+    "tirada_id": "t050",
+    "posicion": "C1",
+    "significado": "Lección kármica actual"
+  },
+  {
+    "tirada_id": "t050",
+    "posicion": "C2",
+    "significado": "Origen de este patrón"
+  },
+  {
+    "tirada_id": "t050",
+    "posicion": "C3",
+    "significado": "Cómo sanarlo"
+  },
+  {
+    "tirada_id": "t050",
+    "posicion": "C4",
+    "significado": "Consecuencia de no aprender"
+  },
+  {
+    "tirada_id": "t050",
+    "posicion": "C5",
+    "significado": "Liberación del karma."
+  },
+  {
+    "tirada_id": "t051",
+    "posicion": "C1",
+    "significado": "La herida a perdonar"
+  },
+  {
+    "tirada_id": "t051",
+    "posicion": "C2",
+    "significado": "Quién necesita tu perdón"
+  },
+  {
+    "tirada_id": "t051",
+    "posicion": "C3",
+    "significado": "Qué te cuesta perdonar"
+  },
+  {
+    "tirada_id": "t051",
+    "posicion": "C4",
+    "significado": "Beneficio de perdonar"
+  },
+  {
+    "tirada_id": "t051",
+    "posicion": "C5",
+    "significado": "Resultado del perdón."
+  },
+  {
+    "tirada_id": "t052",
+    "posicion": "C1",
+    "significado": "El caos aparente de la situación"
+  },
+  {
+    "tirada_id": "t052",
+    "posicion": "C2",
+    "significado": "Propósito oculto de la crisis"
+  },
+  {
+    "tirada_id": "t052",
+    "posicion": "C3",
+    "significado": "Significado que emerge."
+  },
+  {
+    "tirada_id": "t053",
+    "posicion": "C1",
+    "significado": "Tu situación actual"
+  },
+  {
+    "tirada_id": "t053",
+    "posicion": "C2",
+    "significado": "Recursos"
+  },
+  {
+    "tirada_id": "t053",
+    "posicion": "C3",
+    "significado": "Limitaciones"
+  },
+  {
+    "tirada_id": "t053",
+    "posicion": "C4",
+    "significado": "Tu meta"
+  },
+  {
+    "tirada_id": "t053",
+    "posicion": "C5",
+    "significado": "Recursos necesarios"
+  },
+  {
+    "tirada_id": "t053",
+    "posicion": "C6",
+    "significado": "Resultado."
+  },
+  {
+    "tirada_id": "t054",
+    "posicion": "C1",
+    "significado": "Lo que debe morir en ti"
+  },
+  {
+    "tirada_id": "t054",
+    "posicion": "C2",
+    "significado": "El umbral de transformación"
+  },
+  {
+    "tirada_id": "t054",
+    "posicion": "C3",
+    "significado": "Lo que está naciendo."
+  },
+  {
+    "tirada_id": "t055",
+    "posicion": "C1",
+    "significado": "Esencia de la crisis"
+  },
+  {
+    "tirada_id": "t055",
+    "posicion": "C2",
+    "significado": "Desafío principal"
+  },
+  {
+    "tirada_id": "t055",
+    "posicion": "C3",
+    "significado": "Recursos internos disponibles"
+  },
+  {
+    "tirada_id": "t055",
+    "posicion": "C4",
+    "significado": "Acción recomendada"
+  },
+  {
+    "tirada_id": "t055",
+    "posicion": "C5",
+    "significado": "Resultado de la transformación."
+  },
+  {
+    "tirada_id": "t056",
+    "posicion": "C1",
+    "significado": "Origen de tu duda actual"
+  },
+  {
+    "tirada_id": "t056",
+    "posicion": "C2",
+    "significado": "Fe que puedes recuperar"
+  },
+  {
+    "tirada_id": "t056",
+    "posicion": "C3",
+    "significado": "Camino de reconexión interior"
+  },
+  {
+    "tirada_id": "t057",
+    "posicion": "C1",
+    "significado": "Naturaleza de la pérdida"
+  },
+  {
+    "tirada_id": "t057",
+    "posicion": "C2",
+    "significado": "Tu proceso de duelo"
+  },
+  {
+    "tirada_id": "t057",
+    "posicion": "C3",
+    "significado": "Aprendizaje que deja"
+  },
+  {
+    "tirada_id": "t057",
+    "posicion": "C4",
+    "significado": "Continuidad de la vida."
+  },
+  {
+    "tirada_id": "t058",
+    "posicion": "C1",
+    "significado": "Qué se derrumbó"
+  },
+  {
+    "tirada_id": "t058",
+    "posicion": "C2",
+    "significado": "por qué"
+  },
+  {
+    "tirada_id": "t058",
+    "posicion": "C3",
+    "significado": "Lección"
+  },
+  {
+    "tirada_id": "t058",
+    "posicion": "C4",
+    "significado": "Nuevos cimientos"
+  },
+  {
+    "tirada_id": "t058",
+    "posicion": "C5",
+    "significado": "Estructura"
+  },
+  {
+    "tirada_id": "t058",
+    "posicion": "C6",
+    "significado": "Vida nueva."
+  },
+  {
+    "tirada_id": "t059",
+    "posicion": "C1",
+    "significado": "Naturaleza del golpe recibido"
+  },
+  {
+    "tirada_id": "t059",
+    "posicion": "C2",
+    "significado": "Recurso interno disponible"
+  },
+  {
+    "tirada_id": "t059",
+    "posicion": "C3",
+    "significado": "Aprendizaje de la adversidad"
+  },
+  {
+    "tirada_id": "t059",
+    "posicion": "C4",
+    "significado": "Cómo te fortalece."
+  },
+  {
+    "tirada_id": "t060",
+    "posicion": "C1",
+    "significado": "Tu sombra que emerge en la crisis"
+  },
+  {
+    "tirada_id": "t060",
+    "posicion": "C2",
+    "significado": "Tu luz que te sostiene"
+  },
+  {
+    "tirada_id": "t060",
+    "posicion": "C3",
+    "significado": "El encuentro entre ambas"
+  },
+  {
+    "tirada_id": "t060",
+    "posicion": "C4",
+    "significado": "Integración como ser completo."
+  },
+  {
+    "tirada_id": "t061",
+    "posicion": "C1",
+    "significado": "Tu versión anterior"
+  },
+  {
+    "tirada_id": "t061",
+    "posicion": "C2",
+    "significado": "El proceso de transformación"
+  },
+  {
+    "tirada_id": "t061",
+    "posicion": "C3",
+    "significado": "Tu nueva versión."
+  },
+  {
+    "tirada_id": "t062",
+    "posicion": "C1",
+    "significado": "Origen y causas de la crisis"
+  },
+  {
+    "tirada_id": "t062",
+    "posicion": "C2",
+    "significado": "Estado actual del desafío"
+  },
+  {
+    "tirada_id": "t062",
+    "posicion": "C3",
+    "significado": "Resolución y superación."
+  },
+  {
+    "tirada_id": "t063",
+    "posicion": "C1",
+    "significado": "La carta indica el aspecto de la crisis que requiere atención hoy: paciencia, acción, aceptación, cambio, ayuda."
+  },
+  {
+    "tirada_id": "t064",
+    "posicion": "C1",
+    "significado": "Origen de la presión"
+  },
+  {
+    "tirada_id": "t064",
+    "posicion": "C2",
+    "significado": "Claridad que emerges bajo presión"
+  },
+  {
+    "tirada_id": "t064",
+    "posicion": "C3",
+    "significado": "Decisión más acertada"
+  },
+  {
+    "tirada_id": "t065",
+    "posicion": "C1",
+    "significado": "Situación financiera actual"
+  },
+  {
+    "tirada_id": "t065",
+    "posicion": "C2",
+    "significado": "Riesgo de la decisión"
+  },
+  {
+    "tirada_id": "t065",
+    "posicion": "C3",
+    "significado": "Recomendación del tarot"
+  },
+  {
+    "tirada_id": "t066",
+    "posicion": "C1",
+    "significado": "Tu energía en la relación"
+  },
+  {
+    "tirada_id": "t066",
+    "posicion": "C2",
+    "significado": "Energía de la otra persona"
+  },
+  {
+    "tirada_id": "t066",
+    "posicion": "C3",
+    "significado": "Dinámica entre ustedes"
+  },
+  {
+    "tirada_id": "t066",
+    "posicion": "C4",
+    "significado": "Decisión recomendada"
+  },
+  {
+    "tirada_id": "t067",
+    "posicion": "C1",
+    "significado": "Esencia de la decisión"
+  },
+  {
+    "tirada_id": "t067",
+    "posicion": "C2",
+    "significado": "Posible arrepentimiento si dices SÍ"
+  },
+  {
+    "tirada_id": "t067",
+    "posicion": "C3",
+    "significado": "Posible arrepentimiento si dices NO"
+  },
+  {
+    "tirada_id": "t067",
+    "posicion": "C4",
+    "significado": "Decisión con menor probabilidad de arrepentimiento"
+  },
+  {
+    "tirada_id": "t068",
+    "posicion": "C1",
+    "significado": "Tu decisión actual"
+  },
+  {
+    "tirada_id": "t068",
+    "posicion": "C2",
+    "significado": "Influencia del destino"
+  },
+  {
+    "tirada_id": "t068",
+    "posicion": "C3",
+    "significado": "Tu poder de elección"
+  },
+  {
+    "tirada_id": "t068",
+    "posicion": "C4",
+    "significado": "Camino si sigues el destino"
+  },
+  {
+    "tirada_id": "t068",
+    "posicion": "C5",
+    "significado": "Camino si ejerces libre albedrío"
+  },
+  {
+    "tirada_id": "t069",
+    "posicion": "C1",
+    "significado": "Resultado si decides AHORA"
+  },
+  {
+    "tirada_id": "t069",
+    "posicion": "C2",
+    "significado": "Resultado si decides PRONTO"
+  },
+  {
+    "tirada_id": "t069",
+    "posicion": "C3",
+    "significado": "Resultado si decides MÁS TARDE"
+  },
+  {
+    "tirada_id": "t069",
+    "posicion": "C4",
+    "significado": "Resultado si NUNCA decides"
+  },
+  {
+    "tirada_id": "t070",
+    "posicion": "C1",
+    "significado": "Naturaleza real de la situación"
+  },
+  {
+    "tirada_id": "t070",
+    "posicion": "C2",
+    "significado": "Presión externa para decidir"
+  },
+  {
+    "tirada_id": "t070",
+    "posicion": "C3",
+    "significado": "Tu claridad interna actual"
+  },
+  {
+    "tirada_id": "t070",
+    "posicion": "C4",
+    "significado": "Momento recomendado para decidir."
+  },
+  {
+    "tirada_id": "t071",
+    "posicion": "C1",
+    "significado": "Energía de la primera opción"
+  },
+  {
+    "tirada_id": "t071",
+    "posicion": "C2",
+    "significado": "Energía de la segunda opción"
+  },
+  {
+    "tirada_id": "t071",
+    "posicion": "C3",
+    "significado": "Balance o consejo del tarot"
+  },
+  {
+    "tirada_id": "t072",
+    "posicion": "C1",
+    "significado": "Energía y resultado de la Opción A"
+  },
+  {
+    "tirada_id": "t072",
+    "posicion": "C2",
+    "significado": "Energía y resultado de la Opción B."
+  },
+  {
+    "tirada_id": "t073",
+    "posicion": "C1",
+    "significado": "Esencia de la decisión"
+  },
+  {
+    "tirada_id": "t073",
+    "posicion": "C2",
+    "significado": "Mayor beneficio posible"
+  },
+  {
+    "tirada_id": "t073",
+    "posicion": "C3",
+    "significado": "Mayor riesgo a considerar"
+  },
+  {
+    "tirada_id": "t073",
+    "posicion": "C4",
+    "significado": "Resultado de mantener status quo"
+  },
+  {
+    "tirada_id": "t073",
+    "posicion": "C5",
+    "significado": "Resultado de cambiar"
+  },
+  {
+    "tirada_id": "t074",
+    "posicion": "C1",
+    "significado": "Lo que tu corazón realmente desea"
+  },
+  {
+    "tirada_id": "t074",
+    "posicion": "C2",
+    "significado": "Miedo que te bloquea"
+  },
+  {
+    "tirada_id": "t074",
+    "posicion": "C3",
+    "significado": "Camino alineado con tu verdad"
+  },
+  {
+    "tirada_id": "t075",
+    "posicion": "C1",
+    "significado": "Naturaleza de la decisión postergada"
+  },
+  {
+    "tirada_id": "t075",
+    "posicion": "C2",
+    "significado": "Miedo real que te paraliza"
+  },
+  {
+    "tirada_id": "t075",
+    "posicion": "C3",
+    "significado": "Consecuencia de seguir sin decidir"
+  },
+  {
+    "tirada_id": "t075",
+    "posicion": "C4",
+    "significado": "Primer paso para decidir"
+  },
+  {
+    "tirada_id": "t076",
+    "posicion": "C1",
+    "significado": "Decisiones que te trajeron aquí"
+  },
+  {
+    "tirada_id": "t076",
+    "posicion": "C2",
+    "significado": "El momento de decisión actual"
+  },
+  {
+    "tirada_id": "t076",
+    "posicion": "C3",
+    "significado": "Resultado de decidir."
+  },
+  {
+    "tirada_id": "t077",
+    "posicion": "C1",
+    "significado": "Arcanos Mayores positivos (Sol, Estrella, Mundo, Emperatriz) = SÍ; Arcanos Mayores negativos (Torre, Diablo, Luna, Colgado) = NO; Cartas de copas y oros generalmente = SÍ; Cartas de espadas y bastos según contexto."
+  },
+  {
+    "tirada_id": "t078",
+    "posicion": "C1",
+    "significado": "Lección kármica actual"
+  },
+  {
+    "tirada_id": "t078",
+    "posicion": "C2",
+    "significado": "Origen de este patrón"
+  },
+  {
+    "tirada_id": "t078",
+    "posicion": "C3",
+    "significado": "Cómo sanarlo"
+  },
+  {
+    "tirada_id": "t078",
+    "posicion": "C4",
+    "significado": "Consecuencia de no aprender"
+  },
+  {
+    "tirada_id": "t078",
+    "posicion": "C5",
+    "significado": "Liberación del karma"
+  },
+  {
+    "tirada_id": "t079",
+    "posicion": "C1",
+    "significado": "Qué guía o energía te acompaña"
+  },
+  {
+    "tirada_id": "t079",
+    "posicion": "C2",
+    "significado": "Mensaje específico para ti"
+  },
+  {
+    "tirada_id": "t079",
+    "posicion": "C3",
+    "significado": "Cómo aplicar el mensaje"
+  },
+  {
+    "tirada_id": "t080",
+    "posicion": "C1",
+    "significado": "Tu propósito central"
+  },
+  {
+    "tirada_id": "t080",
+    "posicion": "C2",
+    "significado": "Dones que trajiste"
+  },
+  {
+    "tirada_id": "t080",
+    "posicion": "C3",
+    "significado": "Lecciones que viniste a aprender"
+  },
+  {
+    "tirada_id": "t080",
+    "posicion": "C4",
+    "significado": "Bloqueos que te alejan"
+  },
+  {
+    "tirada_id": "t080",
+    "posicion": "C5",
+    "significado": "Próximo paso hacia tu propósito"
+  },
+  {
+    "tirada_id": "t081",
+    "posicion": "C1",
+    "significado": "Propósito central de tu alma"
+  },
+  {
+    "tirada_id": "t081",
+    "posicion": "C2",
+    "significado": "Dones espirituales que trajiste"
+  },
+  {
+    "tirada_id": "t081",
+    "posicion": "C3",
+    "significado": "Lecciones kármicas actuales"
+  },
+  {
+    "tirada_id": "t081",
+    "posicion": "C4",
+    "significado": "Bloqueos al propósito"
+  },
+  {
+    "tirada_id": "t081",
+    "posicion": "C5",
+    "significado": "Próximo paso espiritual"
+  },
+  {
+    "tirada_id": "t082",
+    "posicion": "C1",
+    "significado": "Tu llamado al servicio"
+  },
+  {
+    "tirada_id": "t082",
+    "posicion": "C2",
+    "significado": "Forma específica de servir"
+  },
+  {
+    "tirada_id": "t082",
+    "posicion": "C3",
+    "significado": "Qué te bloquea de servir"
+  },
+  {
+    "tirada_id": "t082",
+    "posicion": "C4",
+    "significado": "Impacto de tu servicio"
+  },
+  {
+    "tirada_id": "t083",
+    "posicion": "C1",
+    "significado": "Origen de tu duda actual"
+  },
+  {
+    "tirada_id": "t083",
+    "posicion": "C2",
+    "significado": "Fe que puedes recuperar"
+  },
+  {
+    "tirada_id": "t083",
+    "posicion": "C3",
+    "significado": "Camino de confianza"
+  },
+  {
+    "tirada_id": "t084",
+    "posicion": "C1",
+    "significado": "Qué agradecer hoy"
+  },
+  {
+    "tirada_id": "t084",
+    "posicion": "C2",
+    "significado": "Cómo expresar gratitud"
+  },
+  {
+    "tirada_id": "t084",
+    "posicion": "C3",
+    "significado": "Resultado de la práctica"
+  },
+  {
+    "tirada_id": "t085",
+    "posicion": "C1",
+    "significado": "Estado actual de tu intuición"
+  },
+  {
+    "tirada_id": "t085",
+    "posicion": "C2",
+    "significado": "Qué bloquea tu escucha intuitiva"
+  },
+  {
+    "tirada_id": "t085",
+    "posicion": "C3",
+    "significado": "Práctica para desarrollarla"
+  },
+  {
+    "tirada_id": "t085",
+    "posicion": "C4",
+    "significado": "Resultado de confiar en ella"
+  },
+  {
+    "tirada_id": "t086",
+    "posicion": "C1",
+    "significado": "Tu luz brillante actual"
+  },
+  {
+    "tirada_id": "t086",
+    "posicion": "C2",
+    "significado": "Tu sombra que necesita integración"
+  },
+  {
+    "tirada_id": "t086",
+    "posicion": "C3",
+    "significado": "Camino de integración"
+  },
+  {
+    "tirada_id": "t087",
+    "posicion": "C1",
+    "significado": "Lo que muere en ti"
+  },
+  {
+    "tirada_id": "t087",
+    "posicion": "C2",
+    "significado": "Bendición de lo que termina"
+  },
+  {
+    "tirada_id": "t087",
+    "posicion": "C3",
+    "significado": "Miedo al cambio"
+  },
+  {
+    "tirada_id": "t087",
+    "posicion": "C4",
+    "significado": "Lo que nace"
+  },
+  {
+    "tirada_id": "t087",
+    "posicion": "C5",
+    "significado": "Resultado del renacimiento"
+  },
+  {
+    "tirada_id": "t088",
+    "posicion": "C1",
+    "significado": "Esencia de tu petición"
+  },
+  {
+    "tirada_id": "t088",
+    "posicion": "C2",
+    "significado": "Respuesta o dirección divina"
+  },
+  {
+    "tirada_id": "t088",
+    "posicion": "C3",
+    "significado": "Acción que debes tomar"
+  },
+  {
+    "tirada_id": "t089",
+    "posicion": "C1",
+    "significado": "Sabiduría que necesitas ahora"
+  },
+  {
+    "tirada_id": "t089",
+    "posicion": "C2",
+    "significado": "Cómo aplicarla"
+  },
+  {
+    "tirada_id": "t089",
+    "posicion": "C3",
+    "significado": "Resultado de seguirla"
+  },
+  {
+    "tirada_id": "t090",
+    "posicion": "C1",
+    "significado": "Preservación, el aquí y ahora"
+  },
+  {
+    "tirada_id": "t090",
+    "posicion": "C2",
+    "significado": "Creación, lo que nace"
+  },
+  {
+    "tirada_id": "t090",
+    "posicion": "C3",
+    "significado": "Transformación, lo que muere para renacer"
+  },
+  {
+    "tirada_id": "t091",
+    "posicion": "C1",
+    "significado": "Ancestro o linaje que te acompaña"
+  },
+  {
+    "tirada_id": "t091",
+    "posicion": "C2",
+    "significado": "Mensaje de tus ancestros"
+  },
+  {
+    "tirada_id": "t091",
+    "posicion": "C3",
+    "significado": "Herencia espiritual recibida"
+  },
+  {
+    "tirada_id": "t091",
+    "posicion": "C4",
+    "significado": "Cómo honrarlos"
+  },
+  {
+    "tirada_id": "t092",
+    "posicion": "C1",
+    "significado": "Responsabilidades que asumes"
+  },
+  {
+    "tirada_id": "t092",
+    "posicion": "C2",
+    "significado": "Desafíos del rol adulto"
+  },
+  {
+    "tirada_id": "t092",
+    "posicion": "C3",
+    "significado": "Crecimiento que traerá"
+  },
+  {
+    "tirada_id": "t093",
+    "posicion": "C1",
+    "significado": "Naturaleza del conflicto"
+  },
+  {
+    "tirada_id": "t093",
+    "posicion": "C2",
+    "significado": "Rol que te toca jugar"
+  },
+  {
+    "tirada_id": "t093",
+    "posicion": "C3",
+    "significado": "Camino hacia la sanación"
+  },
+  {
+    "tirada_id": "t094",
+    "posicion": "C1",
+    "significado": "Dinámica de favoritismo en tu familia"
+  },
+  {
+    "tirada_id": "t094",
+    "posicion": "C2",
+    "significado": "Herida que esto te causó"
+  },
+  {
+    "tirada_id": "t094",
+    "posicion": "C3",
+    "significado": "Camino de sanación"
+  },
+  {
+    "tirada_id": "t095",
+    "posicion": "C1",
+    "significado": "Legado que recibiste de ancestros"
+  },
+  {
+    "tirada_id": "t095",
+    "posicion": "C2",
+    "significado": "Tu contribución al legado"
+  },
+  {
+    "tirada_id": "t095",
+    "posicion": "C3",
+    "significado": "Lo que transmitirás."
+  },
+  {
+    "tirada_id": "t096",
+    "posicion": "C1",
+    "significado": "Orden natural de la familia"
+  },
+  {
+    "tirada_id": "t096",
+    "posicion": "C2",
+    "significado": "Desorden actual"
+  },
+  {
+    "tirada_id": "t096",
+    "posicion": "C3",
+    "significado": "Consecuencia del desorden"
+  },
+  {
+    "tirada_id": "t096",
+    "posicion": "C4",
+    "significado": "Cómo restaurar el orden"
+  },
+  {
+    "tirada_id": "t097",
+    "posicion": "C1",
+    "significado": "Energía del nuevo miembro"
+  },
+  {
+    "tirada_id": "t097",
+    "posicion": "C2",
+    "significado": "Impacto en la dinámica familiar"
+  },
+  {
+    "tirada_id": "t097",
+    "posicion": "C3",
+    "significado": "Cómo facilitar la integración"
+  },
+  {
+    "tirada_id": "t098",
+    "posicion": "C1",
+    "significado": "Rol que tu familia te asignó"
+  },
+  {
+    "tirada_id": "t098",
+    "posicion": "C2",
+    "significado": "Rol que realmente juegas"
+  },
+  {
+    "tirada_id": "t098",
+    "posicion": "C3",
+    "significado": "Rol que deseas tener"
+  },
+  {
+    "tirada_id": "t099",
+    "posicion": "C1",
+    "significado": "Energía central de la familia"
+  },
+  {
+    "tirada_id": "t099",
+    "posicion": "C2",
+    "significado": "Fortalezas familiares"
+  },
+  {
+    "tirada_id": "t099",
+    "posicion": "C3",
+    "significado": "Patrones problemáticos"
+  },
+  {
+    "tirada_id": "t099",
+    "posicion": "C4",
+    "significado": "Rol que juegas"
+  },
+  {
+    "tirada_id": "t099",
+    "posicion": "C5",
+    "significado": "Camino hacia la armonía"
+  },
+  {
+    "tirada_id": "t100",
+    "posicion": "C1",
+    "significado": "Estabilidad y seguridad"
+  },
+  {
+    "tirada_id": "t100",
+    "posicion": "C2",
+    "significado": "Comunicación y conexión"
+  },
+  {
+    "tirada_id": "t100",
+    "posicion": "C3",
+    "significado": "Pasión y creatividad"
+  },
+  {
+    "tirada_id": "t100",
+    "posicion": "C4",
+    "significado": "Emociones y descanso."
+  },
+  {
+    "tirada_id": "t101",
+    "posicion": "C1",
+    "significado": "Patrón de tu padre"
+  },
+  {
+    "tirada_id": "t101",
+    "posicion": "C2",
+    "significado": "Patrón de tu madre"
+  },
+  {
+    "tirada_id": "t101",
+    "posicion": "C3",
+    "significado": "Patrón que tú repites"
+  },
+  {
+    "tirada_id": "t101",
+    "posicion": "C4",
+    "significado": "Legado positivo del padre"
+  },
+  {
+    "tirada_id": "t101",
+    "posicion": "C5",
+    "significado": "Legado positivo de la madre"
+  },
+  {
+    "tirada_id": "t101",
+    "posicion": "C6",
+    "significado": "Tu camino propio"
+  },
+  {
+    "tirada_id": "t102",
+    "posicion": "C1",
+    "significado": "Naturaleza del cambio"
+  },
+  {
+    "tirada_id": "t102",
+    "posicion": "C2",
+    "significado": "Impacto en cada miembro"
+  },
+  {
+    "tirada_id": "t102",
+    "posicion": "C3",
+    "significado": "Proceso de adaptación"
+  },
+  {
+    "tirada_id": "t102",
+    "posicion": "C4",
+    "significado": "Nueva normalidad posible"
+  },
+  {
+    "tirada_id": "t103",
+    "posicion": "C1",
+    "significado": "Tu rol en la familia extendida"
+  },
+  {
+    "tirada_id": "t103",
+    "posicion": "C2",
+    "significado": "Expectativas que tienen de ti"
+  },
+  {
+    "tirada_id": "t103",
+    "posicion": "C3",
+    "significado": "Posibles conflictos"
+  },
+  {
+    "tirada_id": "t103",
+    "posicion": "C4",
+    "significado": "Camino a la armonía"
+  },
+  {
+    "tirada_id": "t104",
+    "posicion": "C1",
+    "significado": "Tu familia de sangre"
+  },
+  {
+    "tirada_id": "t104",
+    "posicion": "C2",
+    "significado": "Tu familia elegida"
+  },
+  {
+    "tirada_id": "t104",
+    "posicion": "C3",
+    "significado": "Diferencias entre ambas"
+  },
+  {
+    "tirada_id": "t104",
+    "posicion": "C4",
+    "significado": "Gratitud por ambas"
+  },
+  {
+    "tirada_id": "t105",
+    "posicion": "C1",
+    "significado": "Naturaleza de la herencia"
+  },
+  {
+    "tirada_id": "t105",
+    "posicion": "C2",
+    "significado": "Emociones involucradas"
+  },
+  {
+    "tirada_id": "t105",
+    "posicion": "C3",
+    "significado": "Justicia en la distribución"
+  },
+  {
+    "tirada_id": "t105",
+    "posicion": "C4",
+    "significado": "Resolución recomendada"
+  },
+  {
+    "tirada_id": "t106",
+    "posicion": "C1",
+    "significado": "Esencia de la pérdida"
+  },
+  {
+    "tirada_id": "t106",
+    "posicion": "C2",
+    "significado": "Legado de quien partió"
+  },
+  {
+    "tirada_id": "t106",
+    "posicion": "C3",
+    "significado": "Tu proceso de duelo"
+  },
+  {
+    "tirada_id": "t106",
+    "posicion": "C4",
+    "significado": "Apoyo disponible"
+  },
+  {
+    "tirada_id": "t106",
+    "posicion": "C5",
+    "significado": "Continuidad de la vida"
+  },
+  {
+    "tirada_id": "t107",
+    "posicion": "C1",
+    "significado": "Patrón generacional actual"
+  },
+  {
+    "tirada_id": "t107",
+    "posicion": "C2",
+    "significado": "Origen del patrón"
+  },
+  {
+    "tirada_id": "t107",
+    "posicion": "C3",
+    "significado": "Impacto en ti"
+  },
+  {
+    "tirada_id": "t107",
+    "posicion": "C4",
+    "significado": "Decisiones de tus ancestros"
+  },
+  {
+    "tirada_id": "t107",
+    "posicion": "C5",
+    "significado": "Sanación que puedes traer"
+  },
+  {
+    "tirada_id": "t108",
+    "posicion": "C1",
+    "significado": "Esencia de la tradición"
+  },
+  {
+    "tirada_id": "t108",
+    "posicion": "C2",
+    "significado": "Valor que aporta"
+  },
+  {
+    "tirada_id": "t108",
+    "posicion": "C3",
+    "significado": "Costo de mantenerla"
+  },
+  {
+    "tirada_id": "t108",
+    "posicion": "C4",
+    "significado": "Decisión sobre ella"
+  },
+  {
+    "tirada_id": "t109",
+    "posicion": "C1",
+    "significado": "Orígenes y patrones heredados"
+  },
+  {
+    "tirada_id": "t109",
+    "posicion": "C2",
+    "significado": "Dinámica familiar actual"
+  },
+  {
+    "tirada_id": "t109",
+    "posicion": "C3",
+    "significado": "Evolución y posibles cambios."
+  },
+  {
+    "tirada_id": "t110",
+    "posicion": "C1",
+    "significado": "Emoción reprimida"
+  },
+  {
+    "tirada_id": "t110",
+    "posicion": "C2",
+    "significado": "Zona corporal afectada"
+  },
+  {
+    "tirada_id": "t110",
+    "posicion": "C3",
+    "significado": "Mensaje del cuerpo"
+  },
+  {
+    "tirada_id": "t110",
+    "posicion": "C4",
+    "significado": "Camino de sanación integral."
+  },
+  {
+    "tirada_id": "t111",
+    "posicion": "C1",
+    "significado": "Causa de los problemas de sueño"
+  },
+  {
+    "tirada_id": "t111",
+    "posicion": "C2",
+    "significado": "Calidad actual de tu descanso"
+  },
+  {
+    "tirada_id": "t111",
+    "posicion": "C3",
+    "significado": "Solución para mejorar el sueño"
+  },
+  {
+    "tirada_id": "t112",
+    "posicion": "C1",
+    "significado": "Mensaje que el dolor trae"
+  },
+  {
+    "tirada_id": "t112",
+    "posicion": "C2",
+    "significado": "Causa subyacente a explorar"
+  },
+  {
+    "tirada_id": "t112",
+    "posicion": "C3",
+    "significado": "Estrategias de manejo recomendadas"
+  },
+  {
+    "tirada_id": "t112",
+    "posicion": "C4",
+    "significado": "Aprendizaje espiritual del dolor"
+  },
+  {
+    "tirada_id": "t113",
+    "posicion": "C1",
+    "significado": "Aceptación del proceso natural"
+  },
+  {
+    "tirada_id": "t113",
+    "posicion": "C2",
+    "significado": "Cuidados específicos necesarios"
+  },
+  {
+    "tirada_id": "t113",
+    "posicion": "C3",
+    "significado": "Actitud ante el envejecimiento"
+  },
+  {
+    "tirada_id": "t113",
+    "posicion": "C4",
+    "significado": "Legado de salud que dejas"
+  },
+  {
+    "tirada_id": "t114",
+    "posicion": "C1",
+    "significado": "Estado de tu cuerpo físico"
+  },
+  {
+    "tirada_id": "t114",
+    "posicion": "C2",
+    "significado": "Estado de tu mente"
+  },
+  {
+    "tirada_id": "t114",
+    "posicion": "C3",
+    "significado": "Estado de tus emociones"
+  },
+  {
+    "tirada_id": "t115",
+    "posicion": "C1",
+    "significado": "Tu nivel de estrés actual"
+  },
+  {
+    "tirada_id": "t115",
+    "posicion": "C2",
+    "significado": "Fuente principal de presión"
+  },
+  {
+    "tirada_id": "t115",
+    "posicion": "C3",
+    "significado": "Recursos internos disponibles"
+  },
+  {
+    "tirada_id": "t115",
+    "posicion": "C4",
+    "significado": "Qué debes soltar"
+  },
+  {
+    "tirada_id": "t115",
+    "posicion": "C5",
+    "significado": "Acciones para equilibrarte."
+  },
+  {
+    "tirada_id": "t116",
+    "posicion": "C1",
+    "significado": "Diagnóstico energético actual"
+  },
+  {
+    "tirada_id": "t116",
+    "posicion": "C2",
+    "significado": "Tratamiento médico necesario"
+  },
+  {
+    "tirada_id": "t116",
+    "posicion": "C3",
+    "significado": "Apoyo emocional requerido"
+  },
+  {
+    "tirada_id": "t116",
+    "posicion": "C4",
+    "significado": "Cambios de estilo de vida"
+  },
+  {
+    "tirada_id": "t116",
+    "posicion": "C5",
+    "significado": "Pronóstico de recuperación"
+  },
+  {
+    "tirada_id": "t117",
+    "posicion": "C1",
+    "significado": "Causa de los problemas de sueño"
+  },
+  {
+    "tirada_id": "t117",
+    "posicion": "C2",
+    "significado": "Calidad actual de tu descanso"
+  },
+  {
+    "tirada_id": "t117",
+    "posicion": "C3",
+    "significado": "Solución recomendada"
+  },
+  {
+    "tirada_id": "t117",
+    "posicion": "C4",
+    "significado": "Resultado de mejorar tu sueño."
+  },
+  {
+    "tirada_id": "t118",
+    "posicion": "C1",
+    "significado": "Naturaleza de la adicción"
+  },
+  {
+    "tirada_id": "t118",
+    "posicion": "C2",
+    "significado": "Causa raíz del comportamiento adictivo"
+  },
+  {
+    "tirada_id": "t118",
+    "posicion": "C3",
+    "significado": "Daño causado"
+  },
+  {
+    "tirada_id": "t118",
+    "posicion": "C4",
+    "significado": "Recursos para la recuperación"
+  },
+  {
+    "tirada_id": "t118",
+    "posicion": "C5",
+    "significado": "Apoyo necesario"
+  },
+  {
+    "tirada_id": "t118",
+    "posicion": "C6",
+    "significado": "Vida después de la recuperación"
+  },
+  {
+    "tirada_id": "t119",
+    "posicion": "C1",
+    "significado": "Tu relación actual con la comida"
+  },
+  {
+    "tirada_id": "t119",
+    "posicion": "C2",
+    "significado": "Bloqueo emocional que te ata"
+  },
+  {
+    "tirada_id": "t119",
+    "posicion": "C3",
+    "significado": "Transformación hacia alimentación consciente."
+  },
+  {
+    "tirada_id": "t120",
+    "posicion": "C1",
+    "significado": "El síntoma o dolencia actual"
+  },
+  {
+    "tirada_id": "t120",
+    "posicion": "C2",
+    "significado": "Causa emocional subyacente"
+  },
+  {
+    "tirada_id": "t120",
+    "posicion": "C3",
+    "significado": "Causa mental o de pensamiento"
+  },
+  {
+    "tirada_id": "t120",
+    "posicion": "C4",
+    "significado": "Camino de sanación"
+  },
+  {
+    "tirada_id": "t121",
+    "posicion": "C1",
+    "significado": "Preparación necesaria"
+  },
+  {
+    "tirada_id": "t121",
+    "posicion": "C2",
+    "significado": "Desarrollo del procedimiento"
+  },
+  {
+    "tirada_id": "t121",
+    "posicion": "C3",
+    "significado": "Proceso de recuperación"
+  },
+  {
+    "tirada_id": "t121",
+    "posicion": "C4",
+    "significado": "Resultado final"
+  },
+  {
+    "tirada_id": "t122",
+    "posicion": "C1",
+    "significado": "Áreas de salud a fortalecer"
+  },
+  {
+    "tirada_id": "t122",
+    "posicion": "C2",
+    "significado": "Hábitos preventivos recomendados"
+  },
+  {
+    "tirada_id": "t122",
+    "posicion": "C3",
+    "significado": "Chequeos médicos prioritarios"
+  },
+  {
+    "tirada_id": "t122",
+    "posicion": "C4",
+    "significado": "Riesgos a prevenir"
+  },
+  {
+    "tirada_id": "t122",
+    "posicion": "C5",
+    "significado": "Resultado de la prevención"
+  },
+  {
+    "tirada_id": "t123",
+    "posicion": "C1",
+    "significado": "Origen y naturaleza de la dolencia"
+  },
+  {
+    "tirada_id": "t123",
+    "posicion": "C2",
+    "significado": "Tratamiento y cuidados necesarios"
+  },
+  {
+    "tirada_id": "t123",
+    "posicion": "C3",
+    "significado": "Completa recuperación."
+  },
+  {
+    "tirada_id": "t124",
+    "posicion": "C1",
+    "significado": "Tu estado emocional actual"
+  },
+  {
+    "tirada_id": "t124",
+    "posicion": "C2",
+    "significado": "Desafío emocional principal"
+  },
+  {
+    "tirada_id": "t124",
+    "posicion": "C3",
+    "significado": "Crecimiento emocional posible"
+  },
+  {
+    "tirada_id": "t125",
+    "posicion": "C1",
+    "significado": "Fuentes tradicionales de tu energía"
+  },
+  {
+    "tirada_id": "t125",
+    "posicion": "C2",
+    "significado": "Dónde se fugan tus energías"
+  },
+  {
+    "tirada_id": "t125",
+    "posicion": "C3",
+    "significado": "Cómo potenciar tu vitalidad."
+  },
+  {
+    "tirada_id": "t126",
+    "posicion": "C1",
+    "significado": "Hábitos y patrones de salud previos"
+  },
+  {
+    "tirada_id": "t126",
+    "posicion": "C2",
+    "significado": "Estado actual de bienestar"
+  },
+  {
+    "tirada_id": "t126",
+    "posicion": "C3",
+    "significado": "Evolución si continúas así."
+  },
+  {
+    "tirada_id": "t127",
+    "posicion": "C1",
+    "significado": "La carta indica el aspecto de tu salud que requiere atención hoy: descanso, movimiento, nutrición, límites, etc."
+  },
+  {
+    "tirada_id": "t128",
+    "posicion": "C1",
+    "significado": "Tu relación actual con el ahorro"
+  },
+  {
+    "tirada_id": "t128",
+    "posicion": "C2",
+    "significado": "Cuánto puedes ahorrar realmente"
+  },
+  {
+    "tirada_id": "t128",
+    "posicion": "C3",
+    "significado": "Mejor vehículo de inversión para ti"
+  },
+  {
+    "tirada_id": "t128",
+    "posicion": "C4",
+    "significado": "Desafíos en el camino"
+  },
+  {
+    "tirada_id": "t128",
+    "posicion": "C5",
+    "significado": "Resultado de tu disciplina"
+  },
+  {
+    "tirada_id": "t129",
+    "posicion": "C1",
+    "significado": "El valor que aportas"
+  },
+  {
+    "tirada_id": "t129",
+    "posicion": "C2",
+    "significado": "Si es el momento adecuado"
+  },
+  {
+    "tirada_id": "t129",
+    "posicion": "C3",
+    "significado": "Estrategia para pedir el aumento"
+  },
+  {
+    "tirada_id": "t129",
+    "posicion": "C4",
+    "significado": "Resultado probable."
+  },
+  {
+    "tirada_id": "t130",
+    "posicion": "C1",
+    "significado": "Por qué quieres cambiar"
+  },
+  {
+    "tirada_id": "t130",
+    "posicion": "C2",
+    "significado": "Carrera alineada"
+  },
+  {
+    "tirada_id": "t130",
+    "posicion": "C3",
+    "significado": "Habilidades transferibles"
+  },
+  {
+    "tirada_id": "t130",
+    "posicion": "C4",
+    "significado": "Desafíos del cambio"
+  },
+  {
+    "tirada_id": "t130",
+    "posicion": "C5",
+    "significado": "Recursos necesarios"
+  },
+  {
+    "tirada_id": "t130",
+    "posicion": "C6",
+    "significado": "Resultado."
+  },
+  {
+    "tirada_id": "t131",
+    "posicion": "C1",
+    "significado": "Lección de esta experiencia"
+  },
+  {
+    "tirada_id": "t131",
+    "posicion": "C2",
+    "significado": "Recursos disponibles ahora"
+  },
+  {
+    "tirada_id": "t131",
+    "posicion": "C3",
+    "significado": "Próximo paso inmediato"
+  },
+  {
+    "tirada_id": "t131",
+    "posicion": "C4",
+    "significado": "Oportunidad oculta en la crisis"
+  },
+  {
+    "tirada_id": "t132",
+    "posicion": "C1",
+    "significado": "Energía de tu jefe"
+  },
+  {
+    "tirada_id": "t132",
+    "posicion": "C2",
+    "significado": "Dinámica entre ustedes"
+  },
+  {
+    "tirada_id": "t132",
+    "posicion": "C3",
+    "significado": "Tu rol en la situación"
+  },
+  {
+    "tirada_id": "t132",
+    "posicion": "C4",
+    "significado": "Mejor forma de manejar la relación."
+  },
+  {
+    "tirada_id": "t133",
+    "posicion": "C1",
+    "significado": "Tu preparación para emprender"
+  },
+  {
+    "tirada_id": "t133",
+    "posicion": "C2",
+    "significado": "Viabilidad de la idea"
+  },
+  {
+    "tirada_id": "t133",
+    "posicion": "C3",
+    "significado": "Mercado potencial"
+  },
+  {
+    "tirada_id": "t133",
+    "posicion": "C4",
+    "significado": "Recursos necesarios"
+  },
+  {
+    "tirada_id": "t133",
+    "posicion": "C5",
+    "significado": "Desafíos del emprendimiento"
+  },
+  {
+    "tirada_id": "t133",
+    "posicion": "C6",
+    "significado": "Potencial de éxito"
+  },
+  {
+    "tirada_id": "t134",
+    "posicion": "C1",
+    "significado": "Fortalezas del negocio"
+  },
+  {
+    "tirada_id": "t134",
+    "posicion": "C2",
+    "significado": "Debilidades a considerar"
+  },
+  {
+    "tirada_id": "t134",
+    "posicion": "C3",
+    "significado": "Oportunidades del mercado"
+  },
+  {
+    "tirada_id": "t134",
+    "posicion": "C4",
+    "significado": "Amenazas o competencia"
+  },
+  {
+    "tirada_id": "t134",
+    "posicion": "C5",
+    "significado": "Resultado probable"
+  },
+  {
+    "tirada_id": "t135",
+    "posicion": "C1",
+    "significado": "Tu propósito profesional real"
+  },
+  {
+    "tirada_id": "t135",
+    "posicion": "C2",
+    "significado": "Dones que trajiste"
+  },
+  {
+    "tirada_id": "t135",
+    "posicion": "C3",
+    "significado": "Bloqueos que te alejan"
+  },
+  {
+    "tirada_id": "t135",
+    "posicion": "C4",
+    "significado": "Acción para alinearte"
+  },
+  {
+    "tirada_id": "t135",
+    "posicion": "C5",
+    "significado": "Realización del propósito."
+  },
+  {
+    "tirada_id": "t136",
+    "posicion": "C1",
+    "significado": "Energía que proyectas"
+  },
+  {
+    "tirada_id": "t136",
+    "posicion": "C2",
+    "significado": "Energía del entrevistador/empresa"
+  },
+  {
+    "tirada_id": "t136",
+    "posicion": "C3",
+    "significado": "Resultado probable."
+  },
+  {
+    "tirada_id": "t137",
+    "posicion": "C1",
+    "significado": "Nivel de riesgo"
+  },
+  {
+    "tirada_id": "t137",
+    "posicion": "C2",
+    "significado": "Potencial de retorno"
+  },
+  {
+    "tirada_id": "t137",
+    "posicion": "C3",
+    "significado": "Tiempo de maduración"
+  },
+  {
+    "tirada_id": "t137",
+    "posicion": "C4",
+    "significado": "Consejo final."
+  },
+  {
+    "tirada_id": "t138",
+    "posicion": "C1",
+    "significado": "Tu preparación para el siguiente nivel"
+  },
+  {
+    "tirada_id": "t138",
+    "posicion": "C2",
+    "significado": "Si es el momento adecuado"
+  },
+  {
+    "tirada_id": "t138",
+    "posicion": "C3",
+    "significado": "Competencia o obstáculos"
+  },
+  {
+    "tirada_id": "t138",
+    "posicion": "C4",
+    "significado": "Resultado de buscar promoción"
+  },
+  {
+    "tirada_id": "t139",
+    "posicion": "C1",
+    "significado": "Esencia de la crisis"
+  },
+  {
+    "tirada_id": "t139",
+    "posicion": "C2",
+    "significado": "Recursos disponibles"
+  },
+  {
+    "tirada_id": "t139",
+    "posicion": "C3",
+    "significado": "Lo que debes soltar"
+  },
+  {
+    "tirada_id": "t139",
+    "posicion": "C4",
+    "significado": "Ayuda externa posible"
+  },
+  {
+    "tirada_id": "t139",
+    "posicion": "C5",
+    "significado": "Resultado de la crisis"
+  },
+  {
+    "tirada_id": "t140",
+    "posicion": "C1",
+    "significado": "Experiencias que moldearon tu trayectoria"
+  },
+  {
+    "tirada_id": "t140",
+    "posicion": "C2",
+    "significado": "Tu situación profesional actual"
+  },
+  {
+    "tirada_id": "t140",
+    "posicion": "C3",
+    "significado": "Dirección de tu carrera."
+  },
+  {
+    "tirada_id": "t141",
+    "posicion": "C1",
+    "significado": "Fundamentos y por qué comenzaste"
+  },
+  {
+    "tirada_id": "t141",
+    "posicion": "C2",
+    "significado": "Salud actual del negocio"
+  },
+  {
+    "tirada_id": "t141",
+    "posicion": "C3",
+    "significado": "Evolución y crecimiento."
+  },
+  {
+    "tirada_id": "t142",
+    "posicion": "C1",
+    "significado": "Patrones financieros heredados"
+  },
+  {
+    "tirada_id": "t142",
+    "posicion": "C2",
+    "significado": "Tu situación económica actual"
+  },
+  {
+    "tirada_id": "t142",
+    "posicion": "C3",
+    "significado": "Abundancia que se manifiesta."
+  },
+  {
+    "tirada_id": "t143",
+    "posicion": "C1",
+    "significado": "La carta indica la energía financiera de la semana: Oros = prosperidad material, Copas = abundancia emocional, Espadas = claridad sobre dinero, Bastos = acción para generar."
+  },
+  {
+    "tirada_id": "t144",
+    "posicion": "C1",
+    "significado": "Energía de quedarte donde estás"
+  },
+  {
+    "tirada_id": "t144",
+    "posicion": "C2",
+    "significado": "Energía del nuevo lugar"
+  },
+  {
+    "tirada_id": "t144",
+    "posicion": "C3",
+    "significado": "Qué debes tener en cuenta antes de decidir"
+  },
+  {
+    "tirada_id": "t145",
+    "posicion": "C1",
+    "significado": "Tu energía para el viaje"
+  },
+  {
+    "tirada_id": "t145",
+    "posicion": "C2",
+    "significado": "Energía de tu compañero"
+  },
+  {
+    "tirada_id": "t145",
+    "posicion": "C3",
+    "significado": "Dinámica entre ustedes viajando."
+  },
+  {
+    "tirada_id": "t146",
+    "posicion": "C1",
+    "significado": "Energía del lugar"
+  },
+  {
+    "tirada_id": "t146",
+    "posicion": "C2",
+    "significado": "Por qué te rechaza o tú lo rechazas"
+  },
+  {
+    "tirada_id": "t146",
+    "posicion": "C3",
+    "significado": "Mensaje de la situación"
+  },
+  {
+    "tirada_id": "t146",
+    "posicion": "C4",
+    "significado": "Acción recomendada."
+  },
+  {
+    "tirada_id": "t147",
+    "posicion": "C1",
+    "significado": "Energía de tu lugar de origen"
+  },
+  {
+    "tirada_id": "t147",
+    "posicion": "C2",
+    "significado": "Quién eras cuando te fuiste"
+  },
+  {
+    "tirada_id": "t147",
+    "posicion": "C3",
+    "significado": "Quién eres al regresar."
+  },
+  {
+    "tirada_id": "t148",
+    "posicion": "C1",
+    "significado": "Despedida de lo que dejas"
+  },
+  {
+    "tirada_id": "t148",
+    "posicion": "C2",
+    "significado": "Proceso de transición"
+  },
+  {
+    "tirada_id": "t148",
+    "posicion": "C3",
+    "significado": "Llegada y primeros pasos"
+  },
+  {
+    "tirada_id": "t148",
+    "posicion": "C4",
+    "significado": "Vida que construirás."
+  },
+  {
+    "tirada_id": "t149",
+    "posicion": "C1",
+    "significado": "Propósito real del viaje"
+  },
+  {
+    "tirada_id": "t149",
+    "posicion": "C2",
+    "significado": "Energías y circunstancias durante el viaje"
+  },
+  {
+    "tirada_id": "t149",
+    "posicion": "C3",
+    "significado": "Resultado profesional."
+  },
+  {
+    "tirada_id": "t150",
+    "posicion": "C1",
+    "significado": "Llamado espiritual al viaje"
+  },
+  {
+    "tirada_id": "t150",
+    "posicion": "C2",
+    "significado": "Preparación interior necesaria"
+  },
+  {
+    "tirada_id": "t150",
+    "posicion": "C3",
+    "significado": "Encuentro que tendrás"
+  },
+  {
+    "tirada_id": "t150",
+    "posicion": "C4",
+    "significado": "Transformación que traerás."
+  },
+  {
+    "tirada_id": "t151",
+    "posicion": "C1",
+    "significado": "Naturaleza de la sorpresa"
+  },
+  {
+    "tirada_id": "t151",
+    "posicion": "C2",
+    "significado": "Propósito oculto del viaje"
+  },
+  {
+    "tirada_id": "t151",
+    "posicion": "C3",
+    "significado": "Cómo se desarrollará"
+  },
+  {
+    "tirada_id": "t151",
+    "posicion": "C4",
+    "significado": "Enseñanza que traerá."
+  },
+  {
+    "tirada_id": "t152",
+    "posicion": "C1",
+    "significado": "Energía del destino"
+  },
+  {
+    "tirada_id": "t152",
+    "posicion": "C2",
+    "significado": "Preparación necesaria"
+  },
+  {
+    "tirada_id": "t152",
+    "posicion": "C3",
+    "significado": "Energía que llevas contigo"
+  },
+  {
+    "tirada_id": "t152",
+    "posicion": "C4",
+    "significado": "Resultado del viaje"
+  },
+  {
+    "tirada_id": "t153",
+    "posicion": "C1",
+    "significado": "Motivo real de la mudanza"
+  },
+  {
+    "tirada_id": "t153",
+    "posicion": "C2",
+    "significado": "Energía del destino"
+  },
+  {
+    "tirada_id": "t153",
+    "posicion": "C3",
+    "significado": "Resultado probable."
+  },
+  {
+    "tirada_id": "t154",
+    "posicion": "C1",
+    "significado": "Lugares que te formaron"
+  },
+  {
+    "tirada_id": "t154",
+    "posicion": "C2",
+    "significado": "Tu hogar actual"
+  },
+  {
+    "tirada_id": "t154",
+    "posicion": "C3",
+    "significado": "Próximo lugar o viaje."
+  },
+  {
+    "tirada_id": "t155",
+    "posicion": "C1",
+    "significado": "La carta indica la energía predominante del viaje: Bastos = aventura y acción, Copas = conexiones emocionales, Espadas = aprendizajes mentales, Oros = ganancias materiales."
+  }
+]

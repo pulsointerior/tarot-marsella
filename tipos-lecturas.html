@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tipos de Lecturas — El Código de las Cartas</title>
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+  <link rel="stylesheet" href="css/placeholders.css" />
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/css/style.css" />
+  <style>
+    .tipos-page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    .tipos-header {
+      padding: var(--space-3) var(--space-4);
+      border-bottom: 1px solid rgba(201,168,76,0.15);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .tipos-header-titulo {
+      font-family: 'Cinzel', serif;
+      font-size: 1rem;
+      color: var(--secondary);
+      font-weight: 600;
+      letter-spacing: 0.08em;
+    }
+    .tipos-main {
+      flex: 1;
+      padding: var(--space-5) var(--space-4);
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+    }
+    .tipos-titulo {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(1.5rem, 4vw, 2.2rem);
+      color: var(--text-main);
+      font-weight: 700;
+      text-align: center;
+      margin: 0 0 var(--space-5) 0;
+    }
+
+    /* GRID DE TEMAS */
+    .temas-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-2);
+    }
+    @media (min-width: 481px)  { .temas-grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (min-width: 769px)  { .temas-grid { grid-template-columns: repeat(4, 1fr); } }
+    @media (min-width: 1025px) { .temas-grid { grid-template-columns: repeat(5, 1fr); } }
+
+    .tema-btn {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-1);
+      padding: var(--space-3) var(--space-2);
+      background: var(--bg-card);
+      border: 2px solid transparent;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+      text-align: center;
+      min-height: 140px;
+    }
+    .tema-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+    }
+    .tema-btn .tema-icono {
+      font-size: 2.4rem;
+      line-height: 1;
+    }
+    .tema-btn .tema-nombre {
+      font-family: 'Cinzel', serif;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--text-main);
+      letter-spacing: 0.04em;
+      line-height: 1.3;
+    }
+    .tema-btn .tema-count {
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 0.72rem;
+      color: var(--text-muted);
+    }
+
+    /* Colores de borde por tema */
+    .tema-btn[data-tema="amor"]                     { border-color: var(--color-amor); }
+    .tema-btn[data-tema="consultas_generales"]       { border-color: var(--color-consultas-generales); }
+    .tema-btn[data-tema="creatividad_proyectos"]     { border-color: var(--color-creatividad-proyectos); }
+    .tema-btn[data-tema="crisis_transformacion"]     { border-color: var(--color-crisis-transformacion); }
+    .tema-btn[data-tema="decisiones_elecciones"]     { border-color: var(--color-decisiones-elecciones); }
+    .tema-btn[data-tema="espiritualidad_crecimiento"]{ border-color: var(--color-espiritualidad-crecimiento); }
+    .tema-btn[data-tema="familia_hogar"]             { border-color: var(--color-familia-hogar); }
+    .tema-btn[data-tema="salud_bienestar"]           { border-color: var(--color-salud-bienestar); }
+    .tema-btn[data-tema="trabajo_dinero"]            { border-color: var(--color-trabajo-dinero); }
+    .tema-btn[data-tema="viajes_mudanzas"]           { border-color: var(--color-viajes-mudanzas); }
+
+    /* Color de icono por tema */
+    .tema-btn[data-tema="amor"]                      .tema-icono { color: var(--color-amor); }
+    .tema-btn[data-tema="consultas_generales"]        .tema-icono { color: var(--color-consultas-generales); }
+    .tema-btn[data-tema="creatividad_proyectos"]      .tema-icono { color: var(--color-creatividad-proyectos); }
+    .tema-btn[data-tema="crisis_transformacion"]      .tema-icono { color: var(--color-crisis-transformacion); }
+    .tema-btn[data-tema="decisiones_elecciones"]      .tema-icono { color: var(--color-decisiones-elecciones); }
+    .tema-btn[data-tema="espiritualidad_crecimiento"] .tema-icono { color: var(--color-espiritualidad-crecimiento); }
+    .tema-btn[data-tema="familia_hogar"]              .tema-icono { color: var(--color-familia-hogar); }
+    .tema-btn[data-tema="salud_bienestar"]            .tema-icono { color: var(--color-salud-bienestar); }
+    .tema-btn[data-tema="trabajo_dinero"]             .tema-icono { color: var(--color-trabajo-dinero); }
+    .tema-btn[data-tema="viajes_mudanzas"]            .tema-icono { color: var(--color-viajes-mudanzas); }
+
+    /* NAV INFERIOR */
+    .tipos-nav {
+      padding: var(--space-3) var(--space-4);
+      border-top: 1px solid rgba(201,168,76,0.12);
+    }
+    .btn-nav {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px var(--space-3);
+      font-family: 'Cinzel', serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      border-radius: 4px;
+      cursor: pointer;
+      border: 1px solid rgba(255,255,255,0.15);
+      background: transparent;
+      color: var(--text-muted);
+      transition: opacity 0.2s;
+      text-decoration: none;
+      min-height: 44px;
+    }
+    .btn-nav:hover { opacity: 0.75; }
+  </style>
+  <meta property="og:title" content="Tipos de Lecturas — El Código de las Cartas">
+  <meta property="og:description" content="Explora los 10 temas de lectura: amor, trabajo, decisiones, espiritualidad y más. Elige el que mejor se adapta a tu consulta.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_ES">
+</head>
+<body data-page="tipos-lecturas">
+
+  <header class="tipos-header">
+    <span class="tipos-header-titulo">El Código de las Cartas</span>
+  </header>
+
+  <main class="tipos-main">
+    <h1 class="tipos-titulo">Tipos de Lecturas</h1>
+
+    <div class="temas-grid">
+
+      <button class="tema-btn" data-tema="amor" type="button" aria-label="Ver consultas de Amor y Relaciones">
+        <i class="ph ph-heart tema-icono"></i aria-hidden="true">
+        <span class="tema-nombre">Amor</span>
+        <span class="tema-count">23 consultas</span>
+      </button>
+
+      <button class="tema-btn" data-tema="consultas_generales" type="button" aria-label="Ver consultas de Consulta General">
+        <i class="ph ph-compass-rose tema-icono"></i aria-hidden="true">
+        <span class="tema-nombre">General</span>
+        <span class="tema-count">10 consultas</span>
+      </button>
+
+      <button class="tema-btn" data-tema="creatividad_proyectos" type="button" aria-label="Ver consultas de Creatividad y Proyectos">
+        <i class="ph ph-paint-brush tema-icono"></i aria-hidden="true">
+        <span class="tema-nombre">Creatividad</span>
+        <span class="tema-count">15 consultas</span>
+      </button>
+
+      <button class="tema-btn" data-tema="crisis_transformacion" type="button" aria-label="Ver consultas de Crisis y Transformación">
+        <i class="ph ph-arrows-out-cardinal tema-icono"></i aria-hidden="true">
+        <span class="tema-nombre">Crisis y Transformación</span>
+        <span class="tema-count">15 consultas</span>
+      </button>
+
+      <button class="tema-btn" data-tema="decisiones_elecciones" type="button" aria-label="Ver consultas de Decisiones y Elecciones">
+        <i class="ph ph-crosshair tema-icono"></i aria-hidden="true">
+        <span class="tema-nombre">Decisiones</span>
+        <span class="tema-count">14 consultas</span>
+      </button>
+
+      <button class="tema-btn" data-tema="espiritualidad_crecimiento" type="button" aria-label="Ver consultas de Espiritualidad y Crecimiento">
+        <i class="ph ph-star tema-icono"></i aria-hidden="true">
+        <span class="tema-nombre">Espiritualidad</span>
+        <span class="tema-count">14 consultas</span>
+      </button>
+
+      <button class="tema-btn" data-tema="familia_hogar" type="button" aria-label="Ver consultas de Familia y Hogar">
+        <i class="ph ph-house tema-icono"></i aria-hidden="true">
+        <span class="tema-nombre">Familia y Hogar</span>
+        <span class="tema-count">18 consultas</span>
+      </button>
+
+      <button class="tema-btn" data-tema="salud_bienestar" type="button" aria-label="Ver consultas de Salud y Bienestar">
+        <i class="ph ph-pulse tema-icono"></i aria-hidden="true">
+        <span class="tema-nombre">Salud</span>
+        <span class="tema-count">18 consultas</span>
+      </button>
+
+      <button class="tema-btn" data-tema="trabajo_dinero" type="button" aria-label="Ver consultas de Finanzas y Trabajo">
+        <i class="ph ph-briefcase-metal tema-icono"></i aria-hidden="true">
+        <span class="tema-nombre">Finanzas y Trabajo</span>
+        <span class="tema-count">16 consultas</span>
+      </button>
+
+      <button class="tema-btn" data-tema="viajes_mudanzas" type="button" aria-label="Ver consultas de Viajes y Mudanzas">
+        <i class="ph ph-airplane tema-icono"></i aria-hidden="true">
+        <span class="tema-nombre">Viajes y Mudanzas</span>
+        <span class="tema-count">12 consultas</span>
+      </button>
+
+    </div>
+  </main>
+
+  <nav class="tipos-nav">
+    <a href="introduccion.html" class="btn-nav">
+      <i class="ph ph-arrow-left"></i aria-hidden="true"> Volver
+    </a>
+  </nav>
+
+  
+  <!-- Global init — Fase 6 -->
+  <script type="module" src="js/main.js"></script>
+
+  <script type="module">
+    import { navigateTo } from './js/navigation.js';
+
+    document.querySelectorAll('.tema-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const tema = btn.dataset.tema;
+        navigateTo('listado-tiradas.html?tema=' + tema);
+      });
+    });
+  </script>
+
+</body>
+</html>

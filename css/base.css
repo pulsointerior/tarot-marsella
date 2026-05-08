@@ -1,0 +1,150 @@
+/* ============================================================
+   base.css — Variables globales, reset, fondos por página
+   Proyecto: Código de las Cartas — Tarot de Marsella
+   
+   CORRECCIONES v2 respecto al doc Fase 0A original:
+   - --color-finanzas renombrado a --color-trabajo (alineado con tema trabajo_dinero)
+   - --color-general renombrado a --color-consultas (alineado con tema consultas_generales)
+   - Añadidas variables con nombre completo para claridad
+   ============================================================ */
+
+/* ─────────────────────────────────────────────────────────────
+   GOOGLE FONTS
+   ───────────────────────────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Source+Sans+3:wght@300;400;600;700&display=swap');
+
+/* ─────────────────────────────────────────────────────────────
+   VARIABLES GLOBALES
+   ───────────────────────────────────────────────────────────── */
+:root {
+  /* Paleta principal */
+  --primary:   #3B1F4C;
+  --secondary: #C9A84C;
+  --bg-dark:   #0A0A0A;
+  --bg-card:   #1A1A1A;
+  --text-main: #F5F0E8;
+  --text-muted: #888888;
+
+  /* Colores por tema
+     NOMBRES alineados con el campo "tema" exacto de tiradas.json */
+  --color-amor:                        #E91E63;
+  --color-consultas-generales:         #00BCD4;   /* tema: consultas_generales */
+  --color-creatividad-proyectos:       #FF9800;   /* tema: creatividad_proyectos */
+  --color-crisis-transformacion:       #9C27B0;   /* tema: crisis_transformacion */
+  --color-decisiones-elecciones:       #FFC107;   /* tema: decisiones_elecciones */
+  --color-espiritualidad-crecimiento:  #3F51B5;   /* tema: espiritualidad_crecimiento */
+  --color-familia-hogar:               #689F38;   /* tema: familia_hogar */
+  --color-salud-bienestar:             #EF5350;   /* tema: salud_bienestar */
+  --color-trabajo-dinero:              #2E7D32;   /* tema: trabajo_dinero */
+  --color-viajes-mudanzas:             #42A5F5;   /* tema: viajes_mudanzas */
+
+  /* Colores para badges de tipo de combinación
+     Valores reales del campo "tipo" en JSON: TENSION, SINERGIA, NEUTRO, BLOQUEO, REFUERZO */
+  --color-resonancia:  #4CAF50;   /* SINERGIA / REFUERZO */
+  --color-complemento: #2196F3;   /* REFUERZO */
+  --color-tension:     #F44336;   /* TENSION / BLOQUEO */
+  --color-neutro:      #9E9E9E;   /* NEUTRO */
+
+  /* Opacidad del fondo de página */
+  --bg-opacity: 0.45;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   RESET BASE
+   ───────────────────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Source Sans 3', sans-serif;
+  font-weight: 400;
+  color: var(--text-main);
+  background-color: var(--bg-dark);
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Capa de oscurecimiento sobre el fondo para garantizar legibilidad */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-color: rgba(10, 10, 10, 0.55);
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Asegurar que todo el contenido queda por encima de la capa */
+body > * {
+  position: relative;
+  z-index: 1;
+}
+
+a {
+  color: var(--secondary);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+button {
+  cursor: pointer;
+  font-family: inherit;
+  border: none;
+  background: none;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   FONDOS POR PÁGINA
+   Asignación según atributo data-page del <body>
+   Imágenes en assets/images/bg/ — copiar manualmente
+   Nombres exactos: bg-nebulosa.png, bg-constelaciones.png,
+                    bg-manchas.png, bg-textura.png
+   ───────────────────────────────────────────────────────────── */
+
+body[data-page="index"] {
+  background-image: url('../assets/images/bg/bg-nebulosa.png');
+}
+
+body[data-page="introduccion"] {
+  background-image: url('../assets/images/bg/bg-constelaciones.png');
+}
+
+body[data-page="tipos-lecturas"],
+body[data-page="listado-tiradas"],
+body[data-page="detalle-tirada"],
+body[data-page="indicar-cartas"] {
+  background-image: url('../assets/images/bg/bg-manchas.png');
+}
+
+body[data-page="resultado"],
+body[data-page="arcanos"],
+body[data-page="combinaciones"],
+body[data-page="detalle-combinacion"] {
+  background-image: url('../assets/images/bg/bg-textura.png');
+}

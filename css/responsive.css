@@ -1,0 +1,201 @@
+/* ============================================================
+   responsive.css — Breakpoints y adaptación mobile-first
+   Proyecto: Código de las Cartas — Tarot de Marsella
+
+   6 breakpoints OBLIGATORIOS (xs y xxl no pueden omitirse):
+   xs  < 360px   → grid 2 cols
+   sm  360–480px → grid 2 cols
+   md  481–768px → grid 3 cols
+   lg  769–1024px→ grid 4–5 cols
+   xl  1025–1440px→grid 6–8 cols
+   xxl > 1440px  → grid 8+ cols
+   Touch targets mínimo 44px en todos los niveles.
+   ============================================================ */
+
+/* ─────────────────────────────────────────────────────────────
+   XS — pantallas muy pequeñas (< 360px)
+   ───────────────────────────────────────────────────────────── */
+@media (max-width: 359px) {
+
+  .container,
+  .container--narrow {
+    padding: 0 var(--space-2);
+  }
+
+  .grid-cartas {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-2);
+  }
+
+  .page-header__title {
+    font-size: 1.4rem;
+  }
+
+  .page-header__subtitle {
+    font-size: 0.85rem;
+  }
+
+  .btn {
+    padding: 0 var(--space-2);
+    font-size: 0.8rem;
+  }
+
+  .nav {
+    padding: var(--space-1) var(--space-2);
+  }
+
+  .nav__links {
+    gap: var(--space-2);
+  }
+
+  /* Placeholders más pequeños en xs */
+  .placeholder-carta-medium {
+    width: 120px;
+    height: 188px;
+  }
+
+  .placeholder-carta-thumb {
+    width: 100px;
+    height: 157px;
+  }
+}
+
+/* ─────────────────────────────────────────────────────────────
+   SM — móviles estándar (360px – 480px)
+   ───────────────────────────────────────────────────────────── */
+@media (min-width: 360px) and (max-width: 480px) {
+
+  .container,
+  .container--narrow {
+    padding: 0 var(--space-2);
+  }
+
+  .grid-cartas {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-2);
+  }
+
+  .page-header {
+    padding: var(--space-4) 0 var(--space-3);
+  }
+
+  .nav {
+    padding: var(--space-1) var(--space-2);
+  }
+}
+
+/* ─────────────────────────────────────────────────────────────
+   MD — tablets (481px – 768px)
+   ───────────────────────────────────────────────────────────── */
+@media (min-width: 481px) and (max-width: 768px) {
+
+  .container,
+  .container--narrow {
+    padding: 0 var(--space-3);
+  }
+
+  .grid-cartas {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-3);
+  }
+
+  .page-header {
+    padding: var(--space-5) 0 var(--space-3);
+  }
+
+  .nav__links {
+    gap: var(--space-2);
+  }
+}
+
+/* ─────────────────────────────────────────────────────────────
+   LG — tablets grandes y portátiles (769px – 1024px)
+   ───────────────────────────────────────────────────────────── */
+@media (min-width: 769px) and (max-width: 1024px) {
+
+  .grid-cartas {
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-3);
+  }
+
+  /* En tiradas de muchas cartas puede escalar a 5 columnas
+     mediante clase modificadora .grid-cartas--5 */
+  .grid-cartas--5 {
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  .page-header {
+    padding: var(--space-6) 0 var(--space-4);
+  }
+}
+
+/* ─────────────────────────────────────────────────────────────
+   XL — escritorio estándar (1025px – 1440px)
+   ───────────────────────────────────────────────────────────── */
+@media (min-width: 1025px) and (max-width: 1440px) {
+
+  .grid-cartas {
+    grid-template-columns: repeat(6, 1fr);
+    gap: var(--space-3);
+  }
+
+  .grid-cartas--8 {
+    grid-template-columns: repeat(8, 1fr);
+  }
+
+  .container--narrow {
+    padding: 0 var(--space-6);
+  }
+}
+
+/* ─────────────────────────────────────────────────────────────
+   XXL — pantallas grandes (> 1440px)
+   ───────────────────────────────────────────────────────────── */
+@media (min-width: 1441px) {
+
+  .container {
+    max-width: 1440px; /* se mantiene — no crece más */
+  }
+
+  .grid-cartas {
+    grid-template-columns: repeat(8, 1fr);
+    gap: var(--space-3);
+  }
+
+  .grid-cartas--10 {
+    grid-template-columns: repeat(10, 1fr);
+  }
+
+  .page-header__title {
+    font-size: 3.5rem;
+  }
+}
+
+/* ─────────────────────────────────────────────────────────────
+   UTILIDADES RESPONSIVE GENERALES
+   ───────────────────────────────────────────────────────────── */
+
+/* Ocultar en móvil */
+@media (max-width: 480px) {
+  .hide-mobile { display: none !important; }
+}
+
+/* Ocultar en desktop */
+@media (min-width: 769px) {
+  .hide-desktop { display: none !important; }
+}
+
+/* Nav mobile: ocultar links de texto, mostrar solo logo en xs/sm */
+@media (max-width: 480px) {
+  .nav__links .nav__link--text {
+    display: none;
+  }
+}
+
+/* Botón full-width en móvil */
+@media (max-width: 480px) {
+  .btn--full-mobile {
+    width: 100%;
+    justify-content: center;
+  }
+}

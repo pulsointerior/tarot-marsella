@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-label="Espadas">
+  <!-- Hoja de la espada — diagonal de arriba-derecha a abajo-izquierda -->
+  <line x1="18" y1="3" x2="6" y2="21"/>
+  <!-- Filo secundario (hoja ligeramente ancha) -->
+  <line x1="17" y1="3" x2="5.5" y2="20.5" stroke-width="0.75" opacity="0.5"/>
+  <!-- Punta superior -->
+  <path d="M18 3 L20 2 L19 4" fill="currentColor" stroke="none"/>
+  <!-- Guarda / cruceta horizontal -->
+  <line x1="8.5" y1="15.5" x2="14.5" y2="9.5"/>
+  <!-- Brazos de la guarda -->
+  <path d="M11.5 12.5 Q10 11 9 13 Q8.5 14.5 8.5 15.5"/>
+  <path d="M11.5 12.5 Q13 14 14 12 Q14.5 10.5 14.5 9.5"/>
+  <!-- Empuñadura / grip -->
+  <line x1="6.5" y1="19.5" x2="5" y2="22"/>
+  <!-- Pomo circular -->
+  <circle cx="4.5" cy="22.5" r="1.2" fill="currentColor" stroke="none"/>
+</svg>

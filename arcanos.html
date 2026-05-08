@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="El Código de las Cartas — Galería de arcanos del Tarot de Marsella">
+  <title>Arcanos — El Código de las Cartas</title>
+
+  <!-- Phosphor Icons v2.1.1 -->
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/css/style.css">
+
+  <!-- CSS del proyecto — orden obligatorio -->
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/placeholders.css">
+  <meta property="og:title" content="Arcanos — El Código de las Cartas">
+  <meta property="og:description" content="Galería de los 78 arcanos del Tarot de Marsella. Explora mayores y menores con filtros por palo y mazo.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_ES">
+</head>
+<body data-page="arcanos">
+
+  <!-- ── HEADER / NAV ─────────────────────────────────────── -->
+  <header class="page-header">
+    <div class="container">
+      <nav class="navbar" aria-label="Navegación principal">
+        <a href="index.html" class="navbar-brand">El Código de las Cartas</a>
+        <div class="navbar-nav">
+          <a href="index.html" class="nav-link" aria-label="Inicio">
+            <i class="ph ph-house"></i aria-hidden="true">
+            <span class="hide-sm">Inicio</span>
+          </a>
+          <a href="combinaciones.html" class="nav-link">
+            <i class="ph ph-intersect"></i aria-hidden="true">
+            <span class="hide-sm">Combinaciones</span>
+          </a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ── MAIN ─────────────────────────────────────────────── -->
+  <main class="page-main" id="main-content">
+    <div class="container">
+
+      <!-- Título + filtros -->
+      <section class="section">
+        <h1 class="page-title">Arcanos</h1>
+        <p class="text-muted mt-2">Los 78 arcanos del Tarot de Marsella</p>
+
+        <!-- Controles de filtro — cards.js -->
+        <div id="controles-arcanos" class="cluster mt-4">
+          <!--
+            cards.js renderizará aquí las pestañas/filtros:
+            - Todos (78)
+            - Mayores (22)
+            - Menores — Bastos / Copas / Espadas / Oros
+            - Selector de mazo
+          -->
+        </div>
+      </section>
+
+      <!-- Tabs de palo con iconos SVG — cards.js -->
+      <div id="tabs-palos" class="tabs" role="tablist" aria-label="Filtrar por palo">
+        <!--
+          cards.js renderizará aquí las tabs dinámicamente.
+          Los SVG de palos (assets/icons/) se incluirán como <img> o inline.
+        -->
+      </div>
+
+      <!-- Placeholder: grid de arcanos — lógica en cards.js -->
+      <section id="grid-arcanos" class="section" aria-label="Galería de arcanos">
+        <!--
+          cards.js renderizará aquí los placeholders de las 78 cartas.
+          Cada carta: placeholder-carta-thumb + mazo-X + data-numero + data-nombre.
+          Click en carta navega a su combinaciones disponibles o muestra modal de detalle.
+        -->
+      </section>
+
+      <!-- Paginación / carga progresiva — cards.js -->
+      <div id="paginacion-arcanos" class="center-content mt-4">
+        <!-- cards.js controlará la carga progresiva si es necesaria -->
+      </div>
+
+    </div>
+  </main>
+
+  <!-- ── FOOTER ────────────────────────────────────────────── -->
+  <footer class="page-footer">
+    <div class="container center-content">
+      <p class="text-muted" style="font-size: 0.8rem;">
+        El Código de las Cartas &mdash; Tarot de Marsella
+      </p>
+    </div>
+  </footer>
+
+  <!--
+    cards.js es una librería de funciones puras (solo exports).
+    arcanos-init.js es el punto de entrada de esta página:
+    importa las funciones de cards.js, data.js y arranca la galería.
+    Si arcanos-init.js no existe aún, el script inline de abajo
+    actúa como stub mínimo que evita la pantalla en blanco.
+  -->
+  
+  <!-- Global init — Fase 6 -->
+  <script type="module" src="js/main.js"></script>
+
+  <script type="module" src="js/arcanos-init.js"></script>
+
+  <!-- Stub de emergencia: activo solo si arcanos-init.js no existe todavía -->
+  <script type="module">
+    // Detecta si arcanos-init.js falló (la página sigue vacía después de 500 ms)
+    // y renderiza un mensaje de estado en lugar de pantalla en negro.
+    window.__arcanos_init_watchdog = setTimeout(() => {
+      const grid = document.getElementById('grid-arcanos');
+      if (grid && grid.children.length === 0) {
+        grid.innerHTML = `
+          <p class="text-muted" style="padding: var(--space-4); text-align:center;">
+            <i class="ph ph-warning" style="color:var(--secondary);"></i aria-hidden="true">
+            arcanos-init.js no encontrado — crea <code>js/arcanos-init.js</code>
+            que importe <code>renderThumbnailCarta</code> de <code>cards.js</code>
+            y rellene <code>#grid-arcanos</code>.
+          </p>`;
+      }
+    }, 500);
+  </script>
+
+</body>
+</html>

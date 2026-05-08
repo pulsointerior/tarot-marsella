@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="El Código de las Cartas — Detalle de combinación de arcanos">
+  <title>Detalle de Combinación — El Código de las Cartas</title>
+
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/css/style.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/placeholders.css">
+
+  <style>
+    /* Cabecera del par */
+    .detalle-cabecera {
+      text-align: center;
+      padding: var(--space-4) 0 var(--space-3);
+    }
+    .detalle-par-cartas {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-4);
+      margin-bottom: var(--space-3);
+      flex-wrap: wrap;
+    }
+    .detalle-carta-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-1);
+    }
+    .detalle-carta-nombre {
+      font-family: 'Cinzel', serif;
+      font-size: 0.85rem;
+      color: var(--secondary);
+      text-align: center;
+      max-width: 120px;
+    }
+    .detalle-icono-union {
+      font-size: 2rem;
+      color: var(--text-muted);
+      opacity: 0.5;
+      flex-shrink: 0;
+    }
+    .detalle-titulo {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(1.1rem, 3vw, 1.5rem);
+      font-weight: 700;
+      color: var(--text-main);
+      margin: var(--space-2) 0 var(--space-1);
+    }
+    .detalle-subtitulo {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      font-family: 'Cinzel', serif;
+    }
+
+    /* Pestañas RR/RI/IR/II */
+    .detalle-tabs {
+      display: flex;
+      gap: 2px;
+      border-bottom: 2px solid rgba(201,168,76,0.2);
+      margin-bottom: var(--space-4);
+      overflow-x: auto;
+    }
+    .detalle-tab {
+      padding: 10px 24px;
+      font-family: 'Cinzel', serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      background: transparent;
+      border: none;
+      border-bottom: 2px solid transparent;
+      margin-bottom: -2px;
+      cursor: pointer;
+      transition: color 0.2s, border-color 0.2s;
+      white-space: nowrap;
+    }
+    .detalle-tab:hover {
+      color: var(--secondary);
+    }
+    .detalle-tab.activa {
+      color: var(--secondary);
+      border-bottom-color: var(--secondary);
+    }
+    .detalle-tab-label {
+      font-size: 0.7rem;
+      display: block;
+      color: var(--text-muted);
+      font-weight: 400;
+      letter-spacing: 0.05em;
+      margin-top: 2px;
+    }
+    .detalle-tab.activa .detalle-tab-label {
+      color: var(--secondary);
+      opacity: 0.7;
+    }
+
+    /* Contenido de pestaña */
+    .detalle-tab-content {
+      min-height: 200px;
+    }
+
+    /* Spinner */
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .spin { animation: spin 1s linear infinite; display: inline-block; }
+
+    /* Datos grid heredados */
+    .datos-grid { display: grid; gap: var(--space-2); }
+    .dato-item { display: grid; grid-template-columns: 1fr 2fr; gap: var(--space-2); align-items: start; font-size: 0.9rem; }
+    .dato-label { color: var(--text-muted); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; padding-top: 2px; }
+    .dato-valor { color: var(--text-main); line-height: 1.5; }
+    .badge-tipo { display: inline-flex; align-items: center; padding: 3px 10px; border-radius: 4px; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.08em; border: 1px solid currentColor; }
+    .badge-resonancia { color: #4CAF50; border-color: #4CAF50; background: rgba(76,175,80,0.08); }
+    .badge-sinergia   { color: #2196F3; border-color: #2196F3; background: rgba(33,150,243,0.08); }
+    .badge-tension    { color: #F44336; border-color: #F44336; background: rgba(244,67,54,0.08); }
+    .badge-neutro     { color: #9E9E9E; border-color: #9E9E9E; background: rgba(158,158,158,0.08); }
+    .badge-bloqueo    { color: #FF5722; border-color: #FF5722; background: rgba(255,87,34,0.08); }
+    .badge-refuerzo   { color: #8BC34A; border-color: #8BC34A; background: rgba(139,195,74,0.08); }
+
+    @media (max-width: 480px) {
+      .dato-item { grid-template-columns: 1fr; gap: var(--space-1); }
+    }
+  </style>
+  <meta property="og:title" content="Detalle de Combinación — El Código de las Cartas">
+  <meta property="og:description" content="Interpretación detallada de la combinación entre dos arcanos en las cuatro posiciones posibles.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_ES">
+</head>
+<body data-page="detalle-combinacion">
+
+  <header class="page-header">
+    <div class="container">
+      <nav class="navbar" aria-label="Navegación principal">
+        <a href="index.html" class="navbar-brand">El Código de las Cartas</a>
+        <div class="navbar-nav">
+          <a href="combinaciones.html" class="nav-link" aria-label="Volver a combinaciones">
+            <i class="ph ph-arrow-left"></i aria-hidden="true">
+            <span class="hide-sm">Combinaciones</span>
+          </a>
+          <a href="arcanos.html" class="nav-link">
+            <i class="ph ph-cards"></i aria-hidden="true">
+            <span class="hide-sm">Arcanos</span>
+          </a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Breadcrumb -->
+  <div class="container mt-2">
+    <nav aria-label="Ruta de navegación" style="font-size:0.8rem; color:var(--text-muted);">
+      <a href="index.html" style="color:var(--text-muted);">Inicio</a>
+      <span style="margin:0 6px; opacity:0.5;">/</span>
+      <a href="combinaciones.html" style="color:var(--text-muted);">Combinaciones</a>
+      <span style="margin:0 6px; opacity:0.5;">/</span>
+      <span id="breadcrumb-combo" style="color:var(--secondary);">Detalle</span>
+    </nav>
+  </div>
+
+  <main class="page-main" id="main-content">
+    <div class="container container-md">
+
+      <!-- Estado de carga inicial -->
+      <div id="estado-carga" class="center-content section">
+        <i class="ph ph-spinner spin" style="font-size:2rem; color:var(--secondary);"></i aria-hidden="true">
+        <p class="text-muted mt-2">Cargando combinación...</p>
+      </div>
+
+      <!-- Contenido real (oculto hasta cargar) -->
+      <div id="detalle-contenido" style="display:none;">
+
+        <!-- Cabecera del par -->
+        <div class="detalle-cabecera">
+          <div class="detalle-par-cartas" id="par-cartas">
+            <!-- JS inyecta las dos cartas -->
+          </div>
+          <h1 class="detalle-titulo" id="titulo-combinacion"></h1>
+          <p class="detalle-subtitulo" id="subtitulo-combinacion"></p>
+        </div>
+
+        <div class="divider-ornate" aria-hidden="true">★</div>
+
+        <!-- 4 Pestañas RR / RI / IR / II -->
+        <div class="detalle-tabs" role="tablist" aria-label="Posición de la combinación">
+          <button class="detalle-tab" role="tab" data-pos="RR" aria-selected="false" aria-controls="panel-tab" aria-label="Posición Recta-Recta">
+            RR
+            <span class="detalle-tab-label">Recta · Recta</span>
+          </button>
+          <button class="detalle-tab" role="tab" data-pos="RI" aria-selected="false" aria-controls="panel-tab" aria-label="Posición Recta-Invertida">
+            RI
+            <span class="detalle-tab-label">Recta · Invertida</span>
+          </button>
+          <button class="detalle-tab" role="tab" data-pos="IR" aria-selected="false" aria-controls="panel-tab" aria-label="Posición Invertida-Recta">
+            IR
+            <span class="detalle-tab-label">Invertida · Recta</span>
+          </button>
+          <button class="detalle-tab" role="tab" data-pos="II" aria-selected="false" aria-controls="panel-tab" aria-label="Posición Invertida-Invertida">
+            II
+            <span class="detalle-tab-label">Invertida · Invertida</span>
+          </button>
+        </div>
+
+        <!-- Contenido de la pestaña activa -->
+        <div class="detalle-tab-content" id="panel-tab" role="tabpanel">
+          <!-- JS inyecta el HTML de la combinación activa -->
+        </div>
+
+        <!-- Acciones -->
+        <div class="center-content mt-6 stack-3" style="flex-wrap:wrap; gap:var(--space-2); justify-content:center; padding-bottom:var(--space-6);">
+          <button class="btn btn-secondary" onclick="history.back()">
+            <i class="ph ph-arrow-left"></i aria-hidden="true"> Volver a la lista
+          </button>
+          <a href="combinaciones.html" class="btn btn-secondary">
+            <i class="ph ph-git-merge"></i aria-hidden="true"> Explorar otras combinaciones
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="page-footer">
+    <div class="container center-content">
+      <p class="text-muted" style="font-size:0.8rem;">El Código de las Cartas &mdash; Tarot de Marsella</p>
+    </div>
+  </footer>
+
+    <!-- Global init — Fase 6/7 -->
+  <script type="module" src="js/main.js?v=2"></script>
+
+  <script type="module">
+    import { getCartaById, buscarTodasLasPosiciones } from './js/data.js';
+    import { renderCombinacionCompleta } from './js/combinations.js';
+    import { navigateTo } from './js/navigation.js';
+
+    // ── Leer URL params ───────────────────────────────────────────────────
+    const params = new URLSearchParams(location.search);
+    const id1    = parseInt(params.get('id1'));
+    const id2    = parseInt(params.get('id2'));
+    const posURL = params.get('pos') || 'RR';
+
+    // Recovery: sin params → volver a combinaciones
+    if (!id1 || !id2) {
+      navigateTo('combinaciones.html');
+    }
+
+    let _carta1     = null;
+    let _carta2     = null;
+    let _posiciones = {};   // {RR, RI, IR, II}
+    let _posActiva  = posURL;
+
+    // ── Render de pestaña activa ──────────────────────────────────────────
+    function renderTab(pos) {
+      _posActiva = pos;
+
+      // Actualizar botones
+      document.querySelectorAll('.detalle-tab').forEach(btn => {
+        const activa = btn.dataset.pos === pos;
+        btn.classList.toggle('activa', activa);
+        btn.setAttribute('aria-selected', String(activa));
+      });
+
+      // Renderizar contenido
+      const panel = document.getElementById('panel-tab');
+      const comb  = _posiciones[pos];
+      panel.innerHTML = renderCombinacionCompleta(comb, _carta1, _carta2);
+
+      // Actualizar URL sin recargar
+      const url = new URL(location.href);
+      url.searchParams.set('pos', pos);
+      history.pushState({}, '', url.toString());
+    }
+
+    // ── Render de la cabecera ─────────────────────────────────────────────
+    function renderCabecera() {
+      const mazo = parseInt(localStorage.getItem('mazo_seleccionado') || '1', 10);
+
+      document.getElementById('titulo-combinacion').textContent =
+        `${_carta1.arcano_es} + ${_carta2.arcano_es}`;
+
+      const num1 = _carta1.numero_original ? `Nº ${_carta1.numero_original}` : '';
+      const num2 = _carta2.numero_original ? `Nº ${_carta2.numero_original}` : '';
+      document.getElementById('subtitulo-combinacion').textContent =
+        [num1, num2].filter(Boolean).join(' · ');
+
+      document.getElementById('breadcrumb-combo').textContent =
+        `${_carta1.arcano_es} + ${_carta2.arcano_es}`;
+
+      // Par de cartas
+      document.getElementById('par-cartas').innerHTML = `
+        <div class="detalle-carta-item">
+          <div class="placeholder-carta-medium mazo-${mazo}"
+               data-numero="${_carta1.numero_original || ''}"
+               data-nombre="${_carta1.arcano_es}"
+               aria-label="${_carta1.arcano_es}">
+          </div>
+          <span class="detalle-carta-nombre">${_carta1.arcano_es}</span>
+        </div>
+        <i class="ph ph-intersect detalle-icono-union" aria-hidden="true"></i>
+        <div class="detalle-carta-item">
+          <div class="placeholder-carta-medium mazo-${mazo}"
+               data-numero="${_carta2.numero_original || ''}"
+               data-nombre="${_carta2.arcano_es}"
+               aria-label="${_carta2.arcano_es}">
+          </div>
+          <span class="detalle-carta-nombre">${_carta2.arcano_es}</span>
+        </div>`;
+
+      // Título de la pestaña del documento
+      document.title = `${_carta1.arcano_es} + ${_carta2.arcano_es} — El Código de las Cartas`;
+    }
+
+    // ── Eventos de pestañas ───────────────────────────────────────────────
+    document.querySelectorAll('.detalle-tab').forEach(btn => {
+      btn.addEventListener('click', () => renderTab(btn.dataset.pos));
+    });
+
+    // Manejar navegación del historial (botón atrás/adelante)
+    window.addEventListener('popstate', () => {
+      const p = new URLSearchParams(location.search).get('pos') || 'RR';
+      renderTab(p);
+    });
+
+    // ── Init ──────────────────────────────────────────────────────────────
+    async function init() {
+      try {
+        [_carta1, _carta2, _posiciones] = await Promise.all([
+          getCartaById(id1),
+          getCartaById(id2),
+          buscarTodasLasPosiciones(id1, id2),
+        ]);
+
+        if (!_carta1 || !_carta2) {
+          navigateTo('combinaciones.html');
+          return;
+        }
+
+        renderCabecera();
+        renderTab(_posActiva);
+
+        // Mostrar contenido, ocultar spinner
+        document.getElementById('estado-carga').style.display   = 'none';
+        document.getElementById('detalle-contenido').style.display = 'block';
+
+      } catch (err) {
+        console.error('[detalle-combinacion] Error:', err);
+        document.getElementById('estado-carga').innerHTML = `
+          <p class="text-muted">Error al cargar la combinación.</p>
+          <a href="combinaciones.html" class="btn btn-secondary mt-3">Volver</a>`;
+      }
+    }
+
+    init();
+  </script>
+
+</body>
+</html>
