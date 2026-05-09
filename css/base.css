@@ -6,6 +6,12 @@
    - --color-finanzas renombrado a --color-trabajo (alineado con tema trabajo_dinero)
    - --color-general renombrado a --color-consultas (alineado con tema consultas_generales)
    - Añadidas variables con nombre completo para claridad
+
+   FIX MÓVIL v3:
+   - Eliminado background-attachment: fixed del body (roto en iOS Safari / WebKit)
+   - El fondo fijo se implementa ahora con body::after (pseudoelemento position:fixed)
+   - body::before conserva la capa de oscurecimiento (sin cambios)
+   - body::after lleva la imagen de fondo, fijada con position:fixed
    ============================================================ */
 
 /* ─────────────────────────────────────────────────────────────
@@ -68,10 +74,9 @@ body {
   font-weight: 400;
   color: var(--text-main);
   background-color: var(--bg-dark);
-  background-attachment: fixed;
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
+  /* ⚠️ FIX MÓVIL: background-image y background-attachment: fixed ELIMINADOS del body.
+     En iOS Safari, background-attachment:fixed en body está roto (bug histórico WebKit).
+     La imagen de fondo se gestiona ahora en body::after con position:fixed. */
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -87,7 +92,24 @@ body::before {
   pointer-events: none;
 }
 
-/* Asegurar que todo el contenido queda por encima de la capa */
+/* ─────────────────────────────────────────────────────────────
+   FONDO FIJO — workaround para iOS Safari
+   body::after lleva la imagen. position:fixed + z-index:-1
+   hace que quede detrás del contenido y no se mueva al hacer scroll.
+   Funciona en todos los navegadores móviles.
+   ───────────────────────────────────────────────────────────── */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  pointer-events: none;
+}
+
+/* Asegurar que todo el contenido queda por encima de las capas */
 body > * {
   position: relative;
   z-index: 1;
@@ -122,29 +144,30 @@ button {
 /* ─────────────────────────────────────────────────────────────
    FONDOS POR PÁGINA
    Asignación según atributo data-page del <body>
+   La imagen se aplica sobre body::after (no body directamente).
    Imágenes en assets/images/bg/ — copiar manualmente
    Nombres exactos: bg-nebulosa.png, bg-constelaciones.png,
                     bg-manchas.png, bg-textura.png
    ───────────────────────────────────────────────────────────── */
 
-body[data-page="index"] {
+body[data-page="index"]::after {
   background-image: url('../assets/images/bg/bg-nebulosa.png');
 }
 
-body[data-page="introduccion"] {
+body[data-page="introduccion"]::after {
   background-image: url('../assets/images/bg/bg-constelaciones.png');
 }
 
-body[data-page="tipos-lecturas"],
-body[data-page="listado-tiradas"],
-body[data-page="detalle-tirada"],
-body[data-page="indicar-cartas"] {
+body[data-page="tipos-lecturas"]::after,
+body[data-page="listado-tiradas"]::after,
+body[data-page="detalle-tirada"]::after,
+body[data-page="indicar-cartas"]::after {
   background-image: url('../assets/images/bg/bg-manchas.png');
 }
 
-body[data-page="resultado"],
-body[data-page="arcanos"],
-body[data-page="combinaciones"],
-body[data-page="detalle-combinacion"] {
+body[data-page="resultado"]::after,
+body[data-page="arcanos"]::after,
+body[data-page="combinaciones"]::after,
+body[data-page="detalle-combinacion"]::after {
   background-image: url('../assets/images/bg/bg-textura.png');
 }
