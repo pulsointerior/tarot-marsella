@@ -6,7 +6,7 @@
   <meta name="description" content="El Código de las Cartas — Explorador de combinaciones de arcanos">
   <title>Combinaciones — El Código de las Cartas</title>
 
-  <link rel="stylesheet" href="css/icons.css">
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/css/style.css">
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/layout.css">
   <link rel="stylesheet" href="css/components.css">
@@ -146,11 +146,11 @@
         <a href="index.html" class="navbar-brand">El Código de las Cartas</a>
         <div class="navbar-nav">
           <a href="arcanos.html" class="nav-link">
-            <i class="ph ph-cards" aria-hidden="true"></i>
+            <i class="ph ph-cards"></i aria-hidden="true">
             <span class="hide-sm">Arcanos</span>
           </a>
           <a href="index.html" class="nav-link">
-            <i class="ph ph-house" aria-hidden="true"></i>
+            <i class="ph ph-house"></i aria-hidden="true">
             <span class="hide-sm">Inicio</span>
           </a>
         </div>
@@ -200,7 +200,7 @@
         </div>
         <div>
           <label for="input-busqueda" class="dato-label" style="display:block; margin-bottom:4px;">
-            <i class="ph ph-magnifying-glass" aria-hidden="true"></i> Buscar por nombre
+            <i class="ph ph-magnifying-glass"></i aria-hidden="true"> Buscar por nombre
           </label>
           <input
             type="search"
@@ -215,24 +215,24 @@
       <!-- LISTA DE RESULTADOS -->
       <div id="combo-lista-wrapper">
         <div class="combo-estado-vacio" id="combo-estado-vacio">
-          <i class="ph ph-cards" aria-hidden="true"></i>
+          <i class="ph ph-cards"></i aria-hidden="true">
           <p>Selecciona una carta para explorar sus combinaciones</p>
         </div>
         <div id="combo-lista" style="display:none;"></div>
         <div class="combo-paginacion" id="combo-paginacion" style="display:none;">
           <button class="btn btn-secondary" id="btn-anterior" style="padding:8px 16px;">
-            <i class="ph ph-caret-left" aria-hidden="true"></i> Anterior
+            <i class="ph ph-caret-left"></i aria-hidden="true"> Anterior
           </button>
           <span class="combo-paginacion-info" id="paginacion-info"></span>
           <button class="btn btn-secondary" id="btn-siguiente" style="padding:8px 16px;">
-            Siguiente <i class="ph ph-caret-right" aria-hidden="true"></i>
+            Siguiente <i class="ph ph-caret-right"></i aria-hidden="true">
           </button>
         </div>
       </div>
 
       <div style="margin-top: var(--space-5);">
         <a href="arcanos.html" class="btn btn-secondary">
-          <i class="ph ph-arrow-left" aria-hidden="true"></i> Volver a Arcanos
+          <i class="ph ph-arrow-left"></i aria-hidden="true"> Volver a Arcanos
         </a>
       </div>
 
@@ -345,7 +345,7 @@
         lista.style.display     = 'none';
         paginacion.style.display = 'none';
         vacio.style.display      = 'flex';
-        vacio.innerHTML = `<i class="ph ph-cards" aria-hidden="true"></i><p>No se encontraron combinaciones</p>`;
+        vacio.innerHTML = `<i class="ph ph-cards"></i aria-hidden="true"><p>No se encontraron combinaciones</p>`;
         return;
       }
 
@@ -368,7 +368,7 @@
             <span class="combo-carta-nombre">${r.carta1.arcano_es}</span>
             <span class="combo-badge-centro">${badge}</span>
             <span class="combo-carta-nombre derecha">${r.carta2.arcano_es}</span>
-            <span class="combo-flecha"><i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+            <span class="combo-flecha"><i class="ph ph-arrow-right"></i aria-hidden="true"></span>
           </a>`;
       }).join('');
 
@@ -390,7 +390,7 @@
       vacio.style.display  = 'flex';
       lista.style.display  = 'none';
       vacio.innerHTML = `
-        <i class="ph ph-spinner spin" style="font-size:2rem; color:var(--secondary);" aria-hidden="true"></i>
+        <i class="ph ph-spinner spin" style="font-size:2rem; color:var(--secondary);"></i aria-hidden="true">
         <p>Cargando combinaciones...</p>`;
     }
 
